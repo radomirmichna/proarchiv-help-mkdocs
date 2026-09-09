@@ -28,3 +28,6 @@ site/
 .DS_Store
 Thumbs.db
 .vscode/settings.json
+
+# Lokální instrukce
+popis_prace_s_gitem.txt
