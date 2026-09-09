@@ -1,0 +1,1 @@
+Verze python 3.10
