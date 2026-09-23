@@ -1067,17 +1067,17 @@ Konfigurace podmínek rozšířeného výběru má svojí přísnou logiku a je 
 
     Dvojklikem na záhlaví okna Rozšířeného výběru dojde k jeho srolování či zpětnému rozrolování. Umožní vám to pracovat s detailem formuláře bez nutnosti zavírání okna.
 
-##### Co znamenají jednotlivé sloupce rozšířeného výběru?
+##### Co znamenají jednotlivé podmínky rozšířeného výběru?
 
 *Pojmenování sloupců výběru vychází z primárního většinového užití (pohledávání archivního popisu). Pokud si však zvolíme jiné typy prohledávaných evidencí (sekundární užití), nesmíme tyto názvy sloupců brát doslovně Většinou pak mají trochu jiný význam (např. úroveň = ostatní druhy záznamů >> "kategorie" pak musíme chápat spíše jako položky podrobnějšího členění: uživatelé, číselníky apod.).* 
 
 Jednotlivá kritéria výběru jsou rozdělena následovně:
 
-**<u>Logický operátor (první sloupec):</u>** 
+###### **<u>Logický operátor (první sloupec):</u>** 
 
 - ***Musí splňovat*** - výchozí hodnota; přísná podmínka. V případě vícenásobného použití (více řádku výběru) to bude mít za následek, že nalezené výsledky musí splňovat vždy každou z těchto podmínek. Analogicky se dá tento operátor přirovnat k *A zároveň*. 
 - ***Může splňovat*** - méně přísná podmínka. Hraje roli de facto pouze v případech, kdy všechny násobné podmínky (řádky výběru) obsahují tuto podmínku. Budo to mít za následek, že nalezené výsledky budou splňovat alespoň jednu z podmínek. Pokud se tato podmínka vyskytuje na jedné úrovni s podmínkou *Musí splňovat*, stává se irelevantní. Funkční použití "musí..." zároveň s "může splňovat" - viz Vnořená podmínka. Analogicky se dá tento operátor přirovnat k *Nebo*.
-- ***Nesmí splňovat*** -  přísná podmínka.
+- ***Nesmí splňovat*** - přísná podmínka.
 
 Tyto hodnoty lze kombinovat, poté určují, v jaké logické podmínce jsou vůči sobě dílčí kombinace (tzn. řádky) výběru, pokud je výběr definován více než jednou kombinací.
 
@@ -1107,7 +1107,7 @@ Pomocí tlačítka Upravit vnořená podmínku ji nadefinujeme: pole Barevnost j
 
 ![rozsireny_vyber-vnorena_podminka-priklad1-ok2](img/rozsireny_vyber-vnorena_podminka-priklad1-ok2.png)
 
-**<u>Úroveň</u>** 
+###### **<u>Úroveň</u>** 
 
 Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evidence), ve které je hledáno. Výběr úrovně ovlivňuje nabídku dalších kritérii. 
 
@@ -1115,23 +1115,33 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
     Sekundárně lze použít i sloupec Kontext, který v tomto případě znamená *<u>výběr třídy přístupového bodu</u>* a v kombinaci s hodnotou, *kterou tvoří přístupový bod, prohledá a  vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. 7)*
 
-- ***Soubor / Série / Složka, jednotlivost, část jedn.*** - konkrétní úroveň archivního popisu
+- ***Soubor - Série - Série NEZAŘAZENO - Složka/jednotlivost/část jedn.*** - konkrétní úroveň archivního popisu.
 
-- Specifickou položkou je ***Vnořená podmínka*** - viz výše.
+- ***Přílohy*** - [doplňková úroveň - nemusí být nasazena u všech klientů] - umožňuje prohledávat položky z [Vlastností příloh](manual_proarchiv.md#vlastnosti-prilohy). Tedy např. možnost zveřejnění definovanou přímo u přílohy, typ přílohy (mime/type), datum vytvoření (rozuměj připojení) přílohy, UUID apod. Nalezené výsledky se zobrazí v tabulce - záložce Výběr příloh.
 
-- Položkou ***Ostatní druhy záznamů*** se nasměřuje hledání do jiných pomocných evidencí (např. statické výstupy z PEVY, číselníkové hodnoty, seznamy uživatelů)
+- ***Kapitoly tematických databází*** - umožňuje vyhledávat v popisech kapitol tematických databází.
 
-- ***Uložený výběr*** - umožní načíst uložený výběr. Další řádky (výběrová kritéria) pak upřesňují hledání jen v záznamech, které obsahuje uložený výběr. Platí zde omezující podmínka: pokud je použito "musí splňovat" pak úroveň v dalších řádcích se musí shodovat s úrovní záznamů v uloženém výběru. Např. pokud uložený výběr obsahuje jen záznamy úrovně série a další výběrové kritérium počítá s úrovní "složka/jednotlivost", nebude logicky nic nalezeno. V tomto případě se musí použít speciální úroveň "Je v podstromech". Funkční užití - viz příklad č. 11)
+- ***Ostatní druhy záznamů*** - položka nasměřuje hledání do jiných pomocných evidencí - viz záložka Pomocné evidence v navigátoru (jde např. o statické výstupy z PEVY, číselníkové hodnoty, seznamy uživatelů).
+
+- ***Vnořená podmínka*** - viz výše.
+
+- ***Uložený výběr*** - umožní načíst uložený výběr. Další řádky (výběrová kritéria) pak upřesňují hledání jen v záznamech, které obsahuje uložený výběr. Platí zde omezující podmínka: pokud je použito "musí splňovat" pak úroveň v dalších řádcích se musí shodovat s úrovní záznamů v uloženém výběru. Např. pokud uložený výběr obsahuje jen záznamy úrovně série a další výběrové kritérium počítá s úrovní "složka/jednotlivost", nebude logicky nic nalezeno. V tomto případě se musí použít speciální úroveň "Je v podstromech". Funkční užití - viz příklad č. 11.
 
 - ***Je v podstromech*** - speciální úroveň prohledávání, která vznikne díky specifikaci přes "Upřesňující podmínku" (viz příklad č. 12). Její použití vygeneruje omezenou množinu vyhledaných záznamů, **v jejich podzáznamech (podstromech)** se pak následně hledá dle dalších řádků / výběrových podmínek. Kromě upřesňující podmínky lze použít i "Je ve výběru" - pak hledá jen v podzáznamech (podstromech) záznamů, které již jsou fakticky ve výběru. **Pozor! Je třeba si uvědomit, že to nehledá přímo v záznamech definovaných upřesňující podmínkou či načtených z výběru, ale až v jejich podzáznamech (potomcích v hierarchii) - nelze to tedy uplatnit na "plochou" množinu záznamu bez hierarchie.**
 
-**<u>Kategorie</u>**
+- ***Má přílohu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky. Vnořená podmínka je tvořena buď podmínkou (1) "Přílohy", nebo (2) "Příloha patří záznamu". V případě (1) lze vydefinovat filtr dle vlastností samotných příloh. V případě (2) lze vydefinovat filtr pro všechny typy záznamů kromě příloh.  Obojí lze samozřejmě kombinovat. Funkční užití - viz příklad č. XY.
 
-Primárně pro výběr ze všech kategorií záznamů. Aktivní pouze, když úroveň = složka/jednotlivost/ část jednotlivosti (viz příklad č. 4). 
+- ***Příloha patří záznamu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky - viz výše "Má přílohu" - podmínka (2). Funkční užití - viz příklad XY.
 
-U volby úrovně = "Ostatní druhy záznamů" se tím myslí jednotlivé množiny hodnot.
+###### **<u>Kategorie</u>**
 
-**<u>Pole</u>**
+Volba usměrňuje další nabízené podmínky. Aktivní je jen v případě, kdy úroveň =
+
+- *složka/jednotlivost/část jednotlivosti* - zde primárně pro výběr ze všech kategorií záznamů (viz příklad č. 4). Pokud není při volbě této úrovně vybrána žádná kategorie, v následující položce "pole" se zobrazí jen pole/prvky popisu společné pro všechny kategorie. Pokud je zde vybrána volba "**Všechny role**", v následující položce "pole" se zobrazí všechny dostupné role pro napojení přístupových bodů z plovoucího okna Napojené přístupové body;
+- *kapitoly tematických databází* - zde primárně pro výběr ze všech kategorií záznamů tematických databází;
+- *ostatní druhy záznamů* - pro výběr jednotlivých množiny hodnot pomocných evidencí.
+
+###### **<u>Pole</u>**
 
 Nabídka polí, která jsou aktuální pro zvolenou úroveň a případnou kategorii. Kromě popisných formulářových polí se v této nabídce vykytují **i role** používané při zápisu přístupových bodů (viz příklad č. 5).
 
@@ -1139,20 +1149,15 @@ Nabídka polí, která jsou aktuální pro zvolenou úroveň a případnou kateg
 
     Nabídka polí je přesná a korektní v případě, že je zvolena *úroveň* = "soubor" nebo "série". U *úrovně* = "složka, jednotlivost, část jedn." je nabídka přesná a korektní pouze pokud je zvolená nějaká *kategorie*. Pokud tomu tak není, jsou nabízena všechna obecná pole, která však nemusí být u všech záznamu uplatňována. Pokud např. u úrovně "složka, jednotlivost, část jedn." není vybrána *kategorie*, v nabídce polí se objevuje i pole Číslo pomůcky. Jeho prohledání ovšem vrátí nulový výsledek, neboť pole číslo pomůcky není u těchto úrovní uplatňováno (uplatňuje se pouze na sérii typu pomůcka). Jak hledat tedy hledat záznamy z konkrétní pomůcky? Viz příklad č. 2.
 
-!!! tip "Tip"
-
-    Pokud aplikace využívá [Vizuální editor souřadnic](manual_proarchiv.md#vizualni-editor-souradnic), je u prvku popisu Souřadnice k dispozici speciální možnost vyhledávání. Pomoci ní lze vyznačením kruhové oblasti na mapě najít všechny záznamy, které obsahují souřadnicové údaje (koordináty) z prohledávané oblasti - viz příklad č. 15. 
-
-**<u>Kontext</u>** 
+###### **<u>Kontext</u>** 
 
 Nabídka se dynamicky proměňuje dle zvolených předchozích kritérií.
 
-- Pokud je určena ***pouze úroveň*** nebo dokonce pokud úroveň určená vůbec není (prázdná hodnota) = poté nabízí výběr *<u>třídy přístupových bodů</u>*, což v kombinaci s hledanou hodnotou, kterou tvoří přístupový bod, prohledá a vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. 7). Toto hledání neřeší, v jaké roli se přístupový bod nachází. Pokud bychom chtěli roli zohlednit, postupujeme dle příkladu č. 5 (role se určuje ve sloupci Pole). 
+- Pokud je určena ***pouze úroveň***, nebo dokonce pokud úroveň určená vůbec není (prázdná hodnota), poté nabízí výběr *<u>třídy přístupových bodů</u>*, což v kombinaci s hledanou hodnotou, kterou tvoří přístupový bod, prohledá a vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. 7). Toto hledání neřeší, v jaké roli se přístupový bod nachází. Pokud bychom chtěli roli zohlednit, postupujeme dle příkladu č. 5 (role se určuje ve sloupci Pole). 
 
 - Pokud je zároveň určená ***úroveň i pole, které se skládá z číselníkové hodnoty (kontextu)*** a zapsané hodnoty (např. Jiné datace - datace zpečetění / datace vydání dokumentu...; Původní/jiné označení - Inv. číslo / Signatura...) pak se právě zde <u>*číselníkové hodnoty*</u> nabízejí. Viz příklad č. 6.
 
-
-**<u>Podmínka</u>**
+###### **<u>Podmínka</u>**
 
 Slouží pro upřesnění způsobu hledání:
 
@@ -1181,15 +1186,13 @@ Slouží pro upřesnění způsobu hledání:
 
   *Výraz* - hledá nevalidní výrazy mimo platnou syntaxi zápisu. Např. "s.d." apod.
 
-  *Nevalidní hodnota* - vyhledá všechny nevalidní časové údaje. Hodnota se u této podmínky nevyplňuje!
+  *Nevalidní hodnota* - vyhledá všechny nevalidní (v kombinaci "musí splňovat") nebo validní (v kombinaci "nesmí splňovat") časové údaje. Hodnota se u této podmínky nevyplňuje!
   
-- Pro pole, které se skládají s více prvků popis, např. Popis obsahu u matrik - zde se automaticky uplatňuje *upřesňující podmínka* (použití viz příklad č. 13)
+  *Je nevyplněno* - vyhledá všechny záznamy, u kterých je nevyplněno (v kombinaci "musí splňovat") nebo vyplněno (v kombinaci "nesmí splňovat") datační pole.
+  
+- Pro speciální úroveň "Je v podstromech" se nabízí: *Je ve výběru* / *Vnořená podmínka* - viz výše (Úroveň).
 
-- Při kombinaci hledání v záznamech a k nim připojeným přístupovým bodům - rovněž se uplatňuje *upřesňující podmínka* (použití viz příklad č. 14)
-
-- Pro speciální úroveň "Je v podstromech": *Je ve výběru* / *Vnořená podmínka* - viz výše (Úroveň)
-
-**<u>Hodnota</u>**
+###### **<u>Hodnota</u>**
 
 Pro textový zápis hledaného výrazu; u číselníkových polí výběr z číselníkových hodnot.
 
@@ -1197,13 +1200,17 @@ Pro textový zápis hledaného výrazu; u číselníkových polí výběr z čí
 
     **U textově zadávaných řetězců je si potřeba uvědomit, že vyhledávací mechanismus ne vždy zohlední nealfanumerické znaky** *(= znaky, které nejsou písmenem nebo číslem, např. tečka, čárka, lomítko, spojovník apod.)* U fulltextových dotazů (jednoduchý výběr z lišty nástrojů vpravo nahoře nebo "jednoduchý" rozšířený výběr z příkladu č. 1) je sice znak tečky a lomítka akceptován, ale v případě, kdy je již specifikováno kritérium "pole", pak již nikoli. Je pak potřeba specifikovat podmínku = Fráze. **U vyhledávání řetězců s nealfanumerickými znaky je proto vždy, pokud je volba aktivní, doporučeno použít podmínku = Fráze.** (viz příklad č. 10)    
 
-**<u>Archiv</u>** 
+Pro pole, které se skládají s více prvků popis, např. Popis obsahu u matrik, se zde automaticky uplatňuje *upřesňující podmínka* (použití viz příklad č. 13).
+
+U úrovní "Má přílohu" a  "Příloha patří záznamu" je zde volba "Upravit vnořenou podmínku" - definice vnořené podmínky viz výše.
+
+###### **<u>Archiv</u>** 
 
 Zde je možno omezit hledání jen nad konkrétním archivem. Výchozí stav = vybrány všechny archivy.
 
 ![rozsireny_vyber-archivy](img/rozsireny_vyber-archivy.png)
 
-**<u>Zohlednit navigátor</u>**
+###### **<u>Zohlednit navigátor</u>**
 
 Pokud je volba zatržena, hledání bude provedeno jen uvnitř úrovně, kterou máte vybranou v navigátoru, tzn. v režimu zobrazení Archivní soubory je to vždy maximálně jeden archivní soubor; v režimu zobrazení Tematické databáze lze zvolit všechny uzly (archiv - tematická databáze - případná kapitola) kromě hlavního uzlu Tematické databáze.
 
