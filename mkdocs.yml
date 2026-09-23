@@ -1,0 +1,75 @@
+﻿site_name: ProArchiv - komplexní soubor nápověd
+
+theme:
+  name: material
+  language: cs
+  features:
+    - search.highlight
+    - navigation.indexes
+
+plugins:
+  - search:
+      lang: 
+        - de
+        - ar
+        - ru
+      separator: '[\s\-\.]'
+    
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.footnotes
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.mark
+
+extra_css:
+  - 'stylesheets/extra.css'
+
+nav:
+- Úvod: 'index.md'
+- ProArchiv: 
+    - 'proarchiv/index.md'
+    - ProArchiv: 'proarchiv/manual_proarchiv.md'
+    - ProArchiv - Přístupové body: 'proarchiv/manual_modul_ap.md'   
+    - ProArchiv - Sčítací operáty: 'proarchiv/manual_census.md' 
+- Základní pravidla:
+    - 'zp/index.md'
+    - Kapitola 1 - Úvod: 'zp/zp_hlavni_text-01.md'
+    - Kapitola 2 - Archivní zpracování: 'zp/zp_hlavni_text-02.md'
+    - Kapitola 3 - Popis archiválií: 'zp/zp_hlavni_text-03.md'
+    - Kapitola 4 - Prvky popisu archiválií: 'zp/zp_hlavni_text-04.md'
+    - Kapitola 5 - Rozšířený popis archiválií: 'zp/zp_hlavni_text-05.md'
+    - Kapitola 6 - Archivní autoritní záznamy: 'zp/zp_hlavni_text-06.md'
+    - Kapitola 7 - Třída osoba/bytost: 'zp/zp_hlavni_text-07.md'
+    - Kapitola 8 - Třída rod/rodina: 'zp/zp_hlavni_text-08.md'
+    - Kapitola 9 - Třída korporace: 'zp/zp_hlavni_text-09.md'
+    - Kapitola 10 - Třída událost: 'zp/zp_hlavni_text-10.md'
+    - Kapitola 11 - Třída dílo/výtvor: 'zp/zp_hlavni_text-11.md'
+    - Kapitola 12 - Třída geografický objekt: 'zp/zp_hlavni_text-12.md'
+    - Kapitola 13 - Třída obecný pojem: 'zp/zp_hlavni_text-13.md'
+    - Kapitola 14 - Popis instituce spravující archiválie - archivní průvodce: 'zp/zp_hlavni_text-14.md'
+    - Autoři: 'zp/zp_hlavni_text-autori.md'
+    - Příloha č. 1 - Příklady jednotek popisu a úrovní popisu: 'zp/zp_hlavni_text-priloha01.md'
+    - Příloha č. 2 - Jazyky jednotky popisu: 'zp/zp_hlavni_text-priloha02.md'
+    - Příloha č. 3 - Převodník prvků standardu pro popis matrik narozených, oddaných a zemřelých: 'zp/zp_hlavni_text-priloha03.md'
+    - Příloha č. 4 - Převodník prvků celostátního soupisu pečetí: 'zp/zp_hlavni_text-priloha04.md'
+    - Příloha č. 5 - Převodník prvků celostátního soupisu vedut: 'zp/zp_hlavni_text-priloha05.md'
+    - Příloha č. 6 - Schéma XML pro ukládání a zasílání archivních pomůcek podle ZP: 'zp/zp_hlavni_text-priloha06.md'
+    - Příloha č. 7 - Základní pravidla správy archivních autoritních záznamů: 'zp/zp_hlavni_text-priloha07.md'
+    - Příloha č. 8 - Seznam tříd a podtříd entit: 'zp/zp_hlavni_text-priloha08.md'
+    - Příloha č. 9 - Porovnání prvků popisu a pravidel ZP (IS CAM) a IS PEvA: 'zp/zp_hlavni_text-priloha09.md'
+    - Příloha č. 10 - Příklady entit dle jednotlivých tříd: 'zp/zp_hlavni_text-priloha10.md'
+    - Příloha č. 11 - Příklady jurisdikcí: 'zp/zp_hlavni_text-priloha11.md'
+    - Příloha č. 12 - Archivní taxonomické kategorie: 'zp/zp_hlavni_text-priloha12.md'
+    - Příloha č. 13 - Doporučené zdroje informací o entitách: 'zp/zp_hlavni_text-priloha13.md'
+    - Příloha č. 14 - Závazné příklady popisu původců v evidenci NAD: 'zp/zp_hlavni_text-priloha14.md'
+    - Příloha č. 15 - Seznam zkratek: 'zp/zp_hlavni_text-priloha15.md'
+- Interní metodika:
+    - Metodická kuchařka ZAO: 'interni_metodika/metodika_zao.md'
+- Další metodické pokyny k pořádání: 
+    - 'metodika/metodika.md'
+
+
+
+
+
