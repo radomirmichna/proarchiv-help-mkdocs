@@ -6,7 +6,7 @@
 
 ***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
 
-**[VERZE 2026-12-17]**
+**[VERZE 2026-09-30]**
 
 #### Seznam důležitých změn:
 
@@ -474,11 +474,15 @@ Aplikace má implementováno:
 
 #### ![proarchiv_gui_toolbar_synchro](img/proarchiv_gui_toolbar_synchro.png) Synchronizace zobrazení
 
-- Výběr funkcí, které slouží k synchronizaci zobrazeného detailu vůči navigátoru a tabulce. 
+- Výběr funkcí, které slouží k synchronizaci zobrazeného detailu vůči navigátoru a tabulce.
 
-1) **<u>Synchronizovat navigátor</u>** - synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Obecná funkce pro všechny entity. Funguje všude včetně pomocných evidencí. Je užitečná v případě, kdy má uživatel otevřeno více detailů v záložkách. Pohyb po ostatních záložkách v tabulce (mimo "Záznamy") automaticky nevyvolává synchronizaci navigátoru a tabulky. Pokud chce uživatel vědět, kde je entita zařazena, vyvolat synchronizaci pomocí této funkce. Ta pak ukáže např. záznam ze záložky "Výběr" v záložce "Záznamy" a k němu příslušnou pozici v navigátoru.
+##### Synchronizovat navigátor
 
-2) **<u>Zobrazit v tematické DB</u>** - synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Navigátor se zobrazí režimu zobrazení Tematické databáze (ukáže jeho zařazení v hierarchii tematické databáze - v její případné kapitole).
+Synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Obecná funkce pro všechny entity. Funguje všude včetně pomocných evidencí. Je užitečná v případě, kdy má uživatel otevřeno více detailů v záložkách. Pohyb po ostatních záložkách v tabulce (mimo "Záznamy") automaticky nevyvolává synchronizaci navigátoru a tabulky. Pokud chce uživatel vědět, kde je entita zařazena, vyvolat synchronizaci pomocí této funkce. Ta pak ukáže např. záznam ze záložky "Výběr" v záložce "Záznamy" a k němu příslušnou pozici v navigátoru.
+
+##### Zobrazit v tematické DB
+
+Synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Navigátor se zobrazí režimu zobrazení Tematické databáze (ukáže jeho zařazení v hierarchii tematické databáze - v její případné kapitole).
 
 -------------------
 #### ![proarchiv_gui_toolbar_presun](img/proarchiv_gui_toolbar_presun.png) [Kopírování / Přesun](manual_proarchiv.md#57-kopirovani-presuny)
@@ -604,7 +608,7 @@ Viz [5.16.1.3 Rozbalit všechny záznamy v tabulce](manual_proarchiv.md#51612-ro
 
 #### 4.6.2 Výběr (záložka)
 
-V této záložce se shromažďují všechny záznamy napříč celou aplikací, které uživatel přidal do výběru jednotlivě nebo pomocí funkce Hledání / Rozšířený výběr.
+V této záložce se shromažďují všechny popisné záznamy napříč celou aplikací, které uživatel přidal do výběru jednotlivě nebo pomocí funkce Hledání / Rozšířený výběr.
 
 ##### 4.6.2.1 Funkce spojené se záložkou Výběr
 
@@ -630,6 +634,35 @@ Záložka zobrazuje vždy k právě zobrazenému detailu názvy polí, které ma
 #### 4.6.4 K dořešení (záložka)
 
 Po provedení nějaké uživatelské funkce (např. Přesunu, Validovat hierarchii) se v této záložce případně objeví záznamy, které je potřeba nějakým způsobem opravit - dořešit. Součástí zobrazení je kolonka Důvod, tzn. popis problému, který je potřeba opravit.
+
+#### 4.6.5 Výběr příloh (záložka)
+
+!!! warning "Možné omezení"
+
+    Doplňková funkcionalita: Tato záložka nemusí být nasazena u všech klientů. Souvisí s implementací [prohledávání ve vlastnostech příloh](manual_proarchiv.md#uroven).
+
+V této záložce se shromažďují všechny záznamy příloh napříč celou aplikací, které uživatel přidal do výběru jednotlivě nebo pomocí funkce Rozšířený výběr.
+
+Každý nalezený záznam přílohy je zobrazen v kontextu záznamu jednotky popisu, ke které je připojen. Ve výpisu tak existuji sloupce:
+
+- *Typ záznamu* - typ, respektive úroveň záznamu jednotky popis formou piktogramu
+- *Kategorie* - kategorie záznamu jednoty popisu formou piktogramu
+- *Identifikace záznamu* - základní identifikace záznamu jednotky popisu
+- *Popis záznamu* - displayName záznamu jednotky popisu
+- *Popis přílohy* - popis přílohy z vlastnosti přílohy
+- *Typ* - MIME typ přílohy, tedy typ internetového media (např. image/jpeg pro "obrázky", application/pdf pro pdf soubory)
+- *Pořadí přílohy* - pořadové číslo přílohy v rámci záznamu jednotky popisu
+
+!!! tip "Tip"
+
+    Kliknutím na položku/řádek z výběru se v Detailu zobrazí záložka [Přílohy](manual_proarchiv.md#473-prilohy) s přesným zacílením/výběrem této konkrétní přílohy.
+    
+    Pomocí funkce [Synchronizovat navigátor](manual_proarchiv.md#synchronizovat-navigator) se dostane přepnete do záložky Záznamy na pozici záznamu jednotky popisu, ke kterému je vybraný záznam přílohy připojen.
+
+##### 4.6.5.1 Funkce spojené se záložkou Výběr příloh
+
+- **Otevřít přílohy ve výběru v zoomify** - otevře nový panel ZOOMIFY, ve kterém zobrazí všechny přílohy z výběru 
+- **Vyčistit výběr příloh** - vyčistí záložku Výběr příloh
 
 
 ### 4.7 Detail
@@ -1117,7 +1150,13 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
 - ***Soubor - Série - Série NEZAŘAZENO - Složka/jednotlivost/část jedn.*** - konkrétní úroveň archivního popisu.
 
-- ***Přílohy*** - [doplňková úroveň - nemusí být nasazena u všech klientů] - umožňuje prohledávat položky z [Vlastností příloh](manual_proarchiv.md#vlastnosti-prilohy). Tedy např. možnost zveřejnění definovanou přímo u přílohy, typ přílohy (mime/type), datum vytvoření (rozuměj připojení) přílohy, UUID apod. Nalezené výsledky se zobrazí v tabulce - záložce Výběr příloh.
+- ***Přílohy*** 
+
+    !!! warning "Možné omezení"
+
+        Doplňková funkcionalita: nemusí být nasazena u všech klientů.
+
+    Umožňuje prohledávat položky z [Vlastností příloh](manual_proarchiv.md#vlastnosti-prilohy). Tedy např. možnost zveřejnění definovanou přímo u přílohy, typ přílohy (mime/type), datum vytvoření (rozuměj připojení) přílohy, UUID apod. Nalezené výsledky se zobrazí v tabulce - záložce [Výběr příloh](manual_proarchiv.md#465-vyber-priloh-zalozka).
 
 - ***Kapitoly tematických databází*** - umožňuje vyhledávat v popisech kapitol tematických databází.
 
@@ -1173,6 +1212,7 @@ Slouží pro upřesnění způsobu hledání:
   | *Na začátku (v kořenech slov)* | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá na začátku těchto slov - zda tato slova začínají hledanou hodnotou bez ohledu na jednotlivé pořadí slov v celém obsahu pole. |
   | *Na konci (v kořenech slov)*   | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá na konci těchto slov - zda tato slova končí hledanou hodnotou bez ohledu na jednotlivé pořadí slov v celém obsahu pole. |
   | *Celé slovo*                   | Hledá jen celá slova, nikoli kořeny slov. Např. přesné číselné hodnoty (viz příklad č. 6) |
+  | *Přesná shoda*                 | [DOPRACOVAT]                                                 |
   | *Fráze*                        | Vyhledá hledaný řetězec, tak jak je napsaný. Např. přesné pořadí slov a jejich tvarů. Hlavně zohledňuje nealfanumerické znaky. Viz příklad 10. |
   | *Je nevyplněno*                | V kombinaci s logickým operátorem "musí splňovat" a konkrétním polem najde záznamy, které dané pole vyplněno nemají (viz příklad č. 8). Pokud ale použijeme operátor "nesmí splňovat" najde přesný opak - záznamy s vyplněným zvoleným polem (viz příklad č. 9). |
 
