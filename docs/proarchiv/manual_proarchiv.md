@@ -1450,7 +1450,7 @@ Některá pole na detailu popisného formuláře se needituji přímo, ale sklá
 (1-2: okno upřesňující podmínky) pole = Charakter; podmínka = Je přesně; hodnota = N
 ```
 
-*Příklad č. 14* - <u>Hledám všechny pomůcky, u kterých byl v příslušném archivu proveden export do formátu EAD3</u>
+***Příklad č. 14*** - <u>Hledám všechny pomůcky, u kterých byl v příslušném archivu proveden export do formátu EAD3</u>
 
 ![rozsireny_vyber-priklad14](img/rozsireny_vyber-priklad14.png)
 
