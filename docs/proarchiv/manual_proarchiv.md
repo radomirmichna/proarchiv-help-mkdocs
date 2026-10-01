@@ -1086,7 +1086,7 @@ Jde o základní / nejjednodušší formu hledání:
 
 **Tato funkce nezohledňuje pozici v navigátoru, tzn. prohledává veškerá data.** 
 
-Tato funkce umí pracovat i s nealfanumerickými znaky tečkou a lomítkem kvůli prohledávání signatur (např. 53.1, F053/012).
+Tato funkce umí pracovat i s nealfanumerickými znaky tečkou a lomítkem kvůli prohledávání signatur (např. 53.1, F053/012). Neumí ale vyhledat UUID se spojovníky!
 
 #### 5.6.3 Rozšířený výběr
 
@@ -1156,7 +1156,7 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
         Doplňková funkcionalita: nemusí být nasazena u všech klientů.
 
-    Umožňuje prohledávat položky z [Vlastností příloh](manual_proarchiv.md#vlastnosti-prilohy). Tedy např. možnost zveřejnění definovanou přímo u přílohy, typ přílohy (mime/type), datum vytvoření (rozuměj připojení) přílohy, UUID apod. Nalezené výsledky se zobrazí v tabulce - záložce [Výběr příloh](manual_proarchiv.md#465-vyber-priloh-zalozka).
+    Umožňuje prohledávat položky z [Vlastností příloh](manual_proarchiv.md#vlastnosti-prilohy). Tedy např. možnost zveřejnění definovanou přímo u přílohy (příklad č. 15), typ přílohy (mime/type) (příklad č. 16), datum vytvoření (rozuměj připojení) přílohy, UUID apod. Nalezené výsledky se zobrazí v tabulce - záložce [Výběr příloh](manual_proarchiv.md#465-vyber-priloh-zalozka). 
 
 - ***Kapitoly tematických databází*** - umožňuje vyhledávat v popisech kapitol tematických databází.
 
@@ -1170,7 +1170,7 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
 - ***Má přílohu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky. Vnořená podmínka je tvořena buď podmínkou (1) "Přílohy", nebo (2) "Příloha patří záznamu". V případě (1) lze vydefinovat filtr dle vlastností samotných příloh. V případě (2) lze vydefinovat filtr pro všechny typy záznamů kromě příloh.  Obojí lze samozřejmě kombinovat. Funkční užití - viz příklad č. XY.
 
-- ***Příloha patří záznamu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky - viz výše "Má přílohu" - podmínka (2). Funkční užití - viz příklad XY.
+- ***Příloha patří záznamu*** - umožňuje vyhledat přílohy, které splňují podmínku definovanou vůči záznamu jednotky popisu, ke které jsou připojené - viz příklad 18.
 
 ###### Kategorie
 
@@ -1211,9 +1211,9 @@ Slouží pro upřesnění způsobu hledání:
   | *Kdekoli (v kořenech slov)*    | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá kdekoli |
   | *Na začátku (v kořenech slov)* | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá na začátku těchto slov - zda tato slova začínají hledanou hodnotou bez ohledu na jednotlivé pořadí slov v celém obsahu pole. |
   | *Na konci (v kořenech slov)*   | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá na konci těchto slov - zda tato slova končí hledanou hodnotou bez ohledu na jednotlivé pořadí slov v celém obsahu pole. |
-  | *Celé slovo*                   | Hledá jen celá slova, nikoli kořeny slov. Např. přesné číselné hodnoty (viz příklad č. 6) |
-  | *Přesná shoda*                 | [DOPRACOVAT]                                                 |
-  | *Fráze*                        | Vyhledá hledaný řetězec, tak jak je napsaný. Např. přesné pořadí slov a jejich tvarů. Hlavně zohledňuje nealfanumerické znaky. |
+  | *Celé slovo*                   | Hledá jen celá slova, nikoli kořeny slov. Např. přesné číselné hodnoty (viz příklad č. 6). Vhodná volba pro hledání UUID obsahující nealfanumerické znaky (spojovníky). |
+  | *Přesná shoda*                 | Celá hodnota pole musí být přesně shodná se zadaným hledaným textem, včetně velkých a malých písmen, diakritiky a mezer. Pozor! Nefunguje pro hledání UUID, neboť ten je indexován jiným způsobem. |
+  | *Fráze*                        | Vyhledá hledaný řetězec, tak jak je napsaný. Např. přesné pořadí slov a jejich tvarů. Hlavně zohledňuje nealfanumerické znaky. Vhodná volba pro hledání UUID. |
   | *Je nevyplněno*                | V kombinaci s logickým operátorem "musí splňovat" a konkrétním polem najde záznamy, které dané pole vyplněno nemají (viz příklad č. 8). Pokud ale použijeme operátor "nesmí splňovat" najde přesný opak - záznamy s vyplněným zvoleným polem (viz příklad č. 9). |
 
 - U číselníkových polí je potřeba zvolit *Je přesně* + vybrat požadovanou číselníkovou hodnotu.
@@ -1284,7 +1284,9 @@ Umožňuje spravovat nadefinované výběry:
 
 ##### Názorné příklady rozšířených výběrů
 
-***Příklad č. 1*** - <u>Hledám výraz "most" ve všech záznamech v rámci archivu SOkA F-M</u>
+###### Příklad č. 1
+
+<u>Hledám výraz "most" ve všech záznamech v rámci archivu SOkA F-M</u>
 
 ![rozsireny_vyber-priklad1](img/rozsireny_vyber-priklad1.png)
 
@@ -1294,7 +1296,9 @@ Logický operátor = Musí splňovat; Hodnota = most + Archiv = fm.
 
 ------
 
-***Příklad č. 2*** - <u>Hledám fotografie z pomůcky č. 491 v SOkA Frýdek-Místek</u>
+###### Příklad č. 2
+
+<u>Hledám fotografie z pomůcky č. 491 v SOkA Frýdek-Místek</u>
 
 Pokud neznám umístění pomůcky č. 491, provedu nejprve její hledání:
 
@@ -1318,7 +1322,9 @@ Vzhledem k tomu, že záznamy na úrovni složka/jednotlivost/část jednotlivos
 
 ----------
 
-***Příklad č. 3*** - <u>Hledám všechny záznamy z archivního souboru Archiv města Místek (NAD 826, FM), které jsou datované v rozsahu 1850-1890.</u>
+###### Příklad č. 3
+
+<u>Hledám všechny záznamy z archivního souboru Archiv města Místek (NAD 826, FM), které jsou datované v rozsahu 1850-1890.</u>
 
 V navigátoru (režim zobrazení Archivní soubory) vyberu fond Archiv města Místek, poté provedu následující hledání:
 
@@ -1330,7 +1336,9 @@ Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; pole =
 
 ****
 
-***Příklad č. 4*** - <u>Hledám všechny listiny z Lenního dvora Kroměříž (NAD 1416, ZAO)</u>
+###### Příklad č. 4
+
+<u>Hledám všechny listiny z Lenního dvora Kroměříž (NAD 1416, ZAO)</u>
 
 V navigátoru (režim zobrazení Archivní soubory) vyberu fond Lenní dvůr Kroměříž, poté provedu následující hledání:
 
@@ -1344,7 +1352,9 @@ Logický operátor = Musí splňovat; Úroveň = Složka/jednotlivost...; katego
 
     Nalezeny budou skutečně všechny listiny, které mají kategorii záznamu = Listiny, tzn. jsou zapsané v tematické databázi (TD) Listiny. U starších pomůcek tak může nastat situace, kdy ne všechny tematicky příslušné archiválie byly dodatečně katalogizovány v příslušné TD. Přesnější popis tohoto hledání by měl tedy znít: "Hledám všechny záznamy kategorie Listiny z Lenního dvora Kroměříž (NAD 1416, ZAO)".
 
-***Příklad č. 5*** - <u>Hledám všechny fotografie, jejichž autorem je Milan Klega</u>
+###### Příklad č. 5
+
+<u>Hledám všechny fotografie, jejichž autorem je Milan Klega</u>
 
 Provedu následující hledání:
 
@@ -1354,7 +1364,9 @@ Provedu následující hledání:
 Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; kategorie = Fotografie; pole = fotograf (role); kontext = Osoba; podmínka = Je přesně; hodnota zadaná výběrem z našeptávače
 ```
 
-***Příklad č. 6*** - <u>Hledám záznam s inv. číslem 12 v konkrétní pomůcce</u>
+###### Příklad č. 6
+
+<u>Hledám záznam s inv. číslem 12 v konkrétní pomůcce</u>
 
 V navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní pomůcku, poté provedu následující hledání:
 
@@ -1366,7 +1378,9 @@ Logický operátor = Musí splňovat; Úroveň = složka/jednotlivost...; pole =
 *) pokud by nebyla použita podmínka "celé slovo", nalezlo by to i záznamy 120, 121...  
 ```
 
-***Příklad č. 7*** - <u>Hledám všechna použití/napojení přístupového bodu třídy geografický objekt "Bílá (Frýdek-Místek, Česko)" v záznamech archivních souborů SOkA Frýdek-Místek</u>
+###### Příklad č. 7
+
+<u>Hledám všechna použití/napojení přístupového bodu třídy geografický objekt "Bílá (Frýdek-Místek, Česko)" v záznamech archivních souborů SOkA Frýdek-Místek</u>
 
 Provedu následující hledání:
 
@@ -1376,7 +1390,9 @@ Provedu následující hledání:
 Logický operátor = Musí splňovat; Úroveň = prázdná; kontext = Geografický objekt; podmínka = Je přesně; hodnota = dosazen preferované označení přístupového bodu přes našeptávač + archiv = fm
 ```
 
-***Příklad č. 8*** - <u>Hledám v pomůcce záznamy, u kterých není vyplněno pole Ukládací jednotka</u>
+###### Příklad č. 8
+
+<u>Hledám v pomůcce záznamy, u kterých není vyplněno pole Ukládací jednotka</u>
 
 V navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní pomůcku, poté provedu následující hledání:
 
@@ -1386,7 +1402,9 @@ V navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní pomůcku,
 Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; pole = Ukládací jednotka; podmínka = Je nevyplněno + zatržení "Zohlednit navigátor"
 ```
 
-***Příklad č. 9*** - <u>Hledám v pomůcce záznamy, u kterých je vyplněna Digitalizační sada (v poli Původní/jiné označení)</u>
+###### Příklad č. 9
+
+<u>Hledám v pomůcce záznamy, u kterých je vyplněna Digitalizační sada (v poli Původní/jiné označení)</u>
 
 V navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní pomůcku, poté provedu následující hledání v kombinaci **Nesmí splňovat + Je nevyplněno**:
 
@@ -1396,7 +1414,9 @@ V navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní pomůcku,
 Logický operátor = Nesmí splňovat; Úroveň = Složka/Jednotlivost...; pole = Původní/Jiné označení; podmínka = Je nevyplněno + zatržení "Zohlednit navigátor"
 ```
 
-***Příklad č. 10*** - <u>Hledám všechny záznamy archivního popisu, které jsem vytvořil</u>
+###### Příklad č. 10
+
+<u>Hledám všechny záznamy archivního popisu, které jsem vytvořil</u>
 
 Zajímají mě jak úrovně série, tak úrovně složky/jednotlivosti... Vzhledem k tomu, že kombinuji dvě různé úrovně, musím použít pouze logický operátor "může splňovat":
 
@@ -1410,7 +1430,9 @@ Logický operátor = Může splňovat; Úroveň = (1.) série/ (2.) Složka/Jedn
 
     Zápis jména do pole Vytvořil/Změnil se postupně měnil. Původně se zde automatizovaně zapisovalo přihlašovací jméno (r.michna), nyní se zde automatizovaně zapisuje lidsky čitelná podoba (Michna Radomír, Mgr.). Proto je potřeba jako hledaný řetězec ideálně zvolit příjmení bez diakritiky (velikost písmen nehraje roli). Budou tak zohledněny oba způsoby zápisu.
 
-***Příklad č. 11*** - <u>Hledám (filtruji) záznamy z již uloženého výběru</u>
+###### Příklad č. 11
+
+<u>Hledám (filtruji) záznamy z již uloženého výběru</u>
 
 V uloženém výběru mám záznamy z archivu F-M kategorie Fotografie, pohlednice, tisková vyobrazení a nyní chci vyfiltrovat pouze pohlednice:
 
@@ -1421,7 +1443,9 @@ V uloženém výběru mám záznamy z archivu F-M kategorie Fotografie, pohledni
 (2) Logický operátor = Musí splňovat; Úroveň = Složka/jednotlivost...; kategorie = Fotografie...; pole = Podkategorie; podmínka = Je přesně; hodnota = pohlednice
 ```
 
-***Příklad č. 12*** - <u>Hledám všechny záznamy podkategorie technický výkres v autorizovaných archivních pomůckách dle NZP</u>
+###### Příklad č. 12
+
+<u>Hledám všechny záznamy podkategorie technický výkres v autorizovaných archivních pomůckách dle NZP</u>
 
 Nejprve je potřeba vyhledat všechny autorizované pomůcky dle NZP a následně v nich jen záznamy podkategorie "technicky výkres". Jelikož nemohu použít v jednom výběru hledání v různých úrovních (tedy sériích a složkách/jednotlivostech) najednou, použiji na prvním řádku speciální funkci/úroveň "**Je v podstromech**" spolu s "Upřesňující podmínkou":
 
@@ -1439,7 +1463,9 @@ Díky tomuto první řádku výběrové podmínky dojde poté k vyhledání oně
 (2) Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; kategorie = Mapy, atlasy a technické výkresy; pole = Podkategorie; podmínka = Je přesně; hodnota = technický výkres
 ```
 
-***Příklad č. 13*** - <u>Hledám záznamy ve speciálních polích, která se skládají z dalších dílčích prvků popisu</u>
+###### Příklad č. 13
+
+Hledám záznamy ve speciálních polích, která se skládají z dalších dílčích prvků popisu</u>
 
 Některá pole na detailu popisného formuláře se needituji přímo, ale skládají se ze skupiny dílčích prvků popisu. Např. záznamy tematické databáze Matriky obsahují pole Popis obsahu, které se skládá s "charakteru", "poznámky" a "časového rozsahu". Pokud je potřeba v těchto dílčích polích hledat (např. všechny matriky narození, tzn. charakter = N), postupujeme následovně:
 
@@ -1450,13 +1476,75 @@ Některá pole na detailu popisného formuláře se needituji přímo, ale sklá
 (1-2: okno upřesňující podmínky) pole = Charakter; podmínka = Je přesně; hodnota = N
 ```
 
-***Příklad č. 14*** - <u>Hledám všechny pomůcky, u kterých byl v příslušném archivu proveden export do formátu EAD3</u>
+###### Příklad č. 14
+
+<u>Hledám všechny pomůcky, u kterých byl v příslušném archivu proveden export do formátu EAD3</u>
 
 ![rozsireny_vyber-priklad14](img/rozsireny_vyber-priklad14.png)
 
 ```
 (1) Logický operátor = Musí splňovat; Úroveň = série; Pole = Stav pomůcky; Podmínka = Je přesně; Hodnota = autorizovaná
 (2) Logický operátor = Nesmí splňovat; Úroveň = série; Pole = Datum posledního exportu do EAD3; Podmínka = Je nevyplněno
+```
+
+###### Příklad č. 15
+
+<u>Hledám přílohy, u kterých byla v příslušném archivu nastaveno "nepublikovat" přímo u konkrétní přílohy</u>
+
+![rozsireny_vyber-priklad15](img\rozsireny_vyber-priklad15.png)
+
+
+```
+Logický operátor = Musí splňovat; Úroveň = Přílohy; pole = Možnost zveřejnění; podmínka = je přesně; hodnota = nepublikovat + archiv = fm
+```
+
+###### Příklad č. 16
+
+<u>Hledám přílohy z konkrétního archivu, které jsou ve formátu pdf</u>
+
+![rozsireny_vyber-priklad16](img\rozsireny_vyber-priklad16.png)
+
+
+```
+Logický operátor = Musí splňovat; Úroveň = Přílohy; pole = Mime/type; hodnota = pdf + archiv = fm
+```
+
+Hledání dle mime type má svá specifika. Zde jsou uvedené nejpoužívanější kombinace dle formátů příloh:
+
+- **doc a docx** = application/vnd.openxmlformats-officedocument.wordprocessingml.document (dříve application/msword) - pro hledání použít výraz "word"
+- **xls a xlsx** = application/vnd.openxmlformats-officedocument.spreadsheetml.sheet (dříve application/vnd.ms-excel) - nutno kombinovat s hledeným výrazem "excel" + "sheet"
+- **pdf** = application/pdf - pro hledání použít výraz "pdf" bez podmínky
+- **csv** = text/csv - pro hledání použít výraz "csv" bez podmínky
+- **txt** = text/plain - pro hledání použít výraz "plain" bez podmínky
+- **xml** = application/xml - pro hledání použít výraz "application/xml" s podmínkou = fráze
+- **jpg** = image/jpeg - pro hledání použít výraz "jpeg" (nikoli jen "jpg"!) bez podmínky
+- **png** = image/png - pro hledání použít výraz "png" bez podmínky
+- **tiff** = image/tiff - pro vyhledávání použít "tif" bez podmínky
+- **všechny formáty obrazových příloh** = image/... - pro veškeré obrázky ideálně použít výraz "image" bez podmínky
+- **všechny formáty zvukových příloh** (mp3, wav, aac, ogg...) = image/... - pro veškeré audio ideálně použít výraz "audio" bez podmínky
+- **všechny formáty video příloh** (mp4, avi, mpg...) = video/... - pro veškeré audio ideálně použít výraz "video" bez podmínky
+
+###### Příklad č. 17
+
+<u>Hledám záznamy listin z konkrétního archivu, které mají připojenou přílohu</u>
+
+![rozsireny_vyber-priklad17b](img\rozsireny_vyber-priklad17b.png)
+
+```
+(1-1) Logický operátor = Musí splňovat; Úroveň = Má přílohu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky) + archiv = fm
+(1-2: okno upřesňující podmínky 1. úrovně) Logický operátor = Musí splňovat; Úroveň = Příloha patří záznamu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky)
+(1-3: okno upřesňující podmínky 2. úrovně) Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; kategorie = Listiny
+```
+
+###### Příklad č. 18
+
+<u>Hledám přílohy, které jsou připojené k záznamům listin z konkrétního archivu</u>
+
+![rozsireny_vyber-priklad18](img\rozsireny_vyber-priklad18.png)
+
+```
+(1-1) Logický operátor = Musí splňovat; Úroveň = Příloha patří záznamu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky) + archiv = fm
+(1-2: okno upřesňující podmínky) Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; kategorie = Listiny
 ```
 
 !!! tip "Tip"
