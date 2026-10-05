@@ -6,13 +6,13 @@
 
 ***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
 
-**[VERZE 2026-09-30]**
+**[VERZE 2026-10-09]**
 
 #### Seznam důležitých změn:
 
 | Změny v aktuální verzi                                       | oproti verzi |
 | ------------------------------------------------------------ | ------------ |
-| [DOPRACOVAT] Vyhledávání v přílohách                         | 2025-12-17   |
+| [Vyhledávání v přílohách](manual_proarchiv.md#uroven) - příklady č. [15](manual_proarchiv.md#priklad-c-15), [16](manual_proarchiv.md#priklad-c-16) a [18](manual_proarchiv.md#priklad-c-18) | 2025-12-17   |
 | Speciální funkce [Vyhledej duplicitu inv. z. <> záznam TD](manual_proarchiv.md#569-vyhledej-duplicitu-inv-z-zaznam-td) | 2025-12-17   |
 | [Změna možnosti zveřejnění u označených příloh](manual_proarchiv.md#zmena-moznosti-zverejneni-u-oznacenych-priloh) | 2025-12-17   |
 | [Kontrola neveřejných jednotek popisu](manual_proarchiv.md#5104-kontrola-neverejnych-jednotek-popisu) | 2025-07-03   |
@@ -1168,7 +1168,7 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
 - ***Je v podstromech*** - speciální úroveň prohledávání, která vznikne díky specifikaci přes "Upřesňující podmínku" (viz příklad č. 12). Její použití vygeneruje omezenou množinu vyhledaných záznamů, **v jejich podzáznamech (podstromech)** se pak následně hledá dle dalších řádků / výběrových podmínek. Kromě upřesňující podmínky lze použít i "Je ve výběru" - pak hledá jen v podzáznamech (podstromech) záznamů, které již jsou fakticky ve výběru. **Pozor! Je třeba si uvědomit, že to nehledá přímo v záznamech definovaných upřesňující podmínkou či načtených z výběru, ale až v jejich podzáznamech (potomcích v hierarchii) - nelze to tedy uplatnit na "plochou" množinu záznamu bez hierarchie.**
 
-- ***Má přílohu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky. Vnořená podmínka je tvořena buď podmínkou (1) "Přílohy", nebo (2) "Příloha patří záznamu". V případě (1) lze vydefinovat filtr dle vlastností samotných příloh. V případě (2) lze vydefinovat filtr pro všechny typy záznamů kromě příloh.  Obojí lze samozřejmě kombinovat. Funkční užití - viz příklad č. XY.
+- ***Má přílohu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky. Vnořená podmínka je tvořena buď podmínkou (1) "Přílohy", nebo (2) "Příloha patří záznamu". V případě (1) lze vydefinovat filtr dle vlastností samotných příloh. V případě (2) lze vydefinovat filtr pro všechny typy záznamů kromě příloh.  Obojí lze samozřejmě kombinovat. Funkční užití - viz příklad č. 17a/b/c.
 
 - ***Příloha patří záznamu*** - umožňuje vyhledat přílohy, které splňují podmínku definovanou vůči záznamu jednotky popisu, ke které jsou připojené - viz příklad 18.
 
@@ -1526,7 +1526,18 @@ Hledání dle mime type má svá specifika. Zde jsou uvedené nejpoužívanějš
 
 ###### Příklad č. 17
 
-<u>Hledám záznamy listin z konkrétního archivu, které mají připojenou přílohu</u>
+(a) <u>Hledám záznamy z konkrétního archivu, které mají připojenou přílohu s atributem "nepublikovat"</u>
+
+Pozn.: Hodnota nepublikovat je nastavena přímo ve vlastnostech přílohy, nikoli na jednotce popisu!
+
+![rozsireny_vyber-priklad17a](img/rozsireny_vyber-priklad17a.png)
+
+```
+(1-1) Logický operátor = Musí splňovat; Úroveň = Má přílohu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky) + archiv = fm
+(1-2: okno upřesňující podmínky) Logický operátor = Musí splňovat; Úroveň = Příloha; pole = Možnost zveřejnění; podmínka = Je přesně; hodnota = Nepublikovat
+```
+
+(b) <u>Hledám záznamy listin z konkrétního archivu, které mají připojenou přílohu</u>
 
 ![rozsireny_vyber-priklad17b](img\rozsireny_vyber-priklad17b.png)
 
@@ -1534,6 +1545,17 @@ Hledání dle mime type má svá specifika. Zde jsou uvedené nejpoužívanějš
 (1-1) Logický operátor = Musí splňovat; Úroveň = Má přílohu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky) + archiv = fm
 (1-2: okno upřesňující podmínky 1. úrovně) Logický operátor = Musí splňovat; Úroveň = Příloha patří záznamu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky)
 (1-3: okno upřesňující podmínky 2. úrovně) Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; kategorie = Listiny
+```
+
+(c) Kombinace příkladu (a + b): <u>Hledám záznamy listin z konkrétního archivu, které mají připojenou přílohu s atributem "nepublikovat"</u>
+
+![rozsireny_vyber-priklad17c](img/rozsireny_vyber-priklad17c.png)
+
+```
+(1-1) Logický operátor = Musí splňovat; Úroveň = Má přílohu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky) + archiv = fm
+(1-2-1 okno upřesňující podmínky) Logický operátor = Musí splňovat; Úroveň = Příloha; pole = Možnost zveřejnění; podmínka = Je přesně; hodnota = Nepublikovat
+(1-2-2 okno upřesňující podmínky 1. úrovně) Logický operátor = Musí splňovat; Úroveň = Příloha patří záznamu; hodnota = Upravit vnořenou podmínku (je zvolena automaticky)
+(1-2-2-1: okno upřesňující podmínky 2. úrovně) Logický operátor = Musí splňovat; Úroveň = Složka/Jednotlivost...; kategorie = Listiny
 ```
 
 ###### Příklad č. 18
@@ -3357,7 +3379,7 @@ Vizuální editor umožňuje:
 
 3 - ručně editovat souřadnice (viz dále)
 
-4 - importovat souřadnice ve formátu WKT  nebo GeoJson
+4 - importovat souřadnice ve formátu WKT nebo GeoJson
 
 <u>**Ruční editace souřadnic**</u>
 
