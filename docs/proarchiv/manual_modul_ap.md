@@ -6,18 +6,24 @@
 
 ***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
 
-**[VERZE 2025-12-17]**
+**[VERZE 2026-10-14]**
 
 #### Seznam důležitých změn:
 
 | Změny v aktuální verzi                                       | oproti verzi |
 | ------------------------------------------------------------ | ------------ |
+| **Úprava nápovědy pro chování modulu komunikujícího s IS CAM pomocí novějšího komunikačního rozhraní [API v2](https://stands.nacr.cz/cam/current/api/v2/news.html#novinky-a-zmeny-api-v2)** | 2025-12-17   |
+| Odstranění kapitoly "3.3 Import a transformace existujících dat" kvůli neaktuálnosti | 2025-12-17   |
 | [Návod na import souřadnic (linií i polygonů) z OpenStreetMap](attachments-ap/Ziskani_a_import_souradnic_z_OpenStreetMaps.pdf) | 2025-07-03   |
 | Popis funkce [Generování doplňků](manual_modul_ap.md#5121-generovani-doplnku) | 2024-11-06   |
 | Upraveno načítání fronty [Odchozí](manual_modul_ap.md#58-fronta-odchozi) | 2024-11-06   |
 | Popis funkce [Vyhledání vzájemných vazeb mezi přístupovými body](manual_modul_ap.md#564-vyhledani-vzajemnych-vazeb-mezi-pristupovymi-body) | 2024-04-26   |
 | [PB k nahrazení](manual_modul_ap.md#pb-k-nahrazeni)          | 2024-04-26   |
 | Přidání nových stavů pro ["interní" schvalování](manual_modul_ap.md#35-stavy-pristupovych-bodu) (nepovinná funkcionalita) | 2023-08-21   |
+
+!!! warning "Možné omezení"
+
+    **Stávající verze nápovědy popisuje fungování modulu napojeného na IS CAM pomocí novějšího komunikačního rozhraní [API v2](https://stands.nacr.cz/cam/current/api/v2/news.html#novinky-a-zmeny-api-v2).** 
 
 !!! tip "Tip"
 
@@ -59,25 +65,44 @@ Pro účely zobrazení výsledků jednoduchého výběru se používá i speciá
 
 Validace je v modulu pevně nastavena a neumožňuje úpravu na straně klienta tak, jak je tomu v pořádací aplikaci.
 
+Modul garantuje dostupnost prvků popisu a jejich specifikací platnou pro danou třídu přístupového bodu stanovenou [technickou dokumentací IS CAM](https://stands.nacr.cz/cam/current/index.html). Jádro IS CAM disponuje funkcionalitou (dále jako **validátor IS CAM**), která na vstupu testuje zasílané záznamy entit vůči [pravidlům popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html). Tato pravidla jsou zaznamenána v technické dokumentaci IS CAM. Systém pravidel se postupně upravuje a rozšiřuje. Pravidla jsou dvojího typu:
+
+1. <u>Pravidla vyhodnocována jako **chyba**</u> - neumožní zaslat záznam entity nebo jeho změnu do IS CAM. Jde o jasnou chybu. V technické dokumentaci IS CAM má takové pravidlo ve svém kódovém označení prefix `R_`, např. *R_NAM_001*.
+2. <u>Pravidla vyhodnocována jako **upozornění**</u> - uživatel je upozorněn, ale může i přesto záznam entity nebo jeho změnu do IS CAM zaslat. Jde tedy o **potenciální chybu**. Pokud je záznam s upozorněním do IS CAM zaslán, musí dojít na straně IS CAM k vyhodnocení platnosti upozornění, tzn. nastavení výjimky nebo odmítnutí. V technické dokumentaci IS CAM má takové pravidlo ve svém kódovém označení prefix `W_`, např. *W_NAM_001*.
+
 #### 3.2.1 Validace online
 
-Zobrazuje se [stejným způsobem](manual_proarchiv.md#321-validace-online) jako v pořádací aplikaci.
+Zobrazuje se [stejným způsobem](manual_proarchiv.md#321-validace-online) jako v pořádací aplikaci. Jde většinou kontrolu syntaxe zápisu (např. datační údaje) nebo kontrolu vyplnění požadovaných prvků popisu.
 
 #### 3.2.2 Validace celého záznamu
 
-Jde o zásadní validaci záznamu přístupového bodu. Zobrazuje se ve speciální záložce Validace. Zobrazuje výčet chyb v popisu přístupového bodu. Tento výčet se aktualizuje vždy až po uložení záznamu!
+Jde o základní a rozšiřující validaci záznamu přístupového bodu. Zobrazuje se ve speciální záložce Validace. 
 
-Ve validaci celého záznamu jsou plně implementována [pravidla popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html) dle technické dokumentace IS CAM. 
+Validace se vztahuje k zveřejněným [pravidlům popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html) dle technické dokumentace IS CAM. 
 
-Změny stavů záznamů jsou závislé na vyhodnocení této validace, zvláště změna na stav "schválený" a proces odesílání do IS CAM. Detailněji bude popsáno v kapitole [Principy validace přístupového bodu](manual_modul_ap.md#59-principy-validace-pristupoveho-bodu).
+##### 3.2.2.1 Základní validace modulu
 
-### 3.3 Import a transformace existujících dat
+První část validačního výčtu zobrazuje výčet základních chyb v popisu přístupového bodu, o jejichž detekci se stará samotný modul (offline). Tento výčet se aktualizuje vždy až po uložení záznamu! Jsou takto hlídána pravidla, která byla zveřejněna v době, kdy byl modul spuštěn do prvního ostrého provozu.
 
-Před spuštěním modulu dojde k importu přístupových bodů z pořádací aplikace ProArchiv do nových datových struktur modulu.
+##### 3.2.2.2 Chyby a upozornění z CAMu
 
-Vhledem k implementaci schvalovacího procesu a podmínek daných Pravidly budou všechny přístupové body z pořádací aplikace, které byly v kvalitě "validní", přepojeny do stavu "ke schválení" a označeny prefixem [R]. Dojde rovněž k zahození informace o typu přístupového bodu (rejstříkové heslo vs. popis původce), neboť toto již nebude v modulu rozlišováno.
+Druhá část se zobrazuje v sekci Chyby a upozornění z CAMu. Validace se vyhodnocuje formou online webové služby, která komunikuje přímo s jádrem IS CAM a zohledňuje vždy aktuální sadu [pravidel popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html). 
 
-U řady přístupových bodů dojde taktéž ke strojové harmonizaci s přístupovými body z IS CAM. Např. u geografických objektů na základě ztotožnění identifikátorů RÚIAN. Možnost strojové harmonizace je dána kvalitou a povahou vstupních dat a bude se u jednotlivých klientu lišit. Bude tedy třeba uplatnit individuální harmonizační strategii.
+Uživatel může tuto službu zavolat pomocí funkce:
+
+###### Test PB oproti CAMu
+
+(viz Různé funkce)
+
+![test_pb_oproti_camu](img-ap/test_pb_oproti_camu.png) 
+
+Zároveň je tato funkce součástí procesu změny stavu záznamu z:
+
+***rozpracovaný*** > ***ke schválení***
+
+***ke schválení*** > ***schválený***
+
+[DOPRACOVAT] Změny stavů záznamů jsou závislé na vyhodnocení této validace, zvláště změna na stav "schválený" a proces odesílání do IS CAM. Detailněji bude popsáno v kapitole [Principy validace přístupového bodu](manual_modul_ap.md#59-principy-validace-pristupoveho-bodu).
 
 ### 3.4 Synchronizace s IS CAM
 

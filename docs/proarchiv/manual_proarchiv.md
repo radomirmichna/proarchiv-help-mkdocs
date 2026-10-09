@@ -6,7 +6,7 @@
 
 ***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
 
-**[VERZE 2026-10-09]**
+**[VERZE 2026-10-14]**
 
 #### Seznam důležitých změn:
 
@@ -1116,7 +1116,7 @@ Tyto hodnoty lze kombinovat, poté určují, v jaké logické podmínce jsou vů
 
 !!! warning "Varování"
 
-    **S logickým operátorem "Musí splňovat" lze použít více kombinací/řádků výběru jen v případě, že bude u všech stejná úroveň.** Jinak funkce vrátí nulový počet nalezených záznamů - viz příklad č. 2.
+    **S logickým operátorem "Musí splňovat" lze použít více kombinací/řádků výběru jen v případě, že bude u všech stejná úroveň.** Jinak funkce vrátí nulový počet nalezených záznamů - viz příklad č. [2](manual_proarchivm.md#priklad-c-2).
 
 **Vnořená podmínka**
 
@@ -1144,9 +1144,9 @@ Pomocí tlačítka Upravit vnořená podmínku ji nadefinujeme: pole Barevnost j
 
 Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evidence), ve které je hledáno. Výběr úrovně ovlivňuje nabídku dalších kritérii. 
 
-- ***Prázdna hodnota*** - primárně umožňuje definovat pouze hledaný řetězec ve sloupci Hodnota. Jde de facto o stejný fulltextový způsob hledání jako u [5.6.2 Jednoduchý výběr z lišty nástrojů](manual_proarchiv.md#562-jednoduchy-vyber-z-listy-nastroju), avšak s tou zásadní výhodou, že zde lze **zohlednit konkrétní archiv nebo pozici navigátoru** (viz níže + příklad č. 1).
+- ***Prázdna hodnota*** - primárně umožňuje definovat pouze hledaný řetězec ve sloupci Hodnota. Jde de facto o stejný fulltextový způsob hledání jako u [5.6.2 Jednoduchý výběr z lišty nástrojů](manual_proarchiv.md#562-jednoduchy-vyber-z-listy-nastroju), avšak s tou zásadní výhodou, že zde lze **zohlednit konkrétní archiv nebo pozici navigátoru** (viz níže + příklad č. [1](manual_proarchivm.md#priklad-c-1)).
 
-    Sekundárně lze použít i sloupec Kontext, který v tomto případě znamená *<u>výběr třídy přístupového bodu</u>* a v kombinaci s hodnotou, *kterou tvoří přístupový bod, prohledá a  vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. 7)*
+    Sekundárně lze použít i sloupec Kontext, který v tomto případě znamená *<u>výběr třídy přístupového bodu</u>* a v kombinaci s hodnotou, *kterou tvoří přístupový bod, prohledá a  vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. [7](manual_proarchiv.md#priklad-c-7))*
 
 - ***Soubor - Série - Série NEZAŘAZENO - Složka/jednotlivost/část jedn.*** - konkrétní úroveň archivního popisu.
 
@@ -1156,7 +1156,7 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
         Doplňková funkcionalita: nemusí být nasazena u všech klientů.
 
-    Umožňuje prohledávat položky z [Vlastností příloh](manual_proarchiv.md#vlastnosti-prilohy). Tedy např. možnost zveřejnění definovanou přímo u přílohy (příklad č. 15), typ přílohy (mime/type) (příklad č. 16), datum vytvoření (rozuměj připojení) přílohy, UUID apod. Nalezené výsledky se zobrazí v tabulce - záložce [Výběr příloh](manual_proarchiv.md#465-vyber-priloh-zalozka). 
+    Umožňuje prohledávat položky z [Vlastností příloh](manual_proarchiv.md#vlastnosti-prilohy). Tedy např. možnost zveřejnění definovanou přímo u přílohy (příklad č. [15](manual_proarchiv.md#priklad-c-15)), typ přílohy (mime/type) (příklad č. [16](manual_proarchiv.md#priklad-c-16)), datum vytvoření (rozuměj připojení) přílohy, UUID apod. Nalezené výsledky se zobrazí v tabulce - záložce [Výběr příloh](manual_proarchiv.md#465-vyber-priloh-zalozka). 
 
 - ***Kapitoly tematických databází*** - umožňuje vyhledávat v popisech kapitol tematických databází.
 
@@ -1164,11 +1164,11 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
 - ***Vnořená podmínka*** - viz výše.
 
-- ***Uložený výběr*** - umožní načíst uložený výběr. Další řádky (výběrová kritéria) pak upřesňují hledání jen v záznamech, které obsahuje uložený výběr. Platí zde omezující podmínka: pokud je použito "musí splňovat" pak úroveň v dalších řádcích se musí shodovat s úrovní záznamů v uloženém výběru. Např. pokud uložený výběr obsahuje jen záznamy úrovně série a další výběrové kritérium počítá s úrovní "složka/jednotlivost", nebude logicky nic nalezeno. V tomto případě se musí použít speciální úroveň "Je v podstromech". Funkční užití - viz příklad č. 11.
+- ***Uložený výběr*** - umožní načíst uložený výběr. Další řádky (výběrová kritéria) pak upřesňují hledání jen v záznamech, které obsahuje uložený výběr. Platí zde omezující podmínka: pokud je použito "musí splňovat" pak úroveň v dalších řádcích se musí shodovat s úrovní záznamů v uloženém výběru. Např. pokud uložený výběr obsahuje jen záznamy úrovně série a další výběrové kritérium počítá s úrovní "složka/jednotlivost", nebude logicky nic nalezeno. V tomto případě se musí použít speciální úroveň "Je v podstromech". Funkční užití - viz příklad č. [11](manual_proarchiv.md#priklad-c-11).
 
-- ***Je v podstromech*** - speciální úroveň prohledávání, která vznikne díky specifikaci přes "Upřesňující podmínku" (viz příklad č. 12). Její použití vygeneruje omezenou množinu vyhledaných záznamů, **v jejich podzáznamech (podstromech)** se pak následně hledá dle dalších řádků / výběrových podmínek. Kromě upřesňující podmínky lze použít i "Je ve výběru" - pak hledá jen v podzáznamech (podstromech) záznamů, které již jsou fakticky ve výběru. **Pozor! Je třeba si uvědomit, že to nehledá přímo v záznamech definovaných upřesňující podmínkou či načtených z výběru, ale až v jejich podzáznamech (potomcích v hierarchii) - nelze to tedy uplatnit na "plochou" množinu záznamu bez hierarchie.**
+- ***Je v podstromech*** - speciální úroveň prohledávání, která vznikne díky specifikaci přes "Upřesňující podmínku" (viz příklad č. [12](manual_proarchiv.md#priklad-c-12)). Její použití vygeneruje omezenou množinu vyhledaných záznamů, **v jejich podzáznamech (podstromech)** se pak následně hledá dle dalších řádků / výběrových podmínek. Kromě upřesňující podmínky lze použít i "Je ve výběru" - pak hledá jen v podzáznamech (podstromech) záznamů, které již jsou fakticky ve výběru. **Pozor! Je třeba si uvědomit, že to nehledá přímo v záznamech definovaných upřesňující podmínkou či načtených z výběru, ale až v jejich podzáznamech (potomcích v hierarchii) - nelze to tedy uplatnit na "plochou" množinu záznamu bez hierarchie.**
 
-- ***Má přílohu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky. Vnořená podmínka je tvořena buď podmínkou (1) "Přílohy", nebo (2) "Příloha patří záznamu". V případě (1) lze vydefinovat filtr dle vlastností samotných příloh. V případě (2) lze vydefinovat filtr pro všechny typy záznamů kromě příloh.  Obojí lze samozřejmě kombinovat. Funkční užití - viz příklad č. 17a/b/c.
+- ***Má přílohu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky. Vnořená podmínka je tvořena buď podmínkou (1) "Přílohy" (možné omezení v rámci implementace viz výše), nebo (2) "Příloha patří záznamu". V případě (1) lze vydefinovat filtr dle vlastností samotných příloh. V případě (2) lze vydefinovat filtr pro všechny typy záznamů kromě příloh.  Obojí lze samozřejmě kombinovat. Funkční užití - viz příklad č. [17a/b/c](manual_proarchiv.md#priklad-c-17).
 
 - ***Příloha patří záznamu*** - umožňuje vyhledat přílohy, které splňují podmínku definovanou vůči záznamu jednotky popisu, ke které jsou připojené - viz příklad 18.
 
@@ -1176,13 +1176,13 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
 Volba usměrňuje další nabízené podmínky. Aktivní je jen v případě, kdy volba úrovně je: 
 
-- *složka/jednotlivost/část jednotlivosti* - zde primárně pro výběr ze všech kategorií záznamů (viz příklad č. 4). Pokud není při volbě této úrovně vybrána žádná kategorie, v následující položce "pole" se zobrazí jen pole/prvky popisu společné pro všechny kategorie. Pokud je zde vybrána volba **Všechny role**, v následující položce "pole" se zobrazí všechny dostupné role pro napojení přístupových bodů z plovoucího okna Napojené přístupové body;
+- *složka/jednotlivost/část jednotlivosti* - zde primárně pro výběr ze všech kategorií záznamů (viz příklad č. [4](manual_proarchiv.md#priklad-c-4)). Pokud není při volbě této úrovně vybrána žádná kategorie, v následující položce "pole" se zobrazí jen pole/prvky popisu společné pro všechny kategorie. Pokud je zde vybrána volba **Všechny role**, v následující položce "pole" se zobrazí všechny dostupné role pro napojení přístupových bodů z plovoucího okna Napojené přístupové body;
 - *kapitoly tematických databází* - zde primárně pro výběr ze všech kategorií záznamů tematických databází;
 - *ostatní druhy záznamů* - pro výběr jednotlivých množiny hodnot pomocných evidencí.
 
 ###### Pole
 
-Nabídka polí, která jsou aktuální pro zvolenou úroveň a případnou kategorii. Kromě popisných formulářových polí se v této nabídce vykytují **i role** používané při zápisu přístupových bodů (viz příklad č. 5).
+Nabídka polí, která jsou aktuální pro zvolenou úroveň a případnou kategorii. Kromě popisných formulářových polí se v této nabídce vykytují **i role** používané při zápisu přístupových bodů (viz příklad č. [5](manual_proarchiv.md#priklad-c-5)).
 
 !!! warning "Varování"
 
@@ -1192,9 +1192,9 @@ Nabídka polí, která jsou aktuální pro zvolenou úroveň a případnou kateg
 
 Nabídka se dynamicky proměňuje dle zvolených předchozích kritérií. Pokud je určena: 
 
-- *pouze úroveň*, nebo dokonce pokud úroveň určená vůbec není (prázdná hodnota), poté nabízí výběr **třídy přístupových bodů**, což v kombinaci s hledanou hodnotou, kterou tvoří přístupový bod, prohledá a vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. 7). Toto hledání neřeší, v jaké roli se přístupový bod nachází. Pokud bychom chtěli roli zohlednit, postupujeme dle příkladu č. 5 (role se určuje ve sloupci Pole). 
+- *pouze úroveň*, nebo dokonce pokud úroveň určená vůbec není (prázdná hodnota), poté nabízí výběr **třídy přístupových bodů**, což v kombinaci s hledanou hodnotou, kterou tvoří přístupový bod, prohledá a vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. [7](manual_proarchiv.md#priklad-c-7)). Toto hledání neřeší, v jaké roli se přístupový bod nachází. Pokud bychom chtěli roli zohlednit, postupujeme dle příkladu č. [5](manual_proarchiv.md#priklad-c-5) (role se určuje ve sloupci Pole). 
 
-- zároveň *úroveň i pole, které se skládá z číselníkové hodnoty (kontextu)* a zapsané hodnoty (např. Jiné datace - datace zpečetění / datace vydání dokumentu...; Původní/jiné označení - Inv. číslo / Signatura...) pak se právě zde **číselníkové hodnoty** nabízejí. Viz příklad č. 6.
+- zároveň *úroveň i pole, které se skládá z číselníkové hodnoty (kontextu)* a zapsané hodnoty (např. Jiné datace - datace zpečetění / datace vydání dokumentu...; Původní/jiné označení - Inv. číslo / Signatura...) pak se právě zde **číselníkové hodnoty** nabízejí. Viz příklad č. [6](manual_proarchiv.md#priklad-c-6).
 
 ###### Podmínka
 
@@ -1211,16 +1211,16 @@ Slouží pro upřesnění způsobu hledání:
   | *Kdekoli (v kořenech slov)*    | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá kdekoli |
   | *Na začátku (v kořenech slov)* | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá na začátku těchto slov - zda tato slova začínají hledanou hodnotou bez ohledu na jednotlivé pořadí slov v celém obsahu pole. |
   | *Na konci (v kořenech slov)*   | Rozdělí obsah pole na jednotlivé části (zjednodušeně slova) - poté hledá na konci těchto slov - zda tato slova končí hledanou hodnotou bez ohledu na jednotlivé pořadí slov v celém obsahu pole. |
-  | *Celé slovo*                   | Hledá jen celá slova, nikoli kořeny slov. Např. přesné číselné hodnoty (viz příklad č. 6). Vhodná volba pro hledání UUID obsahující nealfanumerické znaky (spojovníky). |
+  | *Celé slovo*                   | Hledá jen celá slova, nikoli kořeny slov. Např. přesné číselné hodnoty (viz příklad č. [6](manual_proarchiv.md#priklad-c-6)). Vhodná volba pro hledání UUID obsahující nealfanumerické znaky (spojovníky). |
   | *Přesná shoda*                 | Celá hodnota pole musí být přesně shodná se zadaným hledaným textem, včetně velkých a malých písmen, diakritiky a mezer. Pozor! Nefunguje pro hledání UUID, neboť ten je indexován jiným způsobem. |
   | *Fráze*                        | Vyhledá hledaný řetězec, tak jak je napsaný. Např. přesné pořadí slov a jejich tvarů. Hlavně zohledňuje nealfanumerické znaky. Vhodná volba pro hledání UUID. |
-  | *Je nevyplněno*                | V kombinaci s logickým operátorem "musí splňovat" a konkrétním polem najde záznamy, které dané pole vyplněno nemají (viz příklad č. 8). Pokud ale použijeme operátor "nesmí splňovat" najde přesný opak - záznamy s vyplněným zvoleným polem (viz příklad č. 9). |
+  | *Je nevyplněno*                | V kombinaci s logickým operátorem "musí splňovat" a konkrétním polem najde záznamy, které dané pole vyplněno nemají (viz příklad č. [8](manual_proarchiv.md#priklad-c-8)). Pokud ale použijeme operátor "nesmí splňovat" najde přesný opak - záznamy s vyplněným zvoleným polem (viz příklad č. [9](manual_proarchiv.md#priklad-c-9)). |
 
 - U číselníkových polí je potřeba zvolit *Je přesně* + vybrat požadovanou číselníkovou hodnotu.
 
 - U polí pro zápis časových údajů nabízí:
 
-  *Časový rozsah* - hledá čistý časový údaj = nezohledňuje odhady. Hodnota hledaného výrazu se zapisuje dle platné syntaxe (použití // závorek je u této podmínky irelevantní). Např. po zadání "1950" a najde 1950 i /1950/ i 1945 - 1960 i /1945 - 1960/ apod. Pokud bychom zadali "/1950/", výsledek bude stejný (použití viz příklad č. 3).
+  *Časový rozsah* - hledá čistý časový údaj = nezohledňuje odhady. Hodnota hledaného výrazu se zapisuje dle platné syntaxe (použití // závorek je u této podmínky irelevantní). Např. po zadání "1950" a najde 1950 i /1950/ i 1945 - 1960 i /1945 - 1960/ apod. Pokud bychom zadali "/1950/", výsledek bude stejný (použití viz příklad č. [3](manual_proarchiv.md#priklad-c-3)).
 
   *Časový rozsah - zohledňovat odhady* - zohledňuje odhady. Hodnota hledaného výrazu se zapisuje dle platné syntaxe včetně použití // závorek (u této podmínky relevantní). Např. po zadání "1950" a najde 1950 a 1945 - 1960 nikoli /1950/ a /1945 - 1960/ apod. Pokud bychom zadali "/1950/", výsledek bude opačný.
 
@@ -1240,7 +1240,7 @@ Pro textový zápis hledaného výrazu; u číselníkových polí výběr z čí
 
     **U textově zadávaných řetězců je si potřeba uvědomit, že vyhledávací mechanismus ne vždy zohlední nealfanumerické znaky** *(= znaky, které nejsou písmenem nebo číslem, např. tečka, čárka, lomítko, spojovník apod.)* U fulltextových dotazů (jednoduchý výběr z lišty nástrojů vpravo nahoře nebo "jednoduchý" rozšířený výběr z příkladu č. 1) je sice znak tečky a lomítka akceptován, ale v případě, kdy je již specifikováno kritérium "pole", pak již nikoli. Je pak potřeba specifikovat podmínku = Fráze nebo Celé slovo. **U vyhledávání řetězců s nealfanumerickými znaky je proto vždy, pokud je volba aktivní, doporučeno použít podmínku = Fráze nebo Celé slovo.**    
 
-Pro pole, které se skládají s více prvků popis, např. Popis obsahu u matrik, se zde automaticky uplatňuje *upřesňující podmínka* (použití viz příklad č. 13).
+Pro pole, které se skládají s více prvků popis, např. Popis obsahu u matrik, se zde automaticky uplatňuje *upřesňující podmínka* (použití viz příklad č. [13](manual_proarchiv.md#priklad-c-13)).
 
 U úrovní "Má přílohu" a  "Příloha patří záznamu" je zde volba "Upravit vnořenou podmínku" - definice vnořené podmínky viz výše.
 
