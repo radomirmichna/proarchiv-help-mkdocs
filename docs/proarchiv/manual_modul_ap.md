@@ -12,7 +12,7 @@
 
 | Změny v aktuální verzi                                       | oproti verzi |
 | ------------------------------------------------------------ | ------------ |
-| **Úprava nápovědy pro chování modulu komunikujícího s IS CAM pomocí novějšího komunikačního rozhraní [API v2](https://stands.nacr.cz/cam/current/api/v2/news.html#novinky-a-zmeny-api-v2)** | 2025-12-17   |
+| **Úprava nápovědy dle chování modulu komunikujícího s IS CAM pomocí novějšího komunikačního rozhraní [API v2](https://stands.nacr.cz/cam/current/api/v2/news.html#novinky-a-zmeny-api-v2)** - zejména kapitoly: [5.9 Principy validace přístupového bodu](manual_modul_ap.md#59-principy-validace-pristupoveho-bodu) / [5.9.2 Chyby a upozornění z CAMu](manual_modul_ap.md#592-chyby-a-upozorneni-z-camu) - **napojení na Validátor IS CAM** / [5.8 Fronta Odchozí](manual_modul_ap.md#58-fronta-odchozi) - **možnost odeslání více záznamů najednou** / | 2025-12-17   |
 | Odstranění kapitoly "3.3 Import a transformace existujících dat" kvůli neaktuálnosti | 2025-12-17   |
 | [Návod na import souřadnic (linií i polygonů) z OpenStreetMap](attachments-ap/Ziskani_a_import_souradnic_z_OpenStreetMaps.pdf) | 2025-07-03   |
 | Popis funkce [Generování doplňků](manual_modul_ap.md#5121-generovani-doplnku) | 2024-11-06   |
@@ -619,14 +619,22 @@ Zde se budou postupně automaticky shromažďovat přístupové body určené k 
 
 Záznamy ve frontě Odchozí jsou řazeny dle datační hodnoty pole Schváleno a to sestupně. Nahoře jsou položky s mladší datací schválení, dole se starší.
 
+!!! warning "Upozornění"
+
+    Kvůli rychlosti se fronta Odchozí načítá vždy při jejím zobrazení. Během odesílání záznamů v ní uvedených nedochází k občerstvení fronty. Pro občerstvení seznamu Odchozí je potřeba ze záložky odejít a znovu na ní kliknout. Dříve se fronta Odchozí občerstvovalo po každém odchozím požadavku, toto ale vedlo ke zbytečným časovým prostojům. 
+
+#### 5.8.1 Odesílání PB do CAMu
+
 Přístupové body lze odesílat od IS CAM
 
 - **po jednom** - modře označen je pouze jeden;
 - **výběrem (několik na jednou)** - modře označeno je jich více; výběr se provádí standardně pomocí klávesy Shift + klikem na první a poslední v souvislé řadě nebo Ctrl + klikem na kterýkoli z nich (nutně nemusí jít o souvislou řadu); 
 
-v obou případech pomocí funkce **Odeslat PB do CAMu** vyvolané z kontextové nabídky vyvolané nad konkrétním jedním nebo jedním z vybraných přístupových bodů ve frontě. Poté dojde k finálnímu vyhodnocení validace a následnému zaslání do IS CAM. V případě problému je uživateli poskytnuto konkrétní hlášení. 
+v obou případech pomocí funkce **Odeslat PB do CAMu** vyvolané z kontextové nabídky nad konkrétním jediným nebo jedním z vybraných přístupových bodů ve frontě. Otevře se dialogové okno pro odesílání, kde může případně operátor zkontrolovat i *[Související PB k odeslání](manual_modul_ap.md#582-souvisejici-pb-k-odeslani)* a pak pomocí **Odeslat vše** záznamy zobrazené v sekci *PB k odeslání* proces odesílání aktivovat. Poté dochází k finálnímu vyhodnocení validace a následnému reálnému zaslání do IS CAM. V případě problému je uživateli poskytnuto konkrétní hlášení.
 
-I přesto může být navržen k odeslání i další přístupový bod, než byl původně označen. Funkce na odeslání totiž vyvolává u každého označeného přístupového bodu kontrolu na [vzájemné provazbení přístupových bodů z fronty Odchozí](manual_modul_ap.md#581-vyhodnocovani-validity-propojenych-pristupovych-bodu-bez-cam-id). Pokud je nalezen takový navázaný PB, vypíše se vždy v sekci **Související PB k odeslání**. Mezi vypsanými je samozřejmě i ten iniciační. Aby se tato sekce načetla, je potřeba vždy vybrat položku ze sekce PB k odeslání (bude modře označena):
+#### 5.8.2 Související PB k odeslání
+
+K odeslání může být navržen i další přístupový bod, než byl původně označen. Funkce na odeslání totiž vyvolává u každého označeného přístupového bodu kontrolu na [vzájemné provazbení přístupových bodů z fronty Odchozí](manual_modul_ap.md#581-vyhodnocovani-validity-propojenych-pristupovych-bodu-bez-cam-id). Pokud je nalezen takový navázaný PB, vypíše se vždy v sekci **Související PB k odeslání**. Mezi vypsanými je samozřejmě i ten iniciační. Aby se tato sekce načetla, je potřeba vždy vybrat položku ze sekce PB k odeslání (bude modře označena):
 
 ![odesilani-kontrola_souvisejicich-1](img-ap/odesilani-kontrola_souvisejicich-1.png)
 
@@ -634,11 +642,19 @@ V případě, že je v sekci PB k odeslání více přístupových bodů, je pot
 
 ![odesilani-kontrola_souvisejicich-multi-souvisejici](img-ap/odesilani-kontrola_souvisejicich-multi-souvisejici.png)
 
-!!! warning "Upozornění"
+#### 5.8.3 Chyby a varování
 
-    Kvůli rychlosti se fronta Odchozí načítá vždy při jejím zobrazení. Během odesílání záznamů v ní uvedených nedochází k občerstvení fronty. Pro občerstvení seznamu Odchozí je potřeba ze záložky odejít a znovu na ní kliknout. Dříve se fronta Odchozí občerstvovalo po každém odchozím požadavku, toto ale vedlo ke zbytečným časovým prostojům. 
+Po prvním pokusu o odeslání zůstanou v dialogu ty záznamy, které se nepodařilo odeslat kvůli zjištěným chybám/upozorněním:
 
-#### 5.8.1 Vyhodnocování validity propojených přístupových bodů bez CAM ID
+![odesilani-chyby_a_varovani](img-ap/odesilani-chyby_a_varovani.png)
+
+Označením záznamu v sekci *PB k odeslání* se zobrazí detaily chyb/upozornění v sekci **Chyby a varování**. Jde o výsledky z validátoru IS CAM, jehož chování je popsáno v kapitole [5.9.2 Validátor IS CAM - chyby a upozornění](manual_modul_ap.md#592-chyby-a-upozorneni-z-camu).
+
+Pokud obsahuje záznam pouze upozornění, může jej operátor tlačítkem **Odeslat i přes upozornění** odeslat do IS CAM. Pokud má pochybnosti a potřebuje chybu analyzovat, dialog uzavře. Po vyhodnocení upozornění jako irelevantní, provede celé odeslání znovu: Odeslat vše + Odeslat i přes upozornění. 
+
+
+
+#### 5.8.x Vyhodnocování validity propojených přístupových bodů bez CAM ID
 
 Do fronty Odchozí se mohou dostat jen záznamy ve stavu "schválený", které neobsahují vazby na "neschválené" přístupové body bez CAM ID (=ty, které ještě nejsou v IS CAM). Ani vazba na "schválený" přístupový bod ale neznamená, že se záznam objeví ve frontě Odchozí. Onen napojený schválený přístupový bod totiž může obsahovat vazby na další přístupový bod, který však může být ještě ve stavu "ke schválení". Viz [validace napojených vztahů](manual_modul_ap.md#5911-validace-napojenych-vztahu). Může tak existovat poměrně složitý řetězec navzájem propojených přístupových bodů, které ještě nejsou v IS CAM. 
 
@@ -668,7 +684,9 @@ Ke kontrolám patří např.:
 - kontrola správně napojené hierarchie v administrativním zařazení u geografických objektů
 - kontrola stavů přístupových bodů napojených ve vztazích
 
-Modul garantuje dostupnost prvků popisu a jejich specifikací platnou pro danou třídu přístupového bodu stanovenou [technickou dokumentací IS CAM](https://stands.nacr.cz/cam/current/index.html). Jádro IS CAM disponuje funkcionalitou (dále jako **validátor IS CAM**), která na vstupu testuje zasílané záznamy entit vůči [pravidlům popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html). Tato pravidla jsou zaznamenána v technické dokumentaci IS CAM. Systém pravidel se postupně upravuje a rozšiřuje. Pravidla jsou dvojího typu:
+Modul garantuje dostupnost prvků popisu a jejich specifikací platnou pro danou třídu přístupového bodu stanovenou [technickou dokumentací IS CAM](https://stands.nacr.cz/cam/current/index.html). Jádro IS CAM disponuje funkcionalitou (dále jako **validátor IS CAM**), která na vstupu testuje zasílané záznamy entit vůči [pravidlům popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html). Tato pravidla jsou zaznamenána v technické dokumentaci IS CAM. Systém pravidel se postupně upravuje a rozšiřuje. 
+
+**Pravidla se dělí na dva typy podle závažnosti. Jsou vyhodnocována jako:**
 
 #### Chyba
 
@@ -721,7 +739,7 @@ Aplikace hlásí rovněž jakoukoli přítomnost doplňků u VAR ("VAR obsahuje 
 
     **Pozor!** Kontrolní mechanismus kontroluje jen vyplněné doplňky. Pokud zpracovatel na doplněk zcela zapomene a ponechá jej prázdný, aplikace nic nehlásí. 
 
-#### 5.9.2 Chyby a upozornění z CAMu
+#### 5.9.2 Validátor IS CAM - chyby a upozornění
 
 Druhá část se zobrazuje v sekci **Chyby a upozornění z CAMu**. Validace se vyhodnocuje formou <u>online</u> webové služby, která komunikuje přímo s **Validátorem IS CAM** a zohledňuje vždy aktuální sadu [pravidel popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html). 
 
