@@ -94,13 +94,13 @@ Dle nastaveného intervalu (výchozí je 5 minut) dochází k pravidelnému nač
 | Nová verze entity ve stavu "nová" nebo "schválená", která již v modulu je (modul eviduje její CAM ID) a je ve stavu "rozpracovaný" nebo "ke schválení", tzn. dochází u ní v modulu k obsahovým změnám | Nová verze čeká ve frontě Příchozí (konflikt) na rozhodnutí |
 | Entita u níž došlo v IS CAM k zneplatnění nebo nahrazení, ale již v modulu je (modul eviduje její CAM ID) | Automatická změna stavu entity                              |
 
-####  3.4.2 Princip synchronizace/zasílání entit z modulu do IS CAM
+####  3.4.2 Princip synchronizace/odesílání entit z modulu do IS CAM
 
 Po dokončení interního schvalovacího procesu a konečné změny stavu přístupového bodu na "schválený", je automaticky zobrazen ve frontě Odchozí.
 
 Uživatel s rolí "operátor CAM" pomocí kontextové nabídky zvolí funkci "Odeslání PB do CAMu". Na pozadí proběhne poslední finální vyhodnocení, zda je splněna požadovaná validace a stav, a v případě bezvadného stavu dojde k odeslání do IS CAM. Poté záznam z fronty Odchozí zmizí. V případě nějakého konfliktu je operátor CAM informován a k odeslání nedojde. Konkrétní konfliktní situace viz níže.
 
-Složité vyhodnocení navzájem propojených přístupových bodů je popsáno v popisu [fronty Odchozí](manual_modul_ap.md#58-fronta-odchozi).
+Podrobný popis samotného procesu včetně **odesílání i přes upozornění**, vyhodnocování navzájem propojených přístupových bodů je popsáno v popisu [fronty Odchozí](manual_modul_ap.md#58-fronta-odchozi).
 
 ### 3.5 Stavy přístupových bodů
 
@@ -138,7 +138,7 @@ Práce v modulu je závislá na přihlášení v pořádací aplikaci ProArchiv.
 | -------------------------- | ----------------- | ------------------------------------------------------------ |
 | výchozí role               | zpracovatel       | Může vytvářet nové přístupové body, upravovat stávající. Vše pak zaslat "ke schválení". |
 | Schvalovatel PB            | schvalovatel      | Stejná práva jako zpracovatel + možnost schvalovat nové přístupové body nebo změny ve stávajících. |
-| Operátor CAM               | -                 | Umožňuje zpracovávat frontu Odchozí (= zasílat schválené PB do IS CAM) nebo frontu Příchozí (Konflikty). Tato role musí být kumulovaná s rolí Schvalovatel PB (Operátor CAM musí být atestovaným schvalovatelem), nicméně uživatel s rolí Schvalovatel PB roli  Operátor CAM mít nemusí. |
+| Operátor CAM               | -                 | Umožňuje zpracovávat frontu [Odchozí](manual_modul_ap.md#58-fronta-odchozi) (= zasílat schválené PB do IS CAM) nebo frontu [Příchozí (Konflikty)](manual_modul_ap.md#57-fronta-prichozi-konflikty), dále používat funkci [Nahrazení PB verzí z IS CAM](manual_modul_ap.md#38-nahrazeni-pb-verzi-z-is-cam). Tato role musí být kumulovaná s rolí Schvalovatel PB (Operátor CAM musí být atestovaným schvalovatelem), nicméně uživatel s rolí Schvalovatel PB roli Operátor CAM mít nemusí. |
 
 ![diagram-uzivatelske_role](img-ap/diagram-uzivatelske_role.png)
 
@@ -155,13 +155,13 @@ Funkce Návrat k poslední schválené verzi umožňuje přepsat aktuální verz
 
 Tuto funkci může uplatnit jen uživatel s rolí schvalovatele PB.
 
-### 3.8 Nahrazení PB verzí z CAMu
+### 3.8 Nahrazení PB verzí z IS CAM
 
-Funkce Nahrazení PB verzí z CAMu umožňuje přepsat aktuální verzi PB z modulu aktuální schválenou verzi z IS CAM. Jde o speciální funkci, která dokáže odblokovat patové situace, jako například tuto:
+Funkce Nahrazení PB verzí z IS CAM umožňuje přepsat aktuální verzi PB z modulu aktuální schválenou verzi z IS CAM. Jde o speciální funkci, která dokáže odblokovat patové situace, jako například tuto:
 
 Modul nemá zaimplementované tzv. [bezpečnostní profily](https://cam.nacr.cz/doc/admin/user_profiles.html). Uživatel změní prvky popisu, u kterých je uplatňován bezpečnostní profil, např. odmaže PREF u hlídaného geografického objektu. IS CAM takovou změnu při pokusu o zaslání samozřejmě nepřijme (kontrola uuid PREF označení). Modul se ale po interním schválení také nedokáže dostat k původní verzi. Aby se tato patová situace odblokovala, použije se tato speciální funkce a "natvrdo" se přepíše verze v modulu aktuální verzi z IS CAM.
 
-Tuto funkci může uplatnit jen uživatel s rolí Administrátor.
+Tuto funkci může uplatnit jen uživatel s rolí operátora PB.
 
 ## 4 Uživatelské rozhraní
 
@@ -224,12 +224,13 @@ Aplikace má implementováno:
 - [Komunikace se zpracovateli](manual_modul_ap.md#5101-komunikace-mezi-schvalovatelem-a-zpracovatelem)
   - Uložení komentáře
   - Zaslání zprávy
+- [Validátor IS CAM - testovat PB](manual_modul_ap.md#5921-validator-is-cam-testovat-pb)
 - [Návrat k poslední schválené verzi](manual_modul_ap.md#37-navrat-k-posledni-schvalene-verzi)
 - [Odstranit PB](manual_modul_ap.md#511-odstraneni-pristupoveho-bodu)
-- [Nahrazení PB verzí z CAMu](manual_modul_ap.md#38-nahrazeni-pb-verzi-z-camu)
+- [Nahrazení PB verzí z IS CAM](manual_modul_ap.md#38-nahrazeni-pb-verzi-z-is-cam)
 - [Hledání neplatných a nahrazených PB](manual_modul_ap.md#513-hledani-neplatnych-a-nahrazenych-pb)
 - [Statistika](manual_modul_ap.md#514-statistika)
-- [Test dostupnosti CAM](manual_modul_ap.md#512-test-dostupnosti-camu)
+- [Test dostupnosti IS CAM](manual_modul_ap.md#512-test-dostupnosti-is-cam)
 
 ------
 
@@ -268,6 +269,38 @@ Zobrazuje strukturované prvky popisu přístupového bodu. V této záložce pr
 #### 4.6.3 Pomocné údaje
 
 Zobrazuje systémově generovaná data: uživatelská jména tvůrců a následných editorů přístupového bodu včetně časových značek; taktéž jednoznačný identifikátor (UUID) záznamu, CAM ID, identifikátor revize a permalink a [PB, které odkazují na tento záznam](manual_modul_ap.md#564-vyhledani-vzajemnych-vazeb-mezi-pristupovymi-body).
+
+##### Upravil(i)
+
+Zobrazuje agregované údaje o zpracovatelích poslední revize záznamu, které zasílá IS CAM.
+
+##### Schválil(i)
+
+Zobrazuje údaje o schvalovatelích. V případě, že je posledním uloženým schvalovatel uživatel z lokálního systému (modulu PB), zobrazí se jeho standardizovaná textová podoba. Pokud jde o revizi, jež se do modulu dostala automatickou synchronizací z IS CAM, zobrazí se agregované údaje o schvalovatelích poslední revize záznamu.
+
+!!! warning "Upozornění"
+
+    Některé systémy (např. ELZA) zasílají do IS CAM údaje o zpracovatelích a schvalovatelích v podobě historie zásahů všech uživatelů podílejících se na jedné konkrétní revizi. Pokud tedy byl záznam v rámci jedné revize v lokálním systému upraven vícero zpracovateli, případně mezi tím schválen vícero schvalovateli, a až po tomto "kolečku" zaslán do IS CAM, pak se zasílá vícečetný seznam uživatelů. Může tak být v poli Upravil(i) a Schválil(i) zaspán tentýž uživatel. Příslušný systém ale stále garantuje pravidlo 2 párů očí, tedy autor změny, nesmí být zároveň jejím schvalovatelem. Jen se to může mezi uživateli "protočit".  
+
+##### Vytvořil - vytvořeno
+
+Položky **Vytvořil - Vytvořeno** zobrazují vždy jen lokální uživatele z modulu AP. Pokud je synchronizován zcela nový záznam z IS CAM, jsou tyto položky prázdné.
+
+##### Upravil
+
+Položka **Upravil** zobrazuje vždy jen lokální uživatele z modulu AP. 
+
+Pokud je položka naplněna u synchronizovaného záznamu, znamená to, že autorem poslední změny je lokální uživatel z modulu. Stejný uživatel se pak objevuje i v položce Upravil(i).
+
+!!! warning "Upozornění"
+
+    Časové údaje u položky Upravil(i) (zde mladší časová značka) a Upraveno (zde starší časová značka) budou rozdílné, neboť nejprve došlo k propsání změny do lokálních dat a teprve následně byla tato změna zaslána operátorem do IS CAM.  
+
+Pokud je položka prázdná, znamená to, že autorem poslední změny je uživatel jiného externího systému.
+
+##### Upraveno
+
+Zapisuje se zde časová značka poslední aktualizace záznamu v lokální databázi modulu.
 
 ##### PB k nahrazení
 
@@ -634,7 +667,7 @@ v obou případech pomocí funkce **Odeslat PB do CAMu** vyvolané z kontextové
 
 #### 5.8.2 Související PB k odeslání
 
-K odeslání může být navržen i další přístupový bod, než byl původně označen. Funkce na odeslání totiž vyvolává u každého označeného přístupového bodu kontrolu na [vzájemné provazbení přístupových bodů z fronty Odchozí](manual_modul_ap.md#581-vyhodnocovani-validity-propojenych-pristupovych-bodu-bez-cam-id). Pokud je nalezen takový navázaný PB, vypíše se vždy v sekci **Související PB k odeslání**. Mezi vypsanými je samozřejmě i ten iniciační. Aby se tato sekce načetla, je potřeba vždy vybrat položku ze sekce PB k odeslání (bude modře označena):
+K odeslání může být navržen i další přístupový bod, než byl původně označen. Funkce na odeslání totiž vyvolává u každého označeného přístupového bodu kontrolu na [vzájemné provazbení přístupových bodů z fronty Odchozí](manual_modul_ap.md#584-vyhodnocovani-validity-propojenych-pristupovych-bodu-bez-cam-id). Pokud je nalezen takový navázaný PB, vypíše se vždy v sekci **Související PB k odeslání**. Mezi vypsanými je samozřejmě i ten iniciační. Aby se tato sekce načetla, je potřeba vždy vybrat položku ze sekce PB k odeslání (bude modře označena):
 
 ![odesilani-kontrola_souvisejicich-1](img-ap/odesilani-kontrola_souvisejicich-1.png)
 
@@ -642,19 +675,19 @@ V případě, že je v sekci PB k odeslání více přístupových bodů, je pot
 
 ![odesilani-kontrola_souvisejicich-multi-souvisejici](img-ap/odesilani-kontrola_souvisejicich-multi-souvisejici.png)
 
-#### 5.8.3 Chyby a varování
+#### 5.8.3 Validátor IS CAM - chyby a upozornění
 
 Po prvním pokusu o odeslání zůstanou v dialogu ty záznamy, které se nepodařilo odeslat kvůli zjištěným chybám/upozorněním:
 
+[DOPRACOVAT - nahradit printscreen po aktualizaci labelu]
+
 ![odesilani-chyby_a_varovani](img-ap/odesilani-chyby_a_varovani.png)
 
-Označením záznamu v sekci *PB k odeslání* se zobrazí detaily chyb/upozornění v sekci **Chyby a varování**. Jde o výsledky z validátoru IS CAM, jehož chování je popsáno v kapitole [5.9.2 Validátor IS CAM - chyby a upozornění](manual_modul_ap.md#592-chyby-a-upozorneni-z-camu).
+Označením záznamu v sekci *PB k odeslání* se zobrazí detaily chyb/upozornění v sekci **Validátor IS CAM - chyby a upozornění**. Jde o výsledky z validátoru IS CAM, jehož chování je popsáno v kapitole [5.9.2 Validátor IS CAM - chyby a upozornění](manual_modul_ap.md#592-chyby-a-upozorneni-z-camu).
 
-Pokud obsahuje záznam pouze upozornění, může jej operátor tlačítkem **Odeslat i přes upozornění** odeslat do IS CAM. Pokud má pochybnosti a potřebuje chybu analyzovat, dialog uzavře. Po vyhodnocení upozornění jako irelevantní, provede celé odeslání znovu: Odeslat vše + Odeslat i přes upozornění. 
+Pokud obsahuje záznam pouze upozornění, může jej operátor tlačítkem **Odeslat i přes upozornění** odeslat do IS CAM. Pokud má pochybnosti a potřebuje chybu analyzovat, dialog uzavře. Jakmile je následně upozornění vyhodnoceno jako irelevantní, provede celé odeslání znovu ve dvou krocích: Odeslat vše + Odeslat i přes upozornění. 
 
-
-
-#### 5.8.x Vyhodnocování validity propojených přístupových bodů bez CAM ID
+#### 5.8.4 Vyhodnocování validity propojených přístupových bodů bez CAM ID
 
 Do fronty Odchozí se mohou dostat jen záznamy ve stavu "schválený", které neobsahují vazby na "neschválené" přístupové body bez CAM ID (=ty, které ještě nejsou v IS CAM). Ani vazba na "schválený" přístupový bod ale neznamená, že se záznam objeví ve frontě Odchozí. Onen napojený schválený přístupový bod totiž může obsahovat vazby na další přístupový bod, který však může být ještě ve stavu "ke schválení". Viz [validace napojených vztahů](manual_modul_ap.md#5911-validace-napojenych-vztahu). Může tak existovat poměrně složitý řetězec navzájem propojených přístupových bodů, které ještě nejsou v IS CAM. 
 
@@ -741,11 +774,13 @@ Aplikace hlásí rovněž jakoukoli přítomnost doplňků u VAR ("VAR obsahuje 
 
 #### 5.9.2 Validátor IS CAM - chyby a upozornění
 
-Druhá část se zobrazuje v sekci **Chyby a upozornění z CAMu**. Validace se vyhodnocuje formou <u>online</u> webové služby, která komunikuje přímo s **Validátorem IS CAM** a zohledňuje vždy aktuální sadu [pravidel popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html). 
+Druhá část se zobrazuje v sekci **Validátor IS CAM - chyby a upozornění**. Validace se vyhodnocuje formou online webové služby, která komunikuje přímo s **Validátorem IS CAM** a zohledňuje vždy aktuální sadu [pravidel popisu](https://cam.nacr.cz/doc/ontology/rules/rules.html). 
 
-##### 5.9.2.1 Test PB oproti CAMu
+##### 5.9.2.1 Validátor IS CAM - testovat PB
 
-Uživatel může tuto službu zavolat pomocí funkce Různé funkce - Test PB oproti CAMu:
+Uživatel může tuto službu zavolat pomocí funkce Různé funkce - Validátor IS CAM - testovat PB:
+
+[DOPRACOVAT - nahradit printscreen po aktualizaci labelu]
 
 ![test_pb_oproti_camu](img-ap/test_pb_oproti_camu.png) 
 
@@ -762,7 +797,7 @@ Rovněž při proces odesílání do IS CAM testuje Validátor IS CAM zasílaný
 
 ##### 5.9.2.4 Průběh komunikace s Validátorem IS CAM
 
-Během výše zmíněných scénářů, u kterých dochází k online testování Validátorem IS CAM, se problematická místa adresně zobrazují v modálním okně a následně se zapisují do záložky Validace - sekce  **Chyby a upozornění z CAMu** v následující podobě:
+Během výše zmíněných scénářů, u kterých dochází k online testování Validátorem IS CAM, se problematická místa adresně zobrazují v modálním okně a následně se zapisují do záložky Validace - sekce  **Validátor IS CAM - chyby a upozornění** v následující podobě:
 
 - **závažnost** - dva základní druhy: [chyba](manual_modul_ap.md#chyba) s prefixem [!] a [upozornění](manual_modul_ap.md#upozorneni) s prefixem [?]; v případě udělení trvalé výjimky se pak zobrazuje jako [?] udělena trvalá výjimka; u jednorázové jako [?] udělena jednorázová výjimka
 - **kód** - kód chyby dle konkrétního pravidla v rámci [technické dokumentace](https://stands.nacr.cz/cam/current/ontology/rules/rules.html)
@@ -812,9 +847,9 @@ Funkce Odstranění PB v menu Různé funkce slouží k odstranění záznamu p�
 - odstraňovaný PB nesmí být synchronizován s IS CAM (není v CAMu, nemá CAM ID; nesplnění podmínky = hlášení: Nelze provést pro PB synchronizované s CAM)
 - odstraňovaný PB nesmí mít vazbu na jiný PB nebo archivní popis (nesplnění podmínky = hlášení: PB je použitý externí aplikací) 
 
-### 5.12 Test dostupnosti CAMu
+### 5.12 Test dostupnosti IS CAM
 
-Test dostupnosti CAMu (viz stejnojmenná funkce v Různé funkce) slouží k zjištění dostupnosti a funkčnosti instance IS CAM.
+Test dostupnosti IS CAM (viz stejnojmenná funkce v Různé funkce) slouží k zjištění dostupnosti a funkčnosti instance IS CAM.
 
 ### 5.13 Hledání neplatných a nahrazených PB
 
