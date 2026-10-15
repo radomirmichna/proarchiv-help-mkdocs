@@ -6,7 +6,7 @@
 
 ***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
 
-**[VERZE 2026-10-14]**
+**[VERZE 2026-10-15]**
 
 #### Seznam důležitých změn:
 
@@ -813,7 +813,7 @@ Pokud je detekováno pouze upozornění `W_?`, pak může uživatel rozhodnou, z
 
 !!! warning "Upozornění"
 
-    Vzhledem k tomu, že k napojení modulu na validátor IS CAM došlo až s odstupem času, mohou se základní validace dublovat se zjištěnými chybami/upozorněními z validatoru IS CAM. To ale není na škodu, neboť základní validace funguje již u stavu "rozpracovaný", kdežto online validátor IS CAM se aktivuje až u přechodů na stavy následné.  
+    Vzhledem k tomu, že k napojení modulu na validátor IS CAM došlo až s odstupem času, mohou se základní validace dublovat se zjištěnými chybami/upozorněními z valid8toru IS CAM. To ale není na škodu, neboť základní validace funguje již u stavu "rozpracovaný", kdežto online validátor IS CAM se aktivuje až u přechodů na stavy následné.  
 
 ### 5.10 Schvalovací proces v praxi
 

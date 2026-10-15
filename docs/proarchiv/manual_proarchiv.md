@@ -6,7 +6,7 @@
 
 ***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
 
-**[VERZE 2026-10-14]**
+**[VERZE 2026-10-15]**
 
 #### Seznam důležitých změn:
 
@@ -1116,7 +1116,7 @@ Tyto hodnoty lze kombinovat, poté určují, v jaké logické podmínce jsou vů
 
 !!! warning "Varování"
 
-    **S logickým operátorem "Musí splňovat" lze použít více kombinací/řádků výběru jen v případě, že bude u všech stejná úroveň.** Jinak funkce vrátí nulový počet nalezených záznamů - viz příklad č. [2](manual_proarchivm.md#priklad-c-2).
+    **S logickým operátorem "Musí splňovat" lze použít více kombinací/řádků výběru jen v případě, že bude u všech stejná úroveň.** Jinak funkce vrátí nulový počet nalezených záznamů - viz příklad č. [2](manual_proarchiv.md#priklad-c-2).
 
 **Vnořená podmínka**
 
@@ -1144,7 +1144,7 @@ Pomocí tlačítka Upravit vnořená podmínku ji nadefinujeme: pole Barevnost j
 
 Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evidence), ve které je hledáno. Výběr úrovně ovlivňuje nabídku dalších kritérii. 
 
-- ***Prázdna hodnota*** - primárně umožňuje definovat pouze hledaný řetězec ve sloupci Hodnota. Jde de facto o stejný fulltextový způsob hledání jako u [5.6.2 Jednoduchý výběr z lišty nástrojů](manual_proarchiv.md#562-jednoduchy-vyber-z-listy-nastroju), avšak s tou zásadní výhodou, že zde lze **zohlednit konkrétní archiv nebo pozici navigátoru** (viz níže + příklad č. [1](manual_proarchivm.md#priklad-c-1)).
+- ***Prázdna hodnota*** - primárně umožňuje definovat pouze hledaný řetězec ve sloupci Hodnota. Jde de facto o stejný fulltextový způsob hledání jako u [5.6.2 Jednoduchý výběr z lišty nástrojů](manual_proarchiv.md#562-jednoduchy-vyber-z-listy-nastroju), avšak s tou zásadní výhodou, že zde lze **zohlednit konkrétní archiv nebo pozici navigátoru** (viz níže + příklad č. [1](manual_proarchiv.md#priklad-c-1)).
 
     Sekundárně lze použít i sloupec Kontext, který v tomto případě znamená *<u>výběr třídy přístupového bodu</u>* a v kombinaci s hodnotou, *kterou tvoří přístupový bod, prohledá a  vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. [7](manual_proarchiv.md#priklad-c-7))*
 
