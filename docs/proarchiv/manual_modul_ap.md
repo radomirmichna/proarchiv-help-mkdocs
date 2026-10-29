@@ -81,7 +81,7 @@ Validace se vztahuje k zveřejněným [pravidlům popisu](https://cam.nacr.cz/do
 
 Napojení modulu na IS CAM je závisle na přidělené roli dle [provozního řádu IS CAM](https://cam.nacr.cz/info/provoznirad2.html#urovne-pristupu-do-is-cam). Reálně přichází v úvahu omezená varianta s rolí CAM I (čtení záznamů z IS CAM) nebo plnohodnotná varianta s rolí CAM III (čtení a změna záznamů s IS CAM). Tento manuál prezentuje možnosti plnohodnotné varianty.
 
-[DOPRACOVAT - ještě není implementováno] O tom, zda je konkrétní přístupový bod v aktuálním stavu synchronizován s IS CAM, podávájí informaci hodnoty v poli Synchronizace s IS CAM v Pomocných údajích.
+O tom, zda je konkrétní přístupový bod v aktuálním stavu synchronizován s IS CAM, podávají informaci hodnoty v poli Synchronizace s IS CAM v Pomocných údajích.
 
 #### 3.4.1 Princip synchronizace/přijímání entit z IS CAM do modulu
 
@@ -305,6 +305,12 @@ Zapisuje se zde časová značka poslední aktualizace záznamu v lokální data
 ##### PB k nahrazení
 
 V případě, že je zobrazen PB, který byl v IS CAM nahrazen (= stav "nahrazený"), poté je zde propagován v sekci "PB k nahrazení" i permalink PB, který jej nahradil. Tento údaj je potřebný k provedení náhrady PB ve vazbách na archivní popis, případně vzájemných vazbách mezi PB (viz funkce v pořádací aplikaci "[Nahrazení přístupového bodu za jiný](manual_proarchiv.md#5921-nahrazeni-pristupoveho-bodu-za-jiny)".
+
+##### PB, které odkazují na tento záznam
+
+Na vyžádání pomocí Nástroje - Občerstvit (![tools](img-ap/tools.png)+ ![tools-obcerstvit](img-ap/tools-obcerstvit.png)) se zobrazí seznam všech PB, které jsou na PB z detailu napojeny.
+
+Pomocí Nástroje - Uložit do výběru (![tools](img-ap/tools.png)+ ![tools-pridat-do-vyberu](img-ap/tools-pridat-do-vyberu.png)) se tyto záznamy přesunou do bočního panelu s výběrem.
 
 #### 4.6.4 Validace
 
@@ -679,8 +685,6 @@ V případě, že je v sekci PB k odeslání více přístupových bodů, je pot
 
 Po prvním pokusu o odeslání zůstanou v dialogu ty záznamy, které se nepodařilo odeslat kvůli zjištěným chybám/upozorněním:
 
-[DOPRACOVAT - nahradit printscreen po aktualizaci labelu]
-
 ![odesilani-chyby_a_varovani](img-ap/odesilani-chyby_a_varovani.png)
 
 Označením záznamu v sekci *PB k odeslání* se zobrazí detaily chyb/upozornění v sekci **Validátor IS CAM - chyby a upozornění**. Jde o výsledky z validátoru IS CAM, jehož chování je popsáno v kapitole [5.9.2 Validátor IS CAM - chyby a upozornění](manual_modul_ap.md#592-chyby-a-upozorneni-z-camu).
@@ -780,8 +784,6 @@ Druhá část se zobrazuje v sekci **Validátor IS CAM - chyby a upozornění**.
 
 Uživatel může tuto službu zavolat pomocí funkce Různé funkce - Validátor IS CAM - testovat PB:
 
-[DOPRACOVAT - nahradit printscreen po aktualizaci labelu]
-
 ![test_pb_oproti_camu](img-ap/test_pb_oproti_camu.png) 
 
 ##### 5.9.2.2 Testování při změně stavů
@@ -810,6 +812,12 @@ Pokud je detekována chyba `R_?`, pak změna stavu nebo odesílání do IS CAM n
 Pokud je detekováno pouze upozornění `W_?`, pak může uživatel rozhodnou, zda upozornění bere jako opodstatněné (opomenutá chyba nebo nutnost dalšího prověření) a změnu stavu / odesílání do IS CAM ukončí. Nebo naopak jej již analyzoval, bere jej jako irelevantní a změnu stavu / odesílání do IS CAM provede. 
 
 ![validace-zmena_stavu-upozorneni](img-ap/validace-zmena_stavu-upozorneni.png)
+
+###### 5.9.2.4.1 Hledání v sekci Validátor IS CAM - chyby a upozornění
+
+Vzhledem k tomu, že validátorem zaslané chyby a upozornění jsou ukládány jako prostý text, lze v nich v rámci rozšířeného výběru vyhledávat . Např. udělené výjimky:
+
+![rozsireny_vyber-hledani_v_chyby-a-upozorneni](img-ap/rozsireny_vyber-hledani_v_chyby-a-upozorneni.png)
 
 !!! warning "Upozornění"
 
@@ -853,7 +861,9 @@ Test dostupnosti IS CAM (viz stejnojmenná funkce v Různé funkce) slouží k z
 
 ### 5.13 Hledání neplatných a nahrazených PB
 
-Funkce zobrazí seznam neplatných a nahrazených PB, které mají aktivní vazbu na jiné PB v systému.
+Funkce zobrazí seznam neplatných a nahrazených PB, které mají aktivní vazbu na jiné PB v systému (vyjma PB ve stavu neplatný/nahrazeny).
+
+U každého nalezeného PB, lze pak konkrétní napojené PB najít v Pomocných údajích - [PB, které odkazují na tento záznam](manual_modul_ap.md#pb-ktere-odkazuji-na-tento-zaznam).  
 
 ### 5.14 Statistika
 
