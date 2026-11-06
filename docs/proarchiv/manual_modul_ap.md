@@ -6,13 +6,13 @@
 
 ***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
 
-**[VERZE 2026-10-15]**
+**[VERZE 2026-11-06]**
 
 #### Seznam důležitých změn:
 
 | Změny v aktuální verzi                                       | oproti verzi |
 | ------------------------------------------------------------ | ------------ |
-| **Úprava nápovědy dle chování modulu komunikujícího s IS CAM pomocí novějšího komunikačního rozhraní [API v2](https://stands.nacr.cz/cam/current/api/v2/news.html#novinky-a-zmeny-api-v2)** - zejména kapitoly: [5.9 Principy validace přístupového bodu](manual_modul_ap.md#59-principy-validace-pristupoveho-bodu) / [5.9.2 Chyby a upozornění z CAMu](manual_modul_ap.md#592-chyby-a-upozorneni-z-camu) - **napojení na Validátor IS CAM** / [5.8 Fronta Odchozí](manual_modul_ap.md#58-fronta-odchozi) - **možnost odeslání více záznamů najednou** / | 2025-12-17   |
+| **Úprava nápovědy dle chování modulu komunikujícího s IS CAM pomocí novějšího komunikačního rozhraní [API v2](https://stands.nacr.cz/cam/current/api/v2/news.html#novinky-a-zmeny-api-v2)** - zejména kapitoly: [5.9 Principy validace přístupového bodu](manual_modul_ap.md#59-principy-validace-pristupoveho-bodu) / [5.9.2 Validátor IS CAM - chyby a upozornění](manual_modul_ap.md#592-validator-is-cam-chyby-a-upozorneni) - **napojení na Validátor IS CAM** / [5.8 Fronta Odchozí](manual_modul_ap.md#58-fronta-odchozi) - **možnost odeslání více záznamů najednou** / | 2025-12-17   |
 | Odstranění kapitoly "3.3 Import a transformace existujících dat" kvůli neaktuálnosti | 2025-12-17   |
 | [Návod na import souřadnic (linií i polygonů) z OpenStreetMap](attachments-ap/Ziskani_a_import_souradnic_z_OpenStreetMaps.pdf) | 2025-07-03   |
 | Popis funkce [Generování doplňků](manual_modul_ap.md#5121-generovani-doplnku) | 2024-11-06   |
@@ -689,7 +689,11 @@ Po prvním pokusu o odeslání zůstanou v dialogu ty záznamy, které se nepoda
 
 Označením záznamu v sekci *PB k odeslání* se zobrazí detaily chyb/upozornění v sekci **Validátor IS CAM - chyby a upozornění**. Jde o výsledky z validátoru IS CAM, jehož chování je popsáno v kapitole [5.9.2 Validátor IS CAM - chyby a upozornění](manual_modul_ap.md#592-chyby-a-upozorneni-z-camu).
 
-Pokud obsahuje záznam pouze upozornění, může jej operátor tlačítkem **Odeslat i přes upozornění** odeslat do IS CAM. Pokud má pochybnosti a potřebuje chybu analyzovat, dialog uzavře. Jakmile je následně upozornění vyhodnoceno jako irelevantní, provede celé odeslání znovu ve dvou krocích: Odeslat vše + Odeslat i přes upozornění. 
+Pokud obsahuje záznam pouze upozornění, může jej operátor tlačítkem **Odeslat i přes upozornění** odeslat do IS CAM. Pokud má pochybnosti a potřebuje chybu analyzovat, dialog uzavře. Jakmile je následně upozornění vyhodnoceno jako irelevantní, provede celé odeslání znovu ve dvou krocích: Odeslat vše + Odeslat i přes upozornění.
+
+!!! warning "Upozornění"
+
+    **Pozor!** Pokud je do IS CAM zaslán záznam navzdory upozornění, bude zobrazen v rámci [Správy upozornění v aplikaci CAM Admin](https://portal.nacr.cz/camadmin/issues). Poté je potřeba zajistit udělení výjimky. Nastavení výjimky provádějí pověření členové Kolegia. O udělení výjimky zpravidla žádá lokální metodik. 
 
 #### 5.8.4 Vyhodnocování validity propojených přístupových bodů bez CAM ID
 
@@ -732,6 +736,14 @@ Modul garantuje dostupnost prvků popisu a jejich specifikací platnou pro danou
 #### Upozornění
 
 <u>Pravidla vyhodnocována jako **upozornění**</u> - uživatel je upozorněn, ale může i přesto záznam entity nebo jeho změnu do IS CAM zaslat. Jde tedy o **potenciální chybu**. Pokud je záznam s upozorněním do IS CAM zaslán, musí dojít na straně IS CAM k vyhodnocení platnosti upozornění, tzn. nastavení výjimky nebo odmítnutí. V technické dokumentaci IS CAM má takové pravidlo ve svém kódovém označení prefix `W_`, např. *W_NAM_001*.
+
+------
+
+Jak modul pracuje s validaci ukazuje následující schéma:
+
+![schema_validace_pristupoveho_bodu_APIv2](img-ap/schema_validace_pristupoveho_bodu_APIv2.jpg)
+
+[Schéma ke stažení ve formátu pdf](attachments-ap/Schema_validace_pristupoveho_bodu_APIv2.pdf)
 
 #### 5.9.1 Základní validace modulu
 
@@ -795,7 +807,7 @@ Zároveň je tato kontrolní funkce součástí procesu změny stavu záznamu z:
 
 ##### 5.9.2.3 Testování při odesílání od IS CAM
 
-Rovněž při proces odesílání do IS CAM testuje Validátor IS CAM zasílaný záznam nebo jeho změnu.
+Rovněž při proces [odesílání do IS CAM](manual_modul_ap.md#581-odesilani-pb-do-camu) testuje Validátor IS CAM zasílaný záznam nebo jeho změnu.
 
 ##### 5.9.2.4 Průběh komunikace s Validátorem IS CAM
 
@@ -812,6 +824,11 @@ Pokud je detekována chyba `R_?`, pak změna stavu nebo odesílání do IS CAM n
 Pokud je detekováno pouze upozornění `W_?`, pak může uživatel rozhodnou, zda upozornění bere jako opodstatněné (opomenutá chyba nebo nutnost dalšího prověření) a změnu stavu / odesílání do IS CAM ukončí. Nebo naopak jej již analyzoval, bere jej jako irelevantní a změnu stavu / odesílání do IS CAM provede. 
 
 ![validace-zmena_stavu-upozorneni](img-ap/validace-zmena_stavu-upozorneni.png)
+
+!!! warning "Upozornění - problematika vazby na PB, které nejsou v IS CAM"
+
+    **Pozor! Pokud testovaný PB obsahuje vazbu na jiný PB, které ještě není v IS CAM, není tento navázaný PB do testování zahrnut.
+    V takovém případě pak mohou být výsledky z Validátoru IS CAM zkreslené a je umožněno pokračovat.**
 
 ###### 5.9.2.4.1 Hledání v sekci Validátor IS CAM - chyby a upozornění
 
