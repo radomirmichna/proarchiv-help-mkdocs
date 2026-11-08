@@ -4,9 +4,9 @@
 
 ## 1 Úvod
 
-***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
+***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Prošla jazykovou korekturou pomocí nástrojů AI.***
 
-**[VERZE 2026-11-06]**
+**[VERZE 2026-11-08]**
 
 #### Seznam důležitých změn:
 
