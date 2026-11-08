@@ -4,9 +4,9 @@
 
 ## 1 Úvod
 
-***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
+***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Prošla jazykovou korekturou pomocí nástrojů AI.***
 
-**[VERZE 2026-10-15]**
+**[VERZE 2026-11-08]**
 
 #### Seznam důležitých změn:
 
@@ -19,7 +19,7 @@
 | [Sloučit s vnořeným záznamem - nad výběrem](manual_proarchiv.md#51621-sloucit-s-vnorenym-zaznamem-nad-vyberem) | 2025-07-03   |
 | Export - [EAD3](manual_proarchiv.md#5183-ead3)               | 2025-07-03   |
 | Statistiky - [Výroční zpráva](manual_proarchiv.md#5261-vyrocni-zprava) pro OASSS | 2025-07-03   |
-| [Import z CSV - Aktualizace](manual_proarchiv.md#5221-import-z-csv-aktualizace) - aktualizace již zaspaných záznamů pomocí csv | 2025-07-03   |
+| [Import z CSV - Aktualizace](manual_proarchiv.md#5221-import-z-csv-aktualizace) - aktualizace již zapsaných záznamů pomocí csv | 2025-07-03   |
 | [Rozpoznání textu příloh](manual_proarchiv.md#5127-rozpoznani-textu-priloh) - nestandardní funkce, funguje jen ve spolupráci se ScribbleSense | 2024-11-06   |
 | [Zobrazit pomůcku ve stromovém pohledu](manual_proarchiv.md#5165-zobrazit-pomucku-ve-stromovem-pohledu) | 2024-11-06   |
 | [Přečíslování manipulačních čísel v hierarchii](manual_proarchiv.md#5193-precislovani-manipulacnich-cisel-v-hierarchii) | 2024-11-06   |
@@ -41,7 +41,7 @@ Aplikace **ProArchiv17** si klade za cíl praktickou implementaci nových Pravid
 
 ### 2.1 Číselníky jako osvědčená cesta k unifikaci zápisu
 
-V dřívějších aplikacích se plně osvědčilo zavedení číselníků, které prospěly k jednotnosti zápisu a zároveň omezily jeho chybovost. Optimalizované číselníky jsou integrovány i do aplikace ProArchiv17. Většinu číselníků tak nemůže měnit sám uživatel a jsou dostupné napříč archivními soubory a pomůckami.
+V dřívějších aplikacích se plně osvědčilo zavedení číselníků, které přispěly k jednotnosti zápisu a zároveň omezily jeho chybovost. Optimalizované číselníky jsou integrovány i do aplikace ProArchiv17. Většinu číselníků tak nemůže měnit sám uživatel a jsou dostupné napříč archivními soubory a pomůckami.
 
 ### 2.2 Sjednocení rejstříků - přístupové body 
 
@@ -63,13 +63,13 @@ Všechny obrazové i jiné přílohy jsou ihned při pořádání kopírovány d
 
 Základní členění dat vychází z Pravidel, ve kterých jsou definovány čtyři úrovně popisu: **Archivní soubor, Série, Složka** a **Jednotlivost.** [[odkaz: Pravidla, kapitola 3.3](../../zp/zp_hlavni_text-03/#33-urovne-popisu)]
 
-Na všech úrovních popisu lze uplatnit univerzální prvky popisu, tak jak jsou popsány ve 4. kapitole Pravidel [[odkaz: Pravidla, kapitola 4](../../zp/zp_hlavni_text-04)]. **Složek** **a** **jednotlivostí** se týkají dále prvky rozšířeného popisu viz 5. kapitola Pravidel [[odkaz: Pravidla, kapitola 5](../../zp/zp_hlavni_text-05)]. Jednotlivé úrovně lze do sebe vnořovat v pořadí, v jakém jsou uvedeny. Série se dají dále dělit na série nižších úrovní, složky se dají dále dělit na podsložky a jednotlivosti na **části jednotlivostí**.
+Na všech úrovních popisu lze uplatnit univerzální prvky popisu tak, jak jsou popsány ve 4. kapitole Pravidel [[odkaz: Pravidla, kapitola 4](../../zp/zp_hlavni_text-04)]. **Složek** **a** **jednotlivostí** se týkají dále prvky rozšířeného popisu viz 5. kapitola Pravidel [[odkaz: Pravidla, kapitola 5](../../zp/zp_hlavni_text-05)]. Jednotlivé úrovně lze do sebe vnořovat v pořadí, v jakém jsou uvedeny. Série se dají dále dělit na série nižších úrovní, složky se dají dále dělit na podsložky a jednotlivosti na **části jednotlivostí**.
 
 #### 3.1.2 Datová pole (prvky popisu) specifická pro konkrétní archiv
 
 Tam, kde jsou stávající data popsána s větší podrobností, než jakou určují Pravidla, je toto jemnější členění zachováno tak, aby nedošlo ke ztrátě informace. Pro budoucí potřeby exportu do výměnných formátů (např. EAD3) budou tato pole namapována do odpovídajících, obecnějších polí podle Pravidel.
 
-Možnost nadefinovat si vlastní pole nad rámec Pravidel umožnuje archivu prohloubit popis ve strukturované podobě, což nese pozitiva při prezentaci, vyhledávání (indexaci) a hlavně sjednocování popisu.
+Možnost nadefinovat si vlastní pole nad rámec Pravidel umožňuje archivu prohloubit popis ve strukturované podobě, což nese pozitiva při prezentaci, vyhledávání (indexaci) a hlavně sjednocování popisu.
 
 !!! note "Možnost přizpůsobení"
 
@@ -87,7 +87,7 @@ Nejvyšší úroveň popisu definovaná v Pravidlech [[odkaz: Pravidla, kapitola
 
 Aby bylo možno prezentovat vícero původních pomůcek k jednomu archivnímu souboru, aplikace pro kořenový uzel pomůcky definuje speciální úroveň - **sérii typu pomůcka**. Toto platí vždy, i v případě, že archivní soubor má pouze jednu pomůcku. 
 
-Plné respektovaní hierarchické úrovně archivních souborů umožní některé pomůcky zařadit i na úroveň nižších sérií nadřazené pomůcky. Např. katalogy prezidiálních spisů v rámci inventáře celého úřadu apod. Série typu pomůcka tak půjde založit jak přímo pod archivním souborem, tak pod libovolnou sérií.
+Plné respektování hierarchické úrovně archivních souborů umožní některé pomůcky zařadit i na úroveň nižších sérií nadřazené pomůcky. Např. katalogy prezidiálních spisů v rámci inventáře celého úřadu apod. Série typu pomůcka tak půjde založit jak přímo pod archivním souborem, tak pod libovolnou sérií.
 
 ##### 3.1.3.3 ![roven-2b_NEZARAZEN](img/uroven-2b_NEZARAZENE.png) Speciální série NEZAŘAZENÉ 
 
@@ -134,7 +134,7 @@ U položky (2) pak:
 
 Položku "Evidenční jednotka + počet" zde uživatel nemá možnost změnit - aplikace tak hlídá dědičnost EJ.
 
-Přiklad vnořování složek:
+Příklad vnořování složek:
 
 ![priklad_slozky_a_podslozky_6](img/priklad_slozky_a_podslozky_6.png)
 
@@ -146,7 +146,7 @@ Někdy může nastat situace, kdy je konkrétní dílčí agenda uložena ve ví
 
 ![priklad_slozky_a_podslozky_3](img/priklad_slozky_a_podslozky_3.png)
 
-Položka (1) tvoří nejvýše postavenou složku. Zde se popíše vše, co je společné pro vnořené tři kartony. Na této úrovní by však bylo nesmyslné definovat EJ, použije se tedy hodnota "definováno v podřízených jednotkách popisu"; stejně tak u ukládací jednotky se se neuvádí jejich rozsah:
+Položka (1) tvoří nejvýše postavenou složku. Zde se popíše vše, co je společné pro vnořené tři kartony. Na této úrovni by však bylo nesmyslné definovat EJ, použije se tedy hodnota "definováno v podřízených jednotkách popisu"; stejně tak u ukládací jednotky se neuvádí jejich rozsah:
 
 ![priklad_slozky_a_podslozky_3-1](img/priklad_slozky_a_podslozky_3-1.png)
 
@@ -158,7 +158,7 @@ Stejným způsobem by byl řešen i komplikovaný příklad z Pravidel - viz [po
 
 !!! tip "Tip"
 
-    U další množstevní EJ "fascikl" je princip použití totožný jako u "kartonu". 
+    U další množstevní EJ "fascikl" je princip použití totožný s principem u "kartonu". 
 
 ##### 3.1.3.6 ![uroven-4_slozka](img/uroven-4_slozka.png) Složka manipulačního seznamu
 
@@ -176,11 +176,11 @@ Pouze v manipulačním seznamu může složka obsahovat ***více druhů evidenč
 
 #### 3.1.4 Kategorie a podkategorie záznamů
 
-**Pravidla** aplikují prvky rozšířeného popisu na základě typu archiválií (diplomatických kategorií, věcných a fyzických podobností aj.), příp. druhu EJ apod. Každý záznam o jednotce popisu na úrovni **složka** nebo **jednotlivost** již přímo popisuje konkrétní archiválie, kde je potřeba jednotlivé typy archiválii odlišit. Kvůli množstevním evidenčním jednotkám nelze typologii určovat na základě druhu evidenčních jednotek. Proto jsou pro odpovídající členění zavedeny **kategorie** a **podkategorie**. **<u>Každá složka či jednotlivost (část jednotlivosti) spadá vždy do určité kategorie a v případě potřeby dále do podkategorie.</u>** Díky kategorizaci všech jednotek popisu na úrovni složka a jednotlivost je umožněno nabízet vždy ty prvky rozšířeného popisu, které jsou pro daný typ archiválie relevantní. Blíže viz Metodika. Kategorie záznamů tak budou zejména respektovat požadavky na popis dle kapitol 5.3 až 5.23 Pravidel = okruhu rozšířeného popisu [[odkaz: Pravidla, kapitola 5.3](../../zp/zp_hlavni_text-05/#53-listiny-do-roku-1850-a-po-roce-1850)] a Metodiky. 
+**Pravidla** aplikují prvky rozšířeného popisu na základě typu archiválií (diplomatických kategorií, věcných a fyzických podobností aj.), příp. druhu EJ apod. Každý záznam o jednotce popisu na úrovni **složka** nebo **jednotlivost** již přímo popisuje konkrétní archiválie, kde je potřeba jednotlivé typy archiválií odlišit. Kvůli množstevním evidenčním jednotkám nelze typologii určovat na základě druhu evidenčních jednotek. Proto jsou pro odpovídající členění zavedeny **kategorie** a **podkategorie**. **<u>Každá složka či jednotlivost (část jednotlivosti) spadá vždy do určité kategorie a v případě potřeby dále do podkategorie.</u>** Díky kategorizaci všech jednotek popisu na úrovni složka a jednotlivost je umožněno nabízet vždy ty prvky rozšířeného popisu, které jsou pro daný typ archiválie relevantní. Blíže viz Metodika. Kategorie záznamů tak budou zejména respektovat požadavky na popis dle kapitol 5.3 až 5.23 Pravidel = okruhů rozšířeného popisu [[odkaz: Pravidla, kapitola 5.3](../../zp/zp_hlavni_text-05/#53-listiny-do-roku-1850-a-po-roce-1850)] a Metodiky. 
 
 !!! warning "Upozornění"
 
-    **Při určování kategorie/podkategorie záznamů se musí brát jako hlavní kritérium typové rozlišení archiválie (věcná a fyzická podobnost) NIKOLI vymezení evidenční jednotky!** Např. záznam kategorie/podkategorie, která popisuje fotografické archiválie, může být vymezen jednak jako EJ "fotografie na papírové podložce" (není součástí aktového materiálu), tak i jako EJ "karton" (pokud je součástí aktového materiálu).  
+    **Při určování kategorie/podkategorie záznamů se musí brát jako hlavní kritérium typové rozlišení archiválie (věcná a fyzická podobnost) NIKOLI vymezení evidenční jednotky!** Např. záznam kategorie/podkategorie, která popisuje fotografické archiválie, může být vymezen jak jako EJ "fotografie na papírové podložce" (není součástí aktového materiálu), tak i jako EJ "karton" (pokud je součástí aktového materiálu).  
 
 !!! note "Možnost přizpůsobení"
 
@@ -196,7 +196,7 @@ Pouze v manipulačním seznamu může složka obsahovat ***více druhů evidenč
 
     Tato kapitola je určena archivům, které ve svých dřívějších pořádacích systémech zapisovaly zvlášť archivní pomůcky a zvlášť katalogizovaly vybrané typy archiválií v tzv. tematických databázích.   
 
-Tato aplikace odstraňuje „dvojkolejnost“ při práci na archivních pomůckách a na záznamech tematických databází. Každá jednotka popisu na úrovni složka či jednotlivost včetně jejich případných vnoření patří do určité kategorie a popř. podkategorie. Díky tomu jsou určité záznamy zařaditelné do odpovídající tematické databáze (v případě že zvolená kategorie je zároveň tematickou databázi). Výhoda spočívá v tom, že takováto **jednotka popisu existuje pouze jednou, jen je pokaždé zařazena do jiné hierarchie, tzn. je prezentována v jiném režimu zobrazení**. Jednou z hlediska svého zařazení do archivní pomůcky = **<u>režim zobrazení Archivní soubory</u>**, podruhé optikou tematické databáze = **<u>režim zobrazení Tematické databáze</u>**. Případné úpravy jednotky popisu se promítnou bez ohledu na to, v jakém režimu zobrazení byly vykonány. Počítá se samozřejmě i s možností vzniku jednotek popisu ze strany tematických databází. V tomto případě bude třeba před vznikem jednotky určit, ke kterému archivnímu souboru identifikovanému jednoznačně číslem **NAD** jednotka patří.
+Tato aplikace odstraňuje „dvojkolejnost“ při práci na archivních pomůckách a na záznamech tematických databází. Každá jednotka popisu na úrovni složka či jednotlivost včetně jejich případných vnoření patří do určité kategorie a popř. podkategorie. Díky tomu jsou určité záznamy zařaditelné do odpovídající tematické databáze (v případě, že zvolená kategorie je zároveň tematickou databází). Výhoda spočívá v tom, že takováto **jednotka popisu existuje pouze jednou, jen je pokaždé zařazena do jiné hierarchie, tzn. je prezentována v jiném režimu zobrazení**. Jednou z hlediska svého zařazení do archivní pomůcky = **<u>režim zobrazení Archivní soubory</u>**, podruhé optikou tematické databáze = **<u>režim zobrazení Tematické databáze</u>**. Případné úpravy jednotky popisu se promítnou bez ohledu na to, v jakém režimu zobrazení byly vykonány. Počítá se samozřejmě i s možností vzniku jednotek popisu ze strany tematických databází. V tomto případě bude třeba před vznikem jednotky určit, ke kterému archivnímu souboru identifikovanému jednoznačně číslem **NAD** jednotka patří.
 
 !!! summary "Důležité"
 
@@ -223,7 +223,7 @@ Na některé typy hodnot se úzce váže aplikační logika, a proto není možn
 
 #### 3.1.7 Základní principy víceúrovňového popisu
 
-V aplikaci ProArchiv jsou plně uplatněny princip víceúrovňového popisu dle kapitoly 3.2 Pravidel [[odkaz: Pravidla, kapitola 3.2](../../zp/zp_hlavni_text-03/#32-zakladni-principy-viceurovnoveho-popisu)].[^3] 
+V aplikaci ProArchiv jsou plně uplatněny principy víceúrovňového popisu dle kapitoly 3.2 Pravidel [[odkaz: Pravidla, kapitola 3.2](../../zp/zp_hlavni_text-03/#32-zakladni-principy-viceurovnoveho-popisu)].[^3] 
 
 Pro průběžnou kontrolu hierarchické integrity rozepsané pomůcky slouží funkce [Validovat hierarchii](manual_proarchiv.md#5102-validovat-hierarchii).
 
@@ -234,7 +234,7 @@ Pro průběžnou kontrolu hierarchické integrity rozepsané pomůcky slouží f
     Určení archivního souboru je zcela zásadní pro zařazení všech záznamů o jednotkách popisu popisujících archiválie. Záznam o jednotce popisu na úrovni **"archivní soubor"** se v aplikaci nezakládá, je přejímán z evidence NAD (z programu PEvA). Údaj o příslušnosti podřízeného záznamu k archivnímu souboru je děděn, respektive je vždy automaticky dohledán v příslušné úrovni "archivní soubor".
     Podobně se chová i série typu **pomůcka**. Všechny v ní obsažené záznamy dědí informaci o své příslušnosti do této pomůcky (číslo pomůcky).
 
-Z výše zmíněného vyplývá, že záznam na úrovní série, složky, jednotlivosti a části jednotlivosti samostatně informaci o archivním souboru a pomůcce neobsahuje. Na tento fakt je třeba pamatovat např. při [vyhledávání](manual_proarchiv.md#565-vicenasobny-vyber) (viz použití logického operátoru a příklad č. 2).
+Z výše zmíněného vyplývá, že záznam na úrovni série, složky, jednotlivosti a části jednotlivosti samostatně informaci o archivním souboru a pomůcce neobsahuje. Na tento fakt je třeba pamatovat např. při [vyhledávání](manual_proarchiv.md#565-vicenasobny-vyber) (viz použití logického operátoru a příklad č. 2).
 
 ##### 3.1.7.2 Dědičnost dle standardu EAD3
 
@@ -243,7 +243,7 @@ V rámci standardu "EAD3 - český profil pro archivní pomůcky" jsou definová
 | Prvek popisu EAD3               | Implementace v ProArchiv                                     |
 | ------------------------------- | ------------------------------------------------------------ |
 | Datace vzniku jednotky popisu   | Vizuálně se nedědí. Propsání do nižších úrovní musí být zajištěno exportním mechanismem pro EAD3. |
-| Odkaz na původce                | Prvek popisu Původce aplikovaný v detailu popisného formuláře většinou na úrovní archivní soubor a série typu pomůcka zůstává zachován a slouží stejnému účelu jako nyní (tisk úvodu). Nedědí se níže. U role "původce" v plovoucím okně Napojené přístupové body je vizuální dědičnost zajištěna stejně jako u ostatních rolí - viz [Okno Napojené přístupové body - nová verze](manual_proarchiv.md#okno-napojene-pristupove-body-nova-verze). |
+| Odkaz na původce                | Prvek popisu Původce aplikovaný v detailu popisného formuláře většinou na úrovni archivní soubor a série typu pomůcka zůstává zachován a slouží stejnému účelu jako nyní (tisk úvodu). Nedědí se níže. U role "původce" v plovoucím okně Napojené přístupové body je vizuální dědičnost zajištěna stejně jako u ostatních rolí - viz [Okno Napojené přístupové body - nová verze](manual_proarchiv.md#okno-napojene-pristupove-body-nova-verze). |
 | Jazyk                           | Vizuálně se nedědí. Propsání do nižších úrovní musí být zajištěno exportním mechanismem pro EAD3. Pozn.: Prvek popisu Jazyk archiválií v pomůcce (uplatněný na sérii typu pomůcka) není dědičný vůbec. |
 | Ukládací jednotka               | Viz [6.3.9.1 Dědičnost údaje o ukládací jednotce](manual_proarchiv.md#6391-dedicnost-udaje-o-ukladaci-jednotce). |
 | Existence kopií jednotky popisu | Vizuálně se nedědí. Propsání do nižších úrovní musí být zajištěno exportním mechanismem pro EAD3. |
@@ -255,7 +255,7 @@ Detailněji viz https://stands.nacr.cz/ead/current/prvky-popisu/dedicnost.html
 
 Pro orientaci v záznamech o jednotkách popisu i přístupových bodech se vybrané údaje z nich „skládají“ do řádkové informace, která reprezentuje v co nejstručnější formě záznam mimo editační formulář **a zastupuje jej ve všech ostatních zobrazeních** (v navigátoru, tabulce, ve výsledcích výběrů, v přístupových bodech apod.). Tato informace je tvořena obsahem stanoveného pole či vícero polí. Definice, která stanoví, jaká pole pro danou kategorii záznamu tvoří tento "název/popis", je naprogramovaná přímo v aplikaci.
 
-V dalším textu příručky je uváděno jako „název (displayName)“. Vedle něj se mohou vyskytovat i agregované údaje o archivní identifikaci záznamu jako "identifikace (displayId").
+V dalším textu příručky je tato informace označována jako „název (displayName)“. Vedle něj se mohou vyskytovat i agregované údaje o archivní identifikaci záznamu jako „identifikace (displayId)“.
 
 ### 3.2 Validace
 
@@ -264,9 +264,9 @@ Způsob validace závisí na kombinaci zvolených hodnot pro:
 - **<u>Pravidla</u>** - uplatněno na sérii typu pomůcka nebo speciální sérii NEZAŘAZENÉ, vnořené záznamy tento údaj dědí
 - **<u>Typ pomůcky</u>** - uplatněno na sérii typu pomůcka nebo speciální sérii NEZAŘAZENÉ, vnořené záznamy tento údaj dědí
 - **<u>Úroveň popisu</u>** - uplatněno u každého záznamu o jednotce popisu
-- **<u>Kategorie záznamu</u>** - uplatněno pouze u záznamů o jednotkách popisu na úrovních: složka / jednotlivost / část jednotlivosti
+- **<u>Kategorie záznamu</u>** - uplatněno pouze u záznamů o jednotkách popisu na úrovnich: složka / jednotlivost / část jednotlivosti
 
-V rámci jedné pomůcky může být vnořena pomůcka jiná, tzn. jiná série typu pomůcka (např. když je část agendy popsána podrobněji – katalog prezidiálních spisů apod.) Jednotky popisu v rámci jednoho **archivního souboru** mohou tedy podléhat různým validačním požadavkům a to v závislosti na jejich umístění v hierarchii souboru.
+V rámci jedné pomůcky může být vnořena pomůcka jiná, tzn. jiná série typu pomůcka (např. když je část agendy popsána podrobněji – katalog prezidiálních spisů apod.) Jednotky popisu v rámci jednoho **archivního souboru** mohou tedy podléhat různým validačním požadavkům, a to v závislosti na jejich umístění v hierarchii souboru.
 
 !!! note "Možnost přizpůsobení"
 
@@ -282,7 +282,7 @@ Tento způsob validace znamená, že nevalidní zápis má za následek znemožn
 
 ![validace-striktni](img/validace-striktni.png)
 
-Vizuálně je pole se striktní validaci zvýrazněno vnitřním i vnějším (= dvojitým) oranžovým orámováním. Po zapsání validní hodnoty orámování zmizí.
+Vizuálně je pole se striktní validací zvýrazněno vnitřním i vnějším (= dvojitým) oranžovým orámováním. Po zapsání validní hodnoty orámování zmizí.
 
 !!! tip "Tip"
 
@@ -294,7 +294,7 @@ Pro každou kombinaci výše zmíněných faktorů bude možnost definovat pro k
 
 ![validace-upozorneni](img/validace-upozorneni.png)
 
-Vizuálně je pole s validaci formou upozornění zvýrazněno vnitřním oranžovým (= jednoduchým) orámováním. Po zapsání validní hodnoty orámování zmizí.
+Vizuálně je pole s validací formou upozornění zvýrazněno vnitřním oranžovým (= jednoduchým) orámováním. Po zapsání validní hodnoty orámování zmizí.
 
 V původní verzi plovoucího okna Napojené přístupové body je upozornění na validaci řešeno oranžovým podtržením: 
 
@@ -317,17 +317,17 @@ Validace na vyžádání umožní např.:
 
 ###  3.3 Import a transformace existujících dat
 
-Dle požadavků archivů byla nebo postupně budou do aplikace ProArchiv přesunuta veškerá data z dřívějších pořádacích aplikací. V některých případech nebylo možno převést zdrojová data zcela do žádoucí podoby. Např. při převodu rejstříků do přístupových bodů nelze strojově určit typy odpovídajících tříd přístupových bodů (např. dílo/výtvor z místního nebo věcného rejstříku). V těchto případech bude třeba upřesnění provést ručně. Pomocí v této práci bude možnost vyhledat si záznamy, neodpovídající nastaveným **validačním pravidlům** a také zobrazení původní podoby každého jednoho záznamu ve stavu před importem.
+Dle požadavků archivů byla nebo postupně budou do aplikace ProArchiv přesunuta veškerá data z dřívějších pořádacích aplikací. V některých případech nebylo možno převést zdrojová data zcela do žádoucí podoby. Např. při převodu rejstříků do přístupových bodů nelze strojově určit typy odpovídajících tříd přístupových bodů (např. dílo/výtvor z místního nebo věcného rejstříku). V těchto případech bude třeba upřesnění provést ručně. Pomocí v této práci bude možnost vyhledat si záznamy neodpovídající nastaveným **validačním pravidlům** a také zobrazení původní podoby každého jednoho záznamu ve stavu před importem.
 
 ### 3.4 Exporty dat
 
 #### 3.4.1 Interní exporty – repository
 
-Všechna data pořízená v aplikaci ProArchiv včetně digitálních příloh jsou a budou uložena v repository. Hlavním důvodem existence repository je potřeba centrálního uložení dat v lidsky čitelné podobě tj. ve formě nezávislé na určitém dodavateli, či specifické technologii. Z repository čerpá data i prezentační portál Digitální archiv ZAO / VadeMeCum. Formát dat v repository je dán interními potřebami archivu a musí být schopen beze zbytku nést veškeré informace vzniklé při pořizování. 
+Všechna data pořízená v aplikaci ProArchiv včetně digitálních příloh jsou a budou uložena v repository. Hlavním důvodem existence repository je potřeba centrálního uložení dat v lidsky čitelné podobě, tj. ve formě nezávislé na určitém dodavateli či specifické technologii. Z repository čerpá data i prezentační portál Digitální archiv ZAO / VadeMeCum. Formát dat v repository je dán interními potřebami archivu a musí být schopen beze zbytku nést veškeré informace vzniklé při pořizování. 
 
 #### 3.4.2 Exporty pro okolní svět
 
-Ostatní exportní formáty (např. EAD3) jsou určeny vnějšími autoritami, jejichž požadavky bude nutno respektovat. Podstatný je fakt, že strukturování dat vznikající uvnitř aplikace svojí podrobností přesahuje požadavky zvenčí, které jsou v dnešní době známy. Transformace interního formátu do některého formátu požadovaného z venku bude probíhat jednak přímým namapováním polí a jednak sloučením několika polí vstupních do jednoho pole výstupního. 
+Ostatní exportní formáty (např. EAD3) jsou určeny vnějšími autoritami, jejichž požadavky bude nutno respektovat. Podstatný je fakt, že strukturování dat vznikající uvnitř aplikace svojí podrobností přesahuje požadavky zvenčí, které jsou v dnešní době známy. Transformace interního formátu do některého formátu požadovaného zvenčí bude probíhat jednak přímým namapováním polí a jednak sloučením několika polí vstupních do jednoho pole výstupního. 
 
 ## 4 Uživatelské rozhraní
 
@@ -337,7 +337,7 @@ Tato kapitola je zařazena před kapitolu věnující se výčtu funkčností ap
 
 Aplikace ProArchiv nabízí na jednom místě možnost komplexního popisu, komplexního pohledu na data. 
 
-Komplexní pohled již z logiky věci neumožňuje takové přesné a specifické zobrazení určité stejné skupiny dat, na jaké byly zvyklé archivy, které uplatňovaly onu "dvojkolejnost" popsanou v kapitole [3.1.5](manual_proarchiv.md#315-vztah-pomucek-archivnich-souboru-a-tematickych-databazi-rezimy-zobrazeni). Hlavní tabulkové zobrazení nemůže poskytnout takovou škálu sloupců, jak tomu bylo dříve, neboť musí být zobrazovat pouze společné prvky pro všechny. Naopak např. v Národním archivu byl komplexní hierarchický pohled na data uplatněn již v předchozím pořádacím programu Janus.
+Komplexní pohled již z logiky věci neumožňuje takové přesné a specifické zobrazení určité stejné skupiny dat, na jaké byly zvyklé archivy, které uplatňovaly onu "dvojkolejnost" popsanou v kapitole [3.1.5](manual_proarchiv.md#315-vztah-pomucek-archivnich-souboru-a-tematickych-databazi-rezimy-zobrazeni). Hlavní tabulkové zobrazení nemůže poskytnout takovou škálu sloupců, jaká byla k dispozici dříve, neboť musí zobrazovat pouze společné prvky pro všechny. Naopak např. v Národním archivu byl komplexní hierarchický pohled na data uplatněn již v předchozím pořádacím programu Janus.
 
 !!! tip "Tip"
 
@@ -376,7 +376,7 @@ S aplikací lze standardně pracovat vždy jen v jednom okně (nebo záložce) p
 
 2. možnost: v jednom prohlížeči otevřít první instanci ve standardním okně a druhou v anonymním okně.
 
-Pokud uživatel spustit další instanci v druhém standardním okně (záložce) prohlížeče, bude na to upozorněn informačním sdělením. Ideální je toto nové okno (záložku) uzavřít a vrátit se zpět k původnímu oknu. Pokud však chcete pokračovat v novém okně (záložce), postupujte dle informací na obrazovce (Reaktivovat aplikaci v tomto okně).
+Pokud uživatel spustí další instanci v druhém standardním okně (záložce) prohlížeče, bude na to upozorněn informačním sdělením. Ideální je toto nové okno (záložku) uzavřít a vrátit se zpět k původnímu oknu. Pokud však chcete pokračovat v novém okně (záložce), postupujte dle informací na obrazovce (Reaktivovat aplikaci v tomto okně).
 
 #### 4.2.3 Ergonomie zobrazení
 
@@ -392,13 +392,13 @@ Aplikace samotná neprovádí kontrolu pravopisu. Lze pro ni případně využí
 
 V Google Chrome je tato funkce ve výchozím nastavení, v Mozille Firefox je možné ji doinstalovat formou doplňku: [Český slovník pro kontrolu pravopisu](https://addons.mozilla.org/cs/firefox/addon/czech-spell-checking-dictionar/).
 
-#### 4.2.4 Ukládaní nových záznamů a změn
+#### 4.2.4 Ukládání nových záznamů a změn
 
 Aplikace má implementováno:
 
 1. automatické uložení při přechodu na jiný záznam (bez dalších otázek)
 2. při přepnutí režimu "zápis" do režimu "čtení", kdy se zobrazí upozornění: *Máte neuložené změny. Uložit? Ano/Ne*. Pokud takto přepnete záznam s nesplněnou [striktní validací,](manual_proarchiv.md#3211-striktni-validace) vyskočí upozornění: *Jelikož záznam obsahuje nesprávně vyplněné pole se striktní validací, přepnutím do módu pro čtení budou zahozeny veškeré dosavadní změny. Chcete přepnout do módu pro čtení? Ano/Ne*.
-3. automatické uložení rozpracovaného záznamu v případě nechtěného vypnutí okna webového prohlížeče nebo přerušení spojení. Funguje to následovně: při editaci záznamu dochází k pravidelnému (standardně každé 2 minuty) ukládaní dat do mezipaměti (ne přímo do záznamu v databázi). V případě, že dojde k výše zmíněným skutečnostem, aplikace vyhodnotí, zda uložená verze v mezipaměti je mladší, než verze uložená přímo u záznamu, pokud ano, uloží ji.
+3. automatické uložení rozpracovaného záznamu v případě nechtěného vypnutí okna webového prohlížeče nebo přerušení spojení. Funguje to následovně: při editaci záznamu dochází k pravidelnému (standardně každé 2 minuty) ukládání dat do mezipaměti (ne přímo do záznamu v databázi). V případě, že dojde k výše zmíněným skutečnostem, aplikace vyhodnotí, zda je uložená verze v mezipaměti mladší než verze uložená přímo u záznamu; pokud ano, uloží ji.
 
 ### 4.3 Základní rozdělení pracovní plochy aplikace
 
@@ -412,7 +412,7 @@ Aplikace má implementováno:
 
 #### ![proarchiv_gui_toolbar_zapis](img/proarchiv_gui_toolbar_zapis.png) Režim zápisu
 
-- Přepínaní mezi režimem pro čtení (výchozí stav) a pro zápis (tlačítko "zbělá")
+- Přepínání mezi režimem pro čtení (výchozí stav) a pro zápis (tlačítko "zbělá")
 
 -------------------------
 
@@ -442,13 +442,13 @@ Aplikace má implementováno:
 
 #### ![proarchiv_gui_toolbar_tabulkovy_pohled](img/proarchiv_gui_toolbar_tabulkovy_pohled.png) Tabulkový pohled
 
-- Otevře v další záložce prohlížeče speciální tabulkový pohled na data konkrétní kategorie/podkategorie, případně záznamu napříč kategoriemi. 
+- Otevře v další záložce prohlížeče speciální tabulkový pohled na data konkrétní kategorie/podkategorie, případně záznamů napříč kategoriemi. 
 
 ------
 
 #### ![proarchiv_gui_toolbar_validace](img/proarchiv_gui_toolbar_validace.png) Validace
 
-- Výběr uživatelský zvolených validací: [Validovat aktuální záznam](manual_proarchiv.md#5101-validovat-aktualni-zaznam) / [Validovat hierarchii](manual_proarchiv.md#5102-validovat-hierarchii) / [Validovat jako autorizovanou pomůcku](manual_proarchiv.md#5103-validovat-jako-autorizovanou-pomucku) / [Kontrola neveřejných jednotek popisu](manual_proarchiv.md#5104-kontrola-neverejnych-jednotek-popisu)
+- Výběr uživatelsky zvolených validací: [Validovat aktuální záznam](manual_proarchiv.md#5101-validovat-aktualni-zaznam) / [Validovat hierarchii](manual_proarchiv.md#5102-validovat-hierarchii) / [Validovat jako autorizovanou pomůcku](manual_proarchiv.md#5103-validovat-jako-autorizovanou-pomucku) / [Kontrola neveřejných jednotek popisu](manual_proarchiv.md#5104-kontrola-neverejnych-jednotek-popisu)
 
 
 ------
@@ -478,11 +478,11 @@ Aplikace má implementováno:
 
 ##### Synchronizovat navigátor
 
-Synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Obecná funkce pro všechny entity. Funguje všude včetně pomocných evidencí. Je užitečná v případě, kdy má uživatel otevřeno více detailů v záložkách. Pohyb po ostatních záložkách v tabulce (mimo "Záznamy") automaticky nevyvolává synchronizaci navigátoru a tabulky. Pokud chce uživatel vědět, kde je entita zařazena, vyvolat synchronizaci pomocí této funkce. Ta pak ukáže např. záznam ze záložky "Výběr" v záložce "Záznamy" a k němu příslušnou pozici v navigátoru.
+Synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Obecná funkce pro všechny entity. Funguje všude včetně pomocných evidencí. Je užitečná v případě, kdy má uživatel otevřeno více detailů v záložkách. Pohyb po ostatních záložkách v tabulce (mimo "Záznamy") automaticky nevyvolává synchronizaci navigátoru a tabulky. Pokud chce uživatel vědět, kde je entita zařazena, vyvolá synchronizaci pomocí této funkce. Ta pak ukáže např. záznam ze záložky "Výběr" v záložce "Záznamy" a k němu příslušnou pozici v navigátoru.
 
 ##### Zobrazit v tematické DB
 
-Synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Navigátor se zobrazí režimu zobrazení Tematické databáze (ukáže jeho zařazení v hierarchii tematické databáze - v její případné kapitole).
+Synchronizuje pozici navigátoru a tabulky (záložku "Záznamy") vůči právě zobrazenému detailu. Navigátor se zobrazí v režimu zobrazení Tematické databáze (ukáže jeho zařazení v hierarchii tematické databáze - v její případné kapitole).
 
 -------------------
 #### ![proarchiv_gui_toolbar_presun](img/proarchiv_gui_toolbar_presun.png) [Kopírování / Přesun](manual_proarchiv.md#57-kopirovani-presuny)
@@ -529,7 +529,7 @@ Nabídka pomocných funkcí a nastavení:
 
 - Odhlásit - dojde k odhlášení z aplikace
 - <u>Zobrazit zdrojová data</u> - u původních záznamů zobrazí jejich data v původní struktuře a ve stavu, který byl dostupný při importu do aplikace ProArchiv. Nemusí být dostupné pro všechny databáze.
-- <u>[Uživatelské nastavení aplikace](manual_proarchiv.md#5x1-uzivatelske-nastaveni-aplikace)</u> - umožnuje definovat počet sloupců při zobrazení detailu (výchozí počet = 5) nebo doladit řazení polí či jejich skrývání.
+- <u>[Uživatelské nastavení aplikace](manual_proarchiv.md#5x1-uzivatelske-nastaveni-aplikace)</u> - umožňuje definovat počet sloupců při zobrazení detailu (výchozí počet = 5) nebo doladit řazení polí či jejich skrývání.
 - [Seznam úloh](manual_proarchiv.md#5131-seznam-uloh)
 - [Zobrazení logů](manual_proarchiv.md#521-zobrazeni-logu)
 - Vykazování
@@ -541,7 +541,7 @@ Nabídka pomocných funkcí a nastavení:
 
 #### ![proarchiv_gui_toolbar_help](img/proarchiv_gui_toolbar_help.png) Nápověda
 
-- Otevře nápovědu ve vedlejší záložce prohlížeče. (Při prvním spuštění: Nutno povolit a zapamatovat otevíraní vyskakovacích oken z domény aplikace).
+- Otevře nápovědu ve vedlejší záložce prohlížeče. (Při prvním spuštění: Nutno povolit a zapamatovat otevírání vyskakovacích oken z domény aplikace).
 
 ### 4.5 Navigátor
 
@@ -643,21 +643,21 @@ Po provedení nějaké uživatelské funkce (např. Přesunu, Validovat hierarch
 
 V této záložce se shromažďují všechny záznamy příloh napříč celou aplikací, které uživatel přidal do výběru jednotlivě nebo pomocí funkce Rozšířený výběr.
 
-Každý nalezený záznam přílohy je zobrazen v kontextu záznamu jednotky popisu, ke které je připojen. Ve výpisu tak existuji sloupce:
+Každý nalezený záznam přílohy je zobrazen v kontextu záznamu jednotky popisu, ke které je připojen. Ve výpisu tak existují sloupce:
 
-- *Typ záznamu* - typ, respektive úroveň záznamu jednotky popis formou piktogramu
-- *Kategorie* - kategorie záznamu jednoty popisu formou piktogramu
+- *Typ záznamu* - typ, respektive úroveň záznamu jednotky popisu formou piktogramu
+- *Kategorie* - kategorie záznamu jednotky popisu formou piktogramu
 - *Identifikace záznamu* - základní identifikace záznamu jednotky popisu
 - *Popis záznamu* - displayName záznamu jednotky popisu
 - *Popis přílohy* - popis přílohy z vlastnosti přílohy
-- *Typ* - MIME typ přílohy, tedy typ internetového media (např. image/jpeg pro "obrázky", application/pdf pro pdf soubory)
+- *Typ* - MIME typ přílohy, tedy typ internetového média (např. image/jpeg pro "obrázky", application/pdf pro pdf soubory)
 - *Pořadí přílohy* - pořadové číslo přílohy v rámci záznamu jednotky popisu
 
 !!! tip "Tip"
 
     Kliknutím na položku/řádek z výběru se v Detailu zobrazí záložka [Přílohy](manual_proarchiv.md#473-prilohy) s přesným zacílením/výběrem této konkrétní přílohy.
     
-    Pomocí funkce [Synchronizovat navigátor](manual_proarchiv.md#synchronizovat-navigator) se dostane přepnete do záložky Záznamy na pozici záznamu jednotky popisu, ke kterému je vybraný záznam přílohy připojen.
+    Pomocí funkce [Synchronizovat navigátor](manual_proarchiv.md#synchronizovat-navigator) se přepnete do záložky Záznamy na pozici záznamu jednotky popisu, ke kterému je vybraný záznam přílohy připojen.
 
 ##### 4.6.5.1 Funkce spojené se záložkou Výběr příloh
 
@@ -673,7 +673,7 @@ Zobrazení všech dostupných strukturovaných informací k zobrazenému záznam
 
 #### 4.7.1 Detailní popis
 
-Zobrazuje kompletní nabídku polí (prvků popisu), které jsou pro danou kategorii (příp. podkategorii) záznamu v kombinaci s pravidly a typem pomůcky nastavená jako výchozí.
+Zobrazuje kompletní nabídku polí (prvků popisu), které jsou pro danou kategorii (příp. podkategorii) záznamu v kombinaci s pravidly a typem pomůcky nastaveny jako výchozí.
 
 #### 4.7.2 Ostatní pole
 
@@ -695,11 +695,11 @@ Nezobrazuje se jako záložka, ale jako plovoucí okno.
 
 je určena pro klienty, kteří <u>nepoužívají modul pro správu přístupových bodů</u>. Zobrazuje:
 
-1) všechny "zděděné" přístupové body s horních úrovní přímé hierarchie (šedě podbarveno) - bez možnosti editace
+1) všechny "zděděné" přístupové body z horních úrovní přímé hierarchie (šedě podbarveno) - bez možnosti editace
 
 2) všechny výchozí role přístupových bodů (zeleně podbarveno) + ty, které uživatel přidal (bílé podbarveno) - editace
 
-Okno se otevírá pomocí ikony v navigační liště. Lze měnit jeho rozměry a pozici. Okno zůstává zobrazeno tak dlouho, dokud ho uživatel nezavře. Při dalším otevření si pamatuje předchozí pozici. Hodnoty v okně se automaticky synchronizuji s právě zobrazeným záznamem.
+Okno se otevírá pomocí ikony v navigační liště. Lze měnit jeho rozměry a pozici. Okno zůstává zobrazeno tak dlouho, dokud ho uživatel nezavře. Při dalším otevření si pamatuje předchozí pozici. Hodnoty v okně se automaticky synchronizují s právě zobrazeným záznamem.
 
 ##### Okno Napojené přístupové body - nová verze 
 
@@ -739,7 +739,7 @@ Výčet položek je možno filtrovat:
 
 **Role k napojení** - zobrazuje výčet doposud nepoužitých možných rolí daných administrátorským nastavením pro danou kombinaci kategorie, úrovně a pravidel.
 
-**Funkční tlačítka** pro vytváření a editaci vazeb na přístupové body jsou přístupné jen z výchozí záložky Napojené role. Jejich použití ke vázáno na aktivní režim editace.
+**Funkční tlačítka** pro vytváření a editaci vazeb na přístupové body jsou přístupné jen z výchozí záložky Napojené role. Jejich použití je vázáno na aktivní režim editace.
 
 Tlačítko <u>Přidat</u> zobrazí Editor napojení PB:
 
@@ -747,9 +747,9 @@ Tlačítko <u>Přidat</u> zobrazí Editor napojení PB:
 
 Zde je možno vybrat roli ze seznamu možných rolí daných administrátorským nastavením pro danou kombinaci kategorie, úrovně a pravidel. Filtr rolí slouží pro možnou filtraci nabídky dle nastavené validace (všechny = kompletní nabídka dle nastavení / [validované upozorněním](manual_proarchiv.md#3212-validace-formou-upozorneni) / [validované](manual_proarchiv.md#3211-striktni-validace) = striktní upozornění).
 
-Tlačítko <u>Upravit</u> umožnuje editovat již vytvořenou vazbu.
+Tlačítko <u>Upravit</u> umožňuje editovat již vytvořenou vazbu.
 
-Tlačítko <u>Detail PB</u> otevře modální okno s textovým souhrnným zobrazením přístupového bodu a případným prolinkem do modulu pro správu přístupových bodu k možné editaci připojeného přístupového bodu.
+Tlačítko <u>Detail PB</u> otevře modální okno s textovým souhrnným zobrazením přístupového bodu a případným prolinkem do modulu pro správu přístupových bodů k možné editaci připojeného přístupového bodu.
 
 Tlačítko <u>Odstranit</u> zruší vytvořenou vazbu.
 
@@ -764,7 +764,7 @@ Speciální tabulkové zobrazení vybraných záznamů úrovně složka, jednotl
 
 Sloupce tabulky odpovídají jednotlivým polím. Nastavení sloupců může uživatel [ovlivnit](manual_proarchiv.md#482-nastaveni-zobrazeni-tabulkoveho-pohledu).
 
-Cílem bylo umožnit uživatelům komplexnější pohled na vybraná data, který nemohla poskytnou klasická tabulka v hlavním okně aplikace.
+Cílem bylo umožnit uživatelům komplexnější pohled na vybraná data, který nemohla poskytnout klasická tabulka v hlavním okně aplikace.
 
 Aktivuje se tlačítkem ![proarchiv_gui_toolbar_tabulkovy_pohled](img/proarchiv_gui_toolbar_tabulkovy_pohled.png) z lišty nástrojů, poté se otevře jako další záložka v okně prohlížeče.
 
@@ -774,7 +774,7 @@ Aktivuje se tlačítkem ![proarchiv_gui_toolbar_tabulkovy_pohled](img/proarchiv_
 
 ##### ![tabulkovy-pohled_toolbar-synchronizace](img/tabulkovy-pohled_toolbar-synchronizace.png) Automaticky synchronizovat detail
 
-- pokud je aktivní, synchronizuje automaticky zobrazení vybraného záznamů z tabulkového pohledu v hlavním okně aplikace, kde pak lze uplatnit jeho editaci
+- pokud je aktivní, synchronizuje automaticky zobrazení vybraného záznamu z tabulkového pohledu v hlavním okně aplikace, kde pak lze uplatnit jeho editaci
 
 ------
 
@@ -842,7 +842,7 @@ Každá kategorie záznamu má ve výchozím stavu určeno základní nastavení
 
 Pro efektivnější práci se doporučuje vytvořit si vlastní nastavení:
 
-Pomoci tlačítka ***Nové nastavení*** založit a pojmenovat uživatelské nastavení.
+Pomocí tlačítka ***Nové nastavení*** založit a pojmenovat uživatelské nastavení.
 
 Pomocí tlačítka ***Zákl. nastavení*** lze načíst základní nastavení, aby uživatel nemusel pracně vybírat vše od nuly.
 
@@ -852,7 +852,7 @@ V levém sloupci je kompletní nabídka polí pro danou kategorii. Lze si pomoci
 
     V nastavení lze použít i metodu **drag and drop** (táhni a pusť), kdy uživatel „uchopí“ pomocí levého tlačítka myši prvek popisu a přesune ho „přetažením“ na jiné místo.
 
-V sekci vybraných polí je možno prvky popisu pozicovat nahoru/dolu: směr shora dolů odpovídá pořadí sloupců zleva doprava. Při pozicování lze taktéž využít funkce "drag and drop".
+V sekci vybraných polí je možno prvky popisu pozicovat nahoru/dolů: směr shora dolů odpovídá pořadí sloupců zleva doprava. Při pozicování lze taktéž využít funkce "drag and drop".
 
 U každého prvku popisu lze nastavit **typ řazení** (dle charakteru dat):
 
@@ -882,7 +882,7 @@ Tlačítko ***Vyčistit*** kompletně vymaže nastavená pole!
 
 ------
 
-Tlačítko ***Přejmenovat*** otevře dialog pro zápis nového názvu vybraného uživatelské nastavení.
+Tlačítko ***Přejmenovat*** otevře dialog pro zápis nového názvu vybraného uživatelského nastavení.
 
 Tlačítko ***Odstranit nastavení*** odstraní vybrané uživatelské nastavení!
 
@@ -909,7 +909,7 @@ Provádí se volbou "Přidat všechny podřízené záznamy do tabulkového výb
 
 !!! tip "Tip"
 
-    Pokud zvolíte univerzální kategorii "Všechny kategorie" a přidáte všechny podřízené záznamy ze série typu pomůcka, objeví se vám v tabulce kopletní pomůcka včetně sérií!
+    Pokud zvolíte univerzální kategorii "Všechny kategorie" a přidáte všechny podřízené záznamy ze série typu pomůcka, objeví se vám v tabulce kompletní pomůcka včetně sérií!
 
 ##### 4.8.3.1 Z tabulky
 
@@ -930,7 +930,7 @@ Pojmem "záznam" chápeme prvek popisu, entitu.
 
 #### 5.1.1 Vytváření záznamů - společné postupy
 
-V rámci hierarchických úrovní se jednotlivé záznamy vytvářejí vždy vůči pozici **vybraného**, již zapsaného záznamu a to přes jeho kontextovou nabídku - volba **Vytvořit...** Kontextová nabídka se otevře po kliku pravým tlačítkem myši. K dispozici jsou následující možnosti:
+V rámci hierarchických úrovní se jednotlivé záznamy vytvářejí vždy vůči pozici **vybraného**, již zapsaného záznamu, a to přes jeho kontextovou nabídku - volba **Vytvořit...** Kontextová nabídka se otevře po kliku pravým tlačítkem myši. K dispozici jsou následující možnosti:
 
 - ***Vnořit*** - nový záznam bude vnořen do vybraného záznamu, a to na konec vnořených.
 - ***Před*** - nový záznam bude vytvořen na stejné úrovni před vybraný záznam.
@@ -938,7 +938,7 @@ V rámci hierarchických úrovní se jednotlivé záznamy vytvářejí vždy vů
 
 Možnosti jsou aktivní / neaktivní dle logiky hierarchického uspořádání a ostatních kritérií.
 
-Tento princip vkládání funguje stejně jak navigátoru, tak v tabulce. V navigátoru se vytvářejí záznamy úrovně *série typu pomůcka* a *série* (archivní soubory), či *kapitola* (tematické databáze). V tabulce pak úrovně *složka*, *jednotlivost* a *část jednotlivosti*.
+Tento princip vkládání funguje stejně jak v navigátoru, tak v tabulce. V navigátoru se vytvářejí záznamy úrovně *série typu pomůcka* a *série* (archivní soubory), či *kapitola* (tematické databáze). V tabulce pak úrovně *složka*, *jednotlivost* a *část jednotlivosti*.
 
 ![5-1_vytvareni_1](img/5-1_vytvareni_1.png) 
 
@@ -970,7 +970,7 @@ Pokud je v sérii vytvářen první záznam úrovně složka nebo jednotlivost, 
 
 #### 5.1.5 Vytvoření kapitoly tematické databáze
 
-Kapitoly se vytvářejí pro pomocné vnitřní členění – seskupování záznamu tematické databáze do větších množin a podmnožin.
+Kapitoly se vytvářejí pro pomocné vnitřní členění – seskupování záznamů tematické databáze do větších množin a podmnožin.
 
 1. vybraný záznam: hlavní uzel tematické databáze nebo kapitola v navigátoru
 2. volba ***Vytvořit kapitolu*** z kontextového menu (pravé tlačítko myši)
@@ -984,15 +984,15 @@ Kapitoly se vytvářejí pro pomocné vnitřní členění – seskupování zá
 
 #### 5.1.7 Vytváření záznamů v pomocné evidenci
 
-Vytváření záznamů ze strany záložky Pomocné evidence aktuálně umožněno jen administrátorům (přidávání číselníkových hodnot).
+Vytváření záznamů ze strany záložky Pomocné evidence je aktuálně umožněno jen administrátorům (přidávání číselníkových hodnot).
 
 #### 5.1.8 Vytváření záznamů: "Nový další záznam"
 
-Vytvoří nový prázdný záznam vždy za poslední vytvořený záznam bez ohledu, který záznam je zobrazen v detailu. Záznam je vytvořen ve stejné kategorii (případně podkategorii) a se stejnou úrovní. **Záznam je prázdný - bez vyplnění**.
+Vytvoří nový prázdný záznam vždy za poslední vytvořený záznam bez ohledu na to, který záznam je zobrazen v detailu. Záznam je vytvořen ve stejné kategorii (případně podkategorii) a se stejnou úrovní. **Záznam je prázdný - bez vyplnění**.
 
 #### 5.1.9 Vytváření záznamů: "Nový záznam dle předešlého"
 
-Vytvoří nový prázdný záznam vždy za poslední vytvořený záznam bez ohledu, který záznam je zobrazen v detailu. Záznam je vytvořen ve stejné kategorii (případně podkategorii) a se stejnou úrovní a **obsahuje i stejně vyplněná pole, jako poslední vytvořený záznam**.
+Vytvoří nový prázdný záznam vždy za poslední vytvořený záznam bez ohledu na to, který záznam je zobrazen v detailu. Záznam je vytvořen ve stejné kategorii (případně podkategorii) a se stejnou úrovní a **obsahuje i stejně vyplněná pole jako poslední vytvořený záznam**.
 
 ### 5.2 Odstraňování záznamů (prvků popisu, entit)
 
@@ -1006,7 +1006,7 @@ Vzhledem k tomu, že kategorie záznamu patří k základním stavebním kamenů
 
 !!! tip "Tip"
 
-    Pokud by přece jen vyvstala potřeba změnu kategorie provést, nezbývá uživateli nic jiného, než založit nový záznam požadované kategorie a ten původní tam přepsat (Ctrl+C a Ctrl+V v rámci jednotlivých polí).
+    Pokud by přece jen vyvstala potřeba změnu kategorie provést, nezbývá uživateli nic jiného než založit nový záznam požadované kategorie a ten původní tam přepsat (Ctrl+C a Ctrl+V v rámci jednotlivých polí).
 
 ##### 5.3.1.1 Změna kategorie původní inv./kat. záznam
 
@@ -1016,7 +1016,7 @@ Z důvodů potřeb reinventarizace lze uplatnit změnu kategorie pouze u "původ
 
 Změna podkategorie je možná, pokud daná kategorie volbu podkategorií uplatňuje. Aplikuje se stejnojmennou funkcí z položky Různé funkce v liště nástrojů. Je potřeba vybrat, zda se změna bude provádět nad aktuálním záznamem (Změna podkategorie > Aktuální záznam) nebo nad všemi záznamy ve výběru (Změna podkategorie > Nad výběrem).
 
-Pokud by došlo k tomu, že nově zvolená podkategorie neobsahuje ve výchozím stavu (v Detailním popisu) pole, která byla původně vyplněna, budou tato pole po změně zobrazena záložce Ostatní pole. V ideálním případě by pak měly být jejich hodnoty přeneseny do polí v Detailním popisu nebo vymazány.
+Pokud by došlo k tomu, že nově zvolená podkategorie neobsahuje ve výchozím stavu (v Detailním popisu) pole, která byla původně vyplněna, budou tato pole po změně zobrazena v záložce Ostatní pole. V ideálním případě by pak měly být jejich hodnoty přeneseny do polí v Detailním popisu nebo vymazány.
 
 Po změně podkategorie je rovněž potřeba upravit role přístupových bodů v okně Napojené přístupové body dle platné metodiky. 
 
@@ -1024,7 +1024,7 @@ Změna podkategorie je v režimu zobrazení "Tematické databáze" umožněna po
 
 ### 5.4 Změna úrovně popisu
 
-Změna úrovně popisu je umožněna proto, aby bylo možno opravit záznamy se špatně určenou úrovní při založení. Např. v tematické databázi byl záznam fotografie založen jako jednotlivost. Ve skutečnosti se jedná  o část jednotlivosti, neboť daná fotografie je nalepená v kronice. Pokud bychom chtěli záznam fotografie (jednotlivost) vnořit při přesunu do kroniky (jednotlivost), systém nám to neumožní, neboť to odporuje principům hierarchického uspořádání. Je tedy potřeba nejprve fotografii změnit úroveň z jednotlivosti na část jednotlivosti. Poté již přesun zafunguje.
+Změna úrovně popisu je umožněna proto, aby bylo možno opravit záznamy se špatně určenou úrovní při založení. Např. v tematické databázi byl záznam fotografie založen jako jednotlivost. Ve skutečnosti se jedná o část jednotlivosti, neboť daná fotografie je nalepená v kronice. Pokud bychom chtěli záznam fotografie (jednotlivost) vnořit při přesunu do kroniky (jednotlivost), systém nám to neumožní, neboť to odporuje principům hierarchického uspořádání. Je tedy potřeba nejprve fotografii změnit úroveň z jednotlivosti na část jednotlivosti. Poté již přesun zafunguje.
 
 Změna úrovně popisu se aplikuje stejnojmennou funkcí z položky Různé funkce v liště nástrojů. Je potřeba vybrat, zda se změna bude provádět nad aktuálním záznamem (Změna úrovně popisu > Aktuální záznam) nebo nad všemi záznamy ve výběru (Změna úrovně popisu > Nad výběrem).
 
@@ -1064,7 +1064,7 @@ Hlavní ovládací prvky jsou umístěny v [Liště nástrojů - Výběr](manual
 
 [**<u>Rozšířený výběr</u>**](manual_proarchiv.md#563-rozsireny-vyber) - otevře okno pro zadání výběrových kritérií.
 
-[**Najdi a nahraď**](manual_proarchiv.md#566-najdi-a-nahrad-hromadne-zmeny) - otevře okno pro zadání kritérii. (Jen v režimu "zápis")
+[**Najdi a nahraď**](manual_proarchiv.md#566-najdi-a-nahrad-hromadne-zmeny) - otevře okno pro zadání kritérií. (Jen v režimu "zápis".)
 
 Výběr/nahrazování přístupových bodů - otevře modální okno pro prohledávání přístupových bodů, zjišťování jejich vazeb na archivní popis, nahrazování přístupových bodů apod.
 
@@ -1082,7 +1082,7 @@ Jde o základní / nejjednodušší formu hledání:
 
 -   zápis hledaného textu do okna vpravo nahoře
 -   spuštění hledání – klávesa Enter
--   zobrazení vyhledaných záznamu v tabulce v záložce Výběr
+-   zobrazení vyhledaných záznamů v tabulce v záložce Výběr
 
 **Tato funkce nezohledňuje pozici v navigátoru, tzn. prohledává veškerá data.** 
 
@@ -1094,7 +1094,7 @@ Jde o rozšířenou / sofistikovanou formu hledání. Volbou Výběr / Rozšíř
 
 ![rozsireny_vyber](img/rozsireny_vyber.png)
 
-Konfigurace podmínek rozšířeného výběru má svojí přísnou logiku a je poměrně složitá (vyžaduje přesné logické zadávání). Věnujte proto zvýšenou pozornost následujícím vysvětlením a příkladům. 
+Konfigurace podmínek rozšířeného výběru má svou přísnou logiku a je poměrně složitá (vyžaduje přesné logické zadávání). Věnujte proto zvýšenou pozornost následujícím vysvětlením a příkladům. 
 
 !!! tip "Tip"
 
@@ -1102,14 +1102,14 @@ Konfigurace podmínek rozšířeného výběru má svojí přísnou logiku a je 
 
 ##### Co znamenají jednotlivé podmínky rozšířeného výběru?
 
-*Pojmenování sloupců výběru vychází z primárního většinového užití (pohledávání archivního popisu). Pokud si však zvolíme jiné typy prohledávaných evidencí (sekundární užití), dostanou položky trochu jiný význam (např. úroveň = ostatní druhy záznamů >> "kategorie" pak musíme chápat spíše jako položky podrobnějšího členění: uživatelé, číselníky apod.).* 
+*Pojmenování sloupců výběru vychází z primárního většinového užití (prohledávání archivního popisu). Pokud si však zvolíme jiné typy prohledávaných evidencí (sekundární užití), dostanou položky trochu jiný význam (např. úroveň = ostatní druhy záznamů >> "kategorie" pak musíme chápat spíše jako položky podrobnějšího členění: uživatelé, číselníky apod.).* 
 
 Jednotlivá kritéria výběru jsou rozdělena následovně:
 
 ###### Logický operátor (první sloupec)
 
-- ***Musí splňovat*** - výchozí hodnota; přísná podmínka. V případě vícenásobného použití (více řádku výběru) to bude mít za následek, že nalezené výsledky musí splňovat vždy každou z těchto podmínek. Analogicky se dá tento operátor přirovnat k *A zároveň*. 
-- ***Může splňovat*** - méně přísná podmínka. Hraje roli de facto pouze v případech, kdy všechny násobné podmínky (řádky výběru) obsahují tuto podmínku. Budo to mít za následek, že nalezené výsledky budou splňovat alespoň jednu z podmínek. Pokud se tato podmínka vyskytuje na jedné úrovni s podmínkou *Musí splňovat*, stává se irelevantní. Funkční použití "musí..." zároveň s "může splňovat" - viz Vnořená podmínka. Analogicky se dá tento operátor přirovnat k *Nebo*.
+- ***Musí splňovat*** - výchozí hodnota; přísná podmínka. V případě vícenásobného použití (více řádků výběru) to bude mít za následek, že nalezené výsledky musí splňovat vždy každou z těchto podmínek. Analogicky se dá tento operátor přirovnat k *A zároveň*. 
+- ***Může splňovat*** - méně přísná podmínka. Hraje roli de facto pouze v případech, kdy všechny násobné podmínky (řádky výběru) obsahují tuto podmínku. Bude to mít za následek, že nalezené výsledky budou splňovat alespoň jednu z podmínek. Pokud se tato podmínka vyskytuje na jedné úrovni s podmínkou *Musí splňovat*, stává se irelevantní. Funkční použití "musí..." zároveň s "může splňovat" - viz Vnořená podmínka. Analogicky se dá tento operátor přirovnat k *Nebo*.
 - ***Nesmí splňovat*** - přísná podmínka.
 
 Tyto hodnoty lze kombinovat, poté určují, v jaké logické podmínce jsou vůči sobě dílčí kombinace (tzn. řádky) výběru, pokud je výběr definován více než jednou kombinací.
@@ -1120,33 +1120,33 @@ Tyto hodnoty lze kombinovat, poté určují, v jaké logické podmínce jsou vů
 
 **Vnořená podmínka**
 
-Použití logických operátorů na stejné úrovni může byt někdy limitující. 
+Použití logických operátorů na stejné úrovni může být někdy limitující. 
 
 Např. pokud <u>budeme chtít dohledat fotografie, které v popisu obsahují výraz "Frýdek" **a zároveň** mají nastavenu barevnost na "barevné provedení" **nebo** "kolorováno"</u>, nesmíme podmínky specifikovat následovně: 
 
 ![rozsireny_vyber-vnorena_podminka-priklad1-spatne](img/rozsireny_vyber-vnorena_podminka-priklad1-spatne.png)
 
-Nebyly nalezeny žádné záznamy, neboť jsme definovali nad jedním polem "Barevnost" hledání dvou různých hodnot, navíc všechny podmínky jako "musí splňovat". Pozn.: Teoreticky by to mohlo najít jen ty záznamy, které obsahuji zároveň fotografie kolorované i barevné. Nikoli tedy ty, které jsou buď kolorované, nebo barevné.
+Nebyly nalezeny žádné záznamy, neboť jsme definovali nad jedním polem "Barevnost" hledání dvou různých hodnot, navíc všechny podmínky jako "musí splňovat". Pozn.: Teoreticky by to mohlo najít jen ty záznamy, které obsahují zároveň fotografie kolorované i barevné. Nikoli tedy ty, které jsou buď kolorované, nebo barevné.
 
 V případě, že bychom na 1. řádku uplatnili "musí splňovat" a na 2. a 3. "může splňovat", nalezlo by to všechny fotografie, které v popisu obsahují "Frýdek", a to nejen kolorované a barevné, ale i černobílé, tónované atd. Viz výše - irelevantnost podmínky "může splňovat".
 
 Jak tedy správně dotaz formulovat? Použijeme tzv. **vnořenou podmínku**. Výběr vnořené podmínky je umístěn do kolonky *Úrovně*.
 
-V standardním okně Rozšířený výběr nastavíme pouze 1. podmínku (... pole Obsah obsahuje Frýdek...) a jako 2. podmínku zvolíme Vnořená podmínka.
+Ve standardním okně Rozšířený výběr nastavíme pouze 1. podmínku (... pole Obsah obsahuje Frýdek...) a jako 2. podmínku zvolíme Vnořená podmínka.
 
 ![rozsireny_vyber-vnorena_podminka-priklad1-ok1](img/rozsireny_vyber-vnorena_podminka-priklad1-ok1.png)
 
-Pomocí tlačítka Upravit vnořená podmínku ji nadefinujeme: pole Barevnost je přesně "barevné provedení" a "kolorováno" - obě podmínky jako "může splňovat". 
+Pomocí tlačítka Upravit vnořenou podmínku ji nadefinujeme: pole Barevnost je přesně "barevné provedení" a "kolorováno" - obě podmínky jako "může splňovat". 
 
 ![rozsireny_vyber-vnorena_podminka-priklad1-ok2](img/rozsireny_vyber-vnorena_podminka-priklad1-ok2.png)
 
 ###### Úroveň 
 
-Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evidence), ve které je hledáno. Výběr úrovně ovlivňuje nabídku dalších kritérii. 
+Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evidence), ve které je hledáno. Výběr úrovně ovlivňuje nabídku dalších kritérií. 
 
-- ***Prázdna hodnota*** - primárně umožňuje definovat pouze hledaný řetězec ve sloupci Hodnota. Jde de facto o stejný fulltextový způsob hledání jako u [5.6.2 Jednoduchý výběr z lišty nástrojů](manual_proarchiv.md#562-jednoduchy-vyber-z-listy-nastroju), avšak s tou zásadní výhodou, že zde lze **zohlednit konkrétní archiv nebo pozici navigátoru** (viz níže + příklad č. [1](manual_proarchiv.md#priklad-c-1)).
+- ***Prázdná hodnota*** - primárně umožňuje definovat pouze hledaný řetězec ve sloupci Hodnota. Jde de facto o stejný fulltextový způsob hledání jako u [5.6.2 Jednoduchý výběr z lišty nástrojů](manual_proarchiv.md#562-jednoduchy-vyber-z-listy-nastroju), avšak s tou zásadní výhodou, že zde lze **zohlednit konkrétní archiv nebo pozici navigátoru** (viz níže + příklad č. [1](manual_proarchiv.md#priklad-c-1)).
 
-    Sekundárně lze použít i sloupec Kontext, který v tomto případě znamená *<u>výběr třídy přístupového bodu</u>* a v kombinaci s hodnotou, *kterou tvoří přístupový bod, prohledá a  vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. [7](manual_proarchiv.md#priklad-c-7))*
+    Sekundárně lze použít i sloupec Kontext, který v tomto případě znamená *<u>výběr třídy přístupového bodu</u>* a v kombinaci s hodnotou, *kterou tvoří přístupový bod, prohledá a vrátí záznamy, ke kterým je přístupový bod napojen (viz příklad č. [7](manual_proarchiv.md#priklad-c-7))*
 
 - ***Soubor - Série - Série NEZAŘAZENO - Složka/jednotlivost/část jedn.*** - konkrétní úroveň archivního popisu.
 
@@ -1164,9 +1164,9 @@ Umožňuje specifikovat úroveň archivního popisu (sekundárně jiný typ evid
 
 - ***Vnořená podmínka*** - viz výše.
 
-- ***Uložený výběr*** - umožní načíst uložený výběr. Další řádky (výběrová kritéria) pak upřesňují hledání jen v záznamech, které obsahuje uložený výběr. Platí zde omezující podmínka: pokud je použito "musí splňovat" pak úroveň v dalších řádcích se musí shodovat s úrovní záznamů v uloženém výběru. Např. pokud uložený výběr obsahuje jen záznamy úrovně série a další výběrové kritérium počítá s úrovní "složka/jednotlivost", nebude logicky nic nalezeno. V tomto případě se musí použít speciální úroveň "Je v podstromech". Funkční užití - viz příklad č. [11](manual_proarchiv.md#priklad-c-11).
+- ***Uložený výběr*** - umožní načíst uložený výběr. Další řádky (výběrová kritéria) pak upřesňují hledání jen v záznamech, které obsahuje uložený výběr. Platí zde omezující podmínka: pokud je použito "musí splňovat", pak úroveň v dalších řádcích se musí shodovat s úrovní záznamů v uloženém výběru. Např. pokud uložený výběr obsahuje jen záznamy úrovně série a další výběrové kritérium počítá s úrovní "složka/jednotlivost", nebude logicky nic nalezeno. V tomto případě se musí použít speciální úroveň "Je v podstromech". Funkční užití - viz příklad č. [11](manual_proarchiv.md#priklad-c-11).
 
-- ***Je v podstromech*** - speciální úroveň prohledávání, která vznikne díky specifikaci přes "Upřesňující podmínku" (viz příklad č. [12](manual_proarchiv.md#priklad-c-12)). Její použití vygeneruje omezenou množinu vyhledaných záznamů, **v jejich podzáznamech (podstromech)** se pak následně hledá dle dalších řádků / výběrových podmínek. Kromě upřesňující podmínky lze použít i "Je ve výběru" - pak hledá jen v podzáznamech (podstromech) záznamů, které již jsou fakticky ve výběru. **Pozor! Je třeba si uvědomit, že to nehledá přímo v záznamech definovaných upřesňující podmínkou či načtených z výběru, ale až v jejich podzáznamech (potomcích v hierarchii) - nelze to tedy uplatnit na "plochou" množinu záznamu bez hierarchie.**
+- ***Je v podstromech*** - speciální úroveň prohledávání, která vznikne díky specifikaci přes "Upřesňující podmínku" (viz příklad č. [12](manual_proarchiv.md#priklad-c-12)). Její použití vygeneruje omezenou množinu vyhledaných záznamů, **v jejich podzáznamech (podstromech)** se pak následně hledá dle dalších řádků / výběrových podmínek. Kromě upřesňující podmínky lze použít i "Je ve výběru" - pak hledá jen v podzáznamech (podstromech) záznamů, které již jsou fakticky ve výběru. **Pozor! Je třeba si uvědomit, že to nehledá přímo v záznamech definovaných upřesňující podmínkou či načtených z výběru, ale až v jejich podzáznamech (potomcích v hierarchii) - nelze to tedy uplatnit na "plochou" množinu záznamů bez hierarchie.**
 
 - ***Má přílohu*** - umožňuje vyhledat záznamy, které obsahují/neobsahují přílohu/y podle specifikace vnořené podmínky. Vnořená podmínka je tvořena buď podmínkou (1) "Přílohy" (možné omezení v rámci implementace viz výše), nebo (2) "Příloha patří záznamu". V případě (1) lze vydefinovat filtr dle vlastností samotných příloh. V případě (2) lze vydefinovat filtr pro všechny typy záznamů kromě příloh.  Obojí lze samozřejmě kombinovat. Funkční užití - viz příklad č. [17a/b/c](manual_proarchiv.md#priklad-c-17).
 
@@ -1178,15 +1178,15 @@ Volba usměrňuje další nabízené podmínky. Aktivní je jen v případě, kd
 
 - *složka/jednotlivost/část jednotlivosti* - zde primárně pro výběr ze všech kategorií záznamů (viz příklad č. [4](manual_proarchiv.md#priklad-c-4)). Pokud není při volbě této úrovně vybrána žádná kategorie, v následující položce "pole" se zobrazí jen pole/prvky popisu společné pro všechny kategorie. Pokud je zde vybrána volba **Všechny role**, v následující položce "pole" se zobrazí všechny dostupné role pro napojení přístupových bodů z plovoucího okna Napojené přístupové body;
 - *kapitoly tematických databází* - zde primárně pro výběr ze všech kategorií záznamů tematických databází;
-- *ostatní druhy záznamů* - pro výběr jednotlivých množiny hodnot pomocných evidencí.
+- *ostatní druhy záznamů* - pro výběr jednotlivých množin hodnot pomocných evidencí.
 
 ###### Pole
 
-Nabídka polí, která jsou aktuální pro zvolenou úroveň a případnou kategorii. Kromě popisných formulářových polí se v této nabídce vykytují **i role** používané při zápisu přístupových bodů (viz příklad č. [5](manual_proarchiv.md#priklad-c-5)).
+Nabídka polí, která jsou aktuální pro zvolenou úroveň a případnou kategorii. Kromě popisných formulářových polí se v této nabídce vyskytují **i role** používané při zápisu přístupových bodů (viz příklad č. [5](manual_proarchiv.md#priklad-c-5)).
 
 !!! warning "Varování"
 
-    Nabídka polí je přesná a korektní v případě, že je zvolena *úroveň* = "soubor" nebo "série". U *úrovně* = "složka, jednotlivost, část jedn." je nabídka přesná a korektní pouze pokud je zvolená nějaká *kategorie*. Pokud tomu tak není, jsou nabízena všechna obecná pole, která však nemusí být u všech záznamu uplatňována. Pokud např. u úrovně "složka, jednotlivost, část jedn." není vybrána *kategorie*, v nabídce polí se objevuje i pole Číslo pomůcky. Jeho prohledání ovšem vrátí nulový výsledek, neboť pole číslo pomůcky není u těchto úrovní uplatňováno (uplatňuje se pouze na sérii typu pomůcka). Jak hledat tedy hledat záznamy z konkrétní pomůcky? Viz příklad č. 2.
+    Nabídka polí je přesná a korektní v případě, že je zvolena *úroveň* = "soubor" nebo "série". U *úrovně* = "složka, jednotlivost, část jedn." je nabídka přesná a korektní pouze pokud je zvolena nějaká *kategorie*. Pokud tomu tak není, jsou nabízena všechna obecná pole, která však nemusí být u všech záznamů uplatňována. Pokud např. u úrovně "složka, jednotlivost, část jedn." není vybrána *kategorie*, v nabídce polí se objevuje i pole Číslo pomůcky. Jeho prohledání ovšem vrátí nulový výsledek, neboť pole číslo pomůcky není u těchto úrovní uplatňováno (uplatňuje se pouze na sérii typu pomůcka). Jak tedy hledat záznamy z konkrétní pomůcky? Viz příklad č. 2.
 
 ###### Kontext 
 
@@ -1214,15 +1214,15 @@ Slouží pro upřesnění způsobu hledání:
   | *Celé slovo*                   | Hledá jen celá slova, nikoli kořeny slov. Např. přesné číselné hodnoty (viz příklad č. [6](manual_proarchiv.md#priklad-c-6)). Vhodná volba pro hledání UUID obsahující nealfanumerické znaky (spojovníky). |
   | *Přesná shoda*                 | Celá hodnota pole musí být přesně shodná se zadaným hledaným textem, včetně velkých a malých písmen, diakritiky a mezer. Pozor! Nefunguje pro hledání UUID, neboť ten je indexován jiným způsobem. |
   | *Fráze*                        | Vyhledá hledaný řetězec, tak jak je napsaný. Např. přesné pořadí slov a jejich tvarů. Hlavně zohledňuje nealfanumerické znaky. Vhodná volba pro hledání UUID. |
-  | *Je nevyplněno*                | V kombinaci s logickým operátorem "musí splňovat" a konkrétním polem najde záznamy, které dané pole vyplněno nemají (viz příklad č. [8](manual_proarchiv.md#priklad-c-8)). Pokud ale použijeme operátor "nesmí splňovat" najde přesný opak - záznamy s vyplněným zvoleným polem (viz příklad č. [9](manual_proarchiv.md#priklad-c-9)). |
+  | *Je nevyplněno*                | V kombinaci s logickým operátorem "musí splňovat" a konkrétním polem najde záznamy, které dané pole vyplněno nemají (viz příklad č. [8](manual_proarchiv.md#priklad-c-8)). Pokud ale použijeme operátor "nesmí splňovat", najde přesný opak - záznamy s vyplněným zvoleným polem (viz příklad č. [9](manual_proarchiv.md#priklad-c-9)). |
 
 - U číselníkových polí je potřeba zvolit *Je přesně* + vybrat požadovanou číselníkovou hodnotu.
 
 - U polí pro zápis časových údajů nabízí:
 
-  *Časový rozsah* - hledá čistý časový údaj = nezohledňuje odhady. Hodnota hledaného výrazu se zapisuje dle platné syntaxe (použití // závorek je u této podmínky irelevantní). Např. po zadání "1950" a najde 1950 i /1950/ i 1945 - 1960 i /1945 - 1960/ apod. Pokud bychom zadali "/1950/", výsledek bude stejný (použití viz příklad č. [3](manual_proarchiv.md#priklad-c-3)).
+  *Časový rozsah* - hledá čistý časový údaj = nezohledňuje odhady. Hodnota hledaného výrazu se zapisuje dle platné syntaxe (použití // závorek je u této podmínky irelevantní). Např. po zadání "1950" najde 1950 i /1950/ i 1945 - 1960 i /1945 - 1960/ apod. Pokud bychom zadali "/1950/", výsledek bude stejný (použití viz příklad č. [3](manual_proarchiv.md#priklad-c-3)).
 
-  *Časový rozsah - zohledňovat odhady* - zohledňuje odhady. Hodnota hledaného výrazu se zapisuje dle platné syntaxe včetně použití // závorek (u této podmínky relevantní). Např. po zadání "1950" a najde 1950 a 1945 - 1960 nikoli /1950/ a /1945 - 1960/ apod. Pokud bychom zadali "/1950/", výsledek bude opačný.
+  *Časový rozsah - zohledňovat odhady* - zohledňuje odhady. Hodnota hledaného výrazu se zapisuje dle platné syntaxe včetně použití // závorek (u této podmínky relevantní). Např. po zadání "1950" najde 1950 a 1945 - 1960 nikoli /1950/ a /1945 - 1960/ apod. Pokud bychom zadali "/1950/", výsledek bude opačný.
 
   *Výraz* - hledá nevalidní výrazy mimo platnou syntaxi zápisu. Např. "s.d." apod.
 
@@ -1238,9 +1238,9 @@ Pro textový zápis hledaného výrazu; u číselníkových polí výběr z čí
 
 !!! warning "Upozornění"
 
-    **U textově zadávaných řetězců je si potřeba uvědomit, že vyhledávací mechanismus ne vždy zohlední nealfanumerické znaky** *(= znaky, které nejsou písmenem nebo číslem, např. tečka, čárka, lomítko, spojovník apod.)* U fulltextových dotazů (jednoduchý výběr z lišty nástrojů vpravo nahoře nebo "jednoduchý" rozšířený výběr z příkladu č. 1) je sice znak tečky a lomítka akceptován, ale v případě, kdy je již specifikováno kritérium "pole", pak již nikoli. Je pak potřeba specifikovat podmínku = Fráze nebo Celé slovo. **U vyhledávání řetězců s nealfanumerickými znaky je proto vždy, pokud je volba aktivní, doporučeno použít podmínku = Fráze nebo Celé slovo.**    
+    **U textově zadávaných řetězců je potřeba si uvědomit, že vyhledávací mechanismus ne vždy zohlední nealfanumerické znaky** *(= znaky, které nejsou písmenem nebo číslem, např. tečka, čárka, lomítko, spojovník apod.)* U fulltextových dotazů (jednoduchý výběr z lišty nástrojů vpravo nahoře nebo "jednoduchý" rozšířený výběr z příkladu č. 1) je sice znak tečky a lomítka akceptován, ale v případě, kdy je již specifikováno kritérium "pole", pak již nikoli. Je pak potřeba specifikovat podmínku = Fráze nebo Celé slovo. **U vyhledávání řetězců s nealfanumerickými znaky je proto vždy, pokud je volba aktivní, doporučeno použít podmínku = Fráze nebo Celé slovo.**    
 
-Pro pole, které se skládají s více prvků popis, např. Popis obsahu u matrik, se zde automaticky uplatňuje *upřesňující podmínka* (použití viz příklad č. [13](manual_proarchiv.md#priklad-c-13)).
+Pro pole, která se skládají z více prvků popisu, např. Popis obsahu u matrik, se zde automaticky uplatňuje *upřesňující podmínka* (použití viz příklad č. [13](manual_proarchiv.md#priklad-c-13)).
 
 U úrovní "Má přílohu" a  "Příloha patří záznamu" je zde volba "Upravit vnořenou podmínku" - definice vnořené podmínky viz výše.
 
@@ -1308,7 +1308,7 @@ Pokud neznám umístění pomůcky č. 491, provedu nejprve její hledání:
 Logický operátor = Musí splňovat; Úroveň = Série; pole = Číslo pomůcky; podmínka = Celé slovo; hodnota = 491 + archiv = fm
 ```
 
-Poté se postavím v navigátoru na uzlový bod pomůcky pokračuji v hledání již na úrovni = složka/jednotlivost...
+Poté se postavím v navigátoru na uzlový bod pomůcky a pokračuji v hledání již na úrovni = složka/jednotlivost...
 
 ![ozsireny_vyber-priklad2-fotografi](img/rozsireny_vyber-priklad2-fotografie.png)
 
@@ -1387,7 +1387,7 @@ Provedu následující hledání:
 ![rozsireny_vyber-priklad7](img/rozsireny_vyber-priklad7.png)
 
 ```
-Logický operátor = Musí splňovat; Úroveň = prázdná; kontext = Geografický objekt; podmínka = Je přesně; hodnota = dosazen preferované označení přístupového bodu přes našeptávač + archiv = fm
+Logický operátor = Musí splňovat; Úroveň = prázdná; kontext = Geografický objekt; podmínka = Je přesně; hodnota = dosazeno preferované označení přístupového bodu přes našeptávač + archiv = fm
 ```
 
 ###### Příklad č. 8
@@ -1423,7 +1423,7 @@ Zajímají mě jak úrovně série, tak úrovně složky/jednotlivosti... Vzhled
 ![rozsireny_vyber-priklad10](img/rozsireny_vyber-priklad10.png)
 
 ```
-Logický operátor = Může splňovat; Úroveň = (1.) série/ (2.) Složka/Jednotlivost...; hodnota = přijmení uživatele (bez diakritiky)
+Logický operátor = Může splňovat; Úroveň = (1.) série/ (2.) Složka/Jednotlivost...; hodnota = příjmení uživatele (bez diakritiky)
 ```
 
 !!! warning "Upozornění"
@@ -1447,7 +1447,7 @@ V uloženém výběru mám záznamy z archivu F-M kategorie Fotografie, pohledni
 
 <u>Hledám všechny záznamy podkategorie technický výkres v autorizovaných archivních pomůckách dle NZP</u>
 
-Nejprve je potřeba vyhledat všechny autorizované pomůcky dle NZP a následně v nich jen záznamy podkategorie "technicky výkres". Jelikož nemohu použít v jednom výběru hledání v různých úrovních (tedy sériích a složkách/jednotlivostech) najednou, použiji na prvním řádku speciální funkci/úroveň "**Je v podstromech**" spolu s "Upřesňující podmínkou":
+Nejprve je potřeba vyhledat všechny autorizované pomůcky dle NZP a následně v nich jen záznamy podkategorie "technický výkres". Jelikož nemohu použít v jednom výběru hledání v různých úrovních (tedy sériích a složkách/jednotlivostech) najednou, použiji na prvním řádku speciální funkci/úroveň "**Je v podstromech**" spolu s "Upřesňující podmínkou":
 
 ```
 (1-1) Logický operátor = Musí splňovat; Úroveň = série; pole = Stav pomůcky; podmínka = Je přesně; hodnota = autorizovaná
@@ -1456,7 +1456,7 @@ Nejprve je potřeba vyhledat všechny autorizované pomůcky dle NZP a následn�
 
 ![rozsireny_vyber-priklad12](img/rozsireny_vyber-priklad12.png)
 
-Díky tomuto první řádku výběrové podmínky dojde poté k vyhledání oněch uzlových bodů (= autorizovaných pomůcek dle NZP), v jejichž obsahu (podstromech) se pak bude prohledávat dle dalších řádků (tzn. jen složky/jednotlivosti... podkategorie technický výkres):
+Díky tomuto prvnímu řádku výběrové podmínky dojde poté k vyhledání oněch uzlových bodů (= autorizovaných pomůcek dle NZP), v jejichž obsahu (podstromech) se pak bude prohledávat dle dalších řádků (tzn. jen složky/jednotlivosti... podkategorie technický výkres):
 
 ```
 (1) Logický operátor = Musí splňovat; Úroveň = Je v podstromech; podmínka = Upřesňující podmínka = nastavení viz výše
@@ -1467,7 +1467,7 @@ Díky tomuto první řádku výběrové podmínky dojde poté k vyhledání oně
 
 Hledám záznamy ve speciálních polích, která se skládají z dalších dílčích prvků popisu</u>
 
-Některá pole na detailu popisného formuláře se needituji přímo, ale skládají se ze skupiny dílčích prvků popisu. Např. záznamy tematické databáze Matriky obsahují pole Popis obsahu, které se skládá s "charakteru", "poznámky" a "časového rozsahu". Pokud je potřeba v těchto dílčích polích hledat (např. všechny matriky narození, tzn. charakter = N), postupujeme následovně:
+Některá pole na detailu popisného formuláře se needitují přímo, ale skládají se ze skupiny dílčích prvků popisu. Např. záznamy tematické databáze Matriky obsahují pole Popis obsahu, které se skládá z "charakteru", "poznámky" a "časového rozsahu". Pokud je potřeba v těchto dílčích polích hledat (např. všechny matriky narození, tzn. charakter = N), postupujeme následovně:
 
 ![rozsireny_vyber-priklad13](img/rozsireny_vyber-priklad13.png)
 
@@ -1489,7 +1489,7 @@ Některá pole na detailu popisného formuláře se needituji přímo, ale sklá
 
 ###### Příklad č. 15
 
-<u>Hledám přílohy, u kterých byla v příslušném archivu nastaveno "nepublikovat" přímo u konkrétní přílohy</u>
+<u>Hledám přílohy, u kterých bylo v příslušném archivu nastaveno "nepublikovat" přímo u konkrétní přílohy</u>
 
 ![rozsireny_vyber-priklad15](img\rozsireny_vyber-priklad15.png)
 
@@ -1512,7 +1512,7 @@ Logický operátor = Musí splňovat; Úroveň = Přílohy; pole = Mime/type; ho
 Hledání dle mime type má svá specifika. Zde jsou uvedené nejpoužívanější kombinace dle formátů příloh:
 
 - **doc a docx** = application/vnd.openxmlformats-officedocument.wordprocessingml.document (dříve application/msword) - pro hledání použít výraz "word"
-- **xls a xlsx** = application/vnd.openxmlformats-officedocument.spreadsheetml.sheet (dříve application/vnd.ms-excel) - nutno kombinovat s hledeným výrazem "excel" + "sheet"
+- **xls a xlsx** = application/vnd.openxmlformats-officedocument.spreadsheetml.sheet (dříve application/vnd.ms-excel) - nutno kombinovat s hledaným výrazem "excel" + "sheet"
 - **pdf** = application/pdf - pro hledání použít výraz "pdf" bez podmínky
 - **csv** = text/csv - pro hledání použít výraz "csv" bez podmínky
 - **txt** = text/plain - pro hledání použít výraz "plain" bez podmínky
@@ -1521,8 +1521,8 @@ Hledání dle mime type má svá specifika. Zde jsou uvedené nejpoužívanějš
 - **png** = image/png - pro hledání použít výraz "png" bez podmínky
 - **tiff** = image/tiff - pro vyhledávání použít "tif" bez podmínky
 - **všechny formáty obrazových příloh** = image/... - pro veškeré obrázky ideálně použít výraz "image" bez podmínky
-- **všechny formáty zvukových příloh** (mp3, wav, aac, ogg...) = image/... - pro veškeré audio ideálně použít výraz "audio" bez podmínky
-- **všechny formáty video příloh** (mp4, avi, mpg...) = video/... - pro veškeré audio ideálně použít výraz "video" bez podmínky
+- **všechny formáty zvukových příloh** (mp3, wav, aac, ogg...) = audio/... - pro veškeré audio ideálně použít výraz "audio" bez podmínky
+- **všechny formáty video příloh** (mp4, avi, mpg...) = video/... - pro veškeré video ideálně použít výraz "video" bez podmínky
 
 ###### Příklad č. 17
 
@@ -1571,7 +1571,7 @@ Pozn.: Hodnota nepublikovat je nastavena přímo ve vlastnostech přílohy, niko
 
 !!! tip "Tip"
 
-    Některé zvláště kombinované dotazy působí složitě. Pokud je ale používáte častěji, neváhejte si je uložit pomoci [Správy uživatelských výběrů](manual_proarchiv.md#sprava-uzivatelskych-vyberu). Při jejich opětovném výběru pak stačí většinou jen změnit konec dotazu (hledanou hodnotu, prohledávanou oblast...)
+    Některé zvláště kombinované dotazy působí složitě. Pokud je ale používáte častěji, neváhejte si je uložit pomocí [Správy uživatelských výběrů](manual_proarchiv.md#sprava-uzivatelskych-vyberu). Při jejich opětovném výběru pak stačí většinou jen změnit konec dotazu (hledanou hodnotu, prohledávanou oblast...)
 
 ##### Další příklady rozšířených výběrů
 
@@ -1613,11 +1613,11 @@ Funkce se aktivuje z kontextového menu záznamu v navigátoru a zobrazí v deta
 
 ##### 5.6.4.4 Načíst archivní soubory z výběru
 
-Načte do navigátoru všechny archivní soubory, pod které se nacházejí v záložce [Výběr](manual_proarchiv.md#462-vyber-zalozka). Pozor! Akceptuje jen vybrané záznamy úrovně "archivní soubor"!
+Načte do navigátoru všechny archivní soubory, které se nacházejí v záložce [Výběr](manual_proarchiv.md#462-vyber-zalozka). Pozor! Akceptuje jen vybrané záznamy úrovně "archivní soubor"!
 
 #### 5.6.5 Vícenásobný výběr
 
-Přepne zobrazení tabulky (záložku Záznamy) do speciálního režimu, ve kterém je možno pomoci myší a tlačítek Ctrl nebo Shift vybrat více záznamů najednou pro následnou akci - např. Přidat do výběru.
+Přepne zobrazení tabulky (záložku Záznamy) do speciálního režimu, ve kterém je možno pomocí myši a kláves Ctrl nebo Shift vybrat více záznamů najednou pro následnou akci - např. Přidat do výběru.
 
 Při aktivaci této funkce se název záložky Záznamy změní na Vícenásobný výběr - obsah zůstává stejný. Zároveň se zobrazí zatržení u této funkce v Liště nástrojů. Po deaktivaci přejde záložka Záznamy opět do standardního režimu.
 
@@ -1634,9 +1634,9 @@ Funguje pouze v režimu "Zápis".
 
 !!! tip "Tip"
 
-    Pomoci funkce ["Vrácení hromadné akce"](manual_proarchiv.md#5661-vraceni-hromadne-akce) lze hromadnou změnu vrátit zpět. 
+    Pomocí funkce ["Vrácení hromadné akce"](manual_proarchiv.md#5661-vraceni-hromadne-akce) lze hromadnou změnu vrátit zpět. 
 
-Funkce "Najdi a nahraď" funguje na principu nalezení požadované hodnoty (včetně libovolné hodnoty a stavu nevyplněno) a jejím následným nahrazením za hodnotu novou (či možnost úplného odstranění). Část pro definici nalezené hodnoty je principiálně stejná jako u [Rozšířeného výběru](manual_proarchiv.md#563-rozsireny-vyber): Úroveň / Kategorie / Pole / Kontext / Podmínka / Hodnota. Na rozdíl od rozšířenému výběru je dotazovací část této funkce vždy nutno specifikovat co nejvíc detailněji. **Jednotlivé kolonky nastavení Najdi a nahraď se zobrazují postupně a reagují na předchozí volby.**
+Funkce "Najdi a nahraď" funguje na principu nalezení požadované hodnoty (včetně libovolné hodnoty a stavu nevyplněno) a jejího následného nahrazení hodnotou novou (či úplného odstranění). Část pro definici nalezené hodnoty je principiálně stejná jako u [Rozšířeného výběru](manual_proarchiv.md#563-rozsireny-vyber): Úroveň / Kategorie / Pole / Kontext / Podmínka / Hodnota. Na rozdíl od rozšířeného výběru je dotazovací část této funkce vždy nutno specifikovat co nejpodrobněji. **Jednotlivé kolonky nastavení Najdi a nahraď se zobrazují postupně a reagují na předchozí volby.**
 
 <u>**Zdroj záznamů**</u>
 
@@ -1666,7 +1666,7 @@ Uplatňuje se, pokud je v části Pole vybráno:
 
 - **Libovolná hodnota** - jakákoli hodnota, i nulová.
 - **Nevyplněno** - nahradí jen prázdná pole. 
-- *dále následují nabídky dalších podmínek, měnící se v závislosti na zvoleném typu pole* (<u>u textových polí a polí kontextem a hodnotou</u>: **Hodnota obsahuje** / **Hodnota začíná na** / **Hodnota končí na**; <u>u polí s kontextem a hodnotou</u> navíc: **Pouze kontext** (viz příklad č. 2); <u>u číselníkových polí a polí s přístupovými body:</u> **Se rovná**)
+- *dále následují nabídky dalších podmínek, měnící se v závislosti na zvoleném typu pole* (<u>u textových polí a polí s kontextem a hodnotou</u>: **Hodnota obsahuje** / **Hodnota začíná na** / **Hodnota končí na**; <u>u polí s kontextem a hodnotou</u> navíc: **Pouze kontext** (viz příklad č. 2); <u>u číselníkových polí a polí s přístupovými body:</u> **Se rovná**)
 
 !!! tip "Tip"
 
@@ -1691,16 +1691,16 @@ Pro textový zápis hledaného výrazu; u číselníkových polí výběr z čí
 | Nahradit nalezenou část                   | Pokud nalezne hledaný výraz (v kombinaci s podmínkou Hodnota obsahuje), nahradí jen ten. |
 | Nahradit nalezenou část - všechny výskyty | Pokud nalezne hledaný výraz (v kombinaci s podmínkou Hodnota obsahuje), nahradí jen ten, a to i vícekrát, pokud se v poli vícekrát vyskytuje. |
 | Nahradit za                               | Nahradí za jinou hodnotu (u číselníkových polí a přístupových bodů) |
-| Přidat před                               | Pokud je zvolena Libovolná hodnota, přidá novou hodnotu před původní celý obsah. Je vhodné končit novou hodnotu mezerou nebo zvolit Druh spojovníku. |
-| Přidat za                                 | Pokud je zvolena Libovolná hodnota, přidá novou hodnotu za původní celý obsah. Je vhodné začít novou hodnotu mezerou nebo zvolit Druh spojovníku. |
-| Nahradit kontext                          | Umožňuje nahradit pouze kontext - číselníkovou hodnotu u polí skládajících se s kontextu a hodnoty (např. Původní/jiné označení). Viz příklad č. 2 |
+| Přidat před                               | Pokud je zvolena Libovolná hodnota, přidá novou hodnotu před celý původní obsah. Je vhodné končit novou hodnotu mezerou nebo zvolit Druh spojovníku. |
+| Přidat za                                 | Pokud je zvolena Libovolná hodnota, přidá novou hodnotu za celý původní obsah. Je vhodné začít novou hodnotu mezerou nebo zvolit Druh spojovníku. |
+| Nahradit kontext                          | Umožňuje nahradit pouze kontext - číselníkovou hodnotu u polí skládajících se z kontextu a hodnoty (např. Původní/jiné označení). Viz příklad č. 2 |
 | Odpojit první výskyt v záznamu            | Odpojí nalezený přístupový bod - jen první výskyt v záznamu. |
 | Odpojit všechny výskyty u záznamu         | Odpojí nalezený přístupový bod - všechny výskyty.            |
-| Přidat nový kontext a hodnotu na konec    | Přidá nový kontext + novou hodnotu (u polí skládajících se s kontextu a hodnoty, např. Původní/jiné označení). |
+| Přidat nový kontext a hodnotu na konec    | Přidá nový kontext + novou hodnotu (u polí skládajících se z kontextu a hodnoty, např. Původní/jiné označení). |
 | Odstranit / Odstranit celou hodnotu       | Odstraní hodnotu - vymaže obsah pole.                        |
-| Odstranit všechny hodnoty                 | Odstraní všechny zapsané hodnoty u polí s možnosti zápisu vícero hodnot (např. Jazyk). |
-| Odstranit kontext i hodnotu               | Odstraní kontext i hodnotu (u polí skládajících se s kontextu a hodnoty, např. Původní/jiné označení). |
-| Odstranit všechny hodnoty včetně kontextů | Odstraní všechny hodnoty včetně kontextů (u polí skládajících se s kontextu a hodnoty, např. Původní/jiné označení). |
+| Odstranit všechny hodnoty                 | Odstraní všechny zapsané hodnoty u polí s možností zápisu vícero hodnot (např. Jazyk). |
+| Odstranit kontext i hodnotu               | Odstraní kontext i hodnotu (u polí skládajících se z kontextu a hodnoty, např. Původní/jiné označení). |
+| Odstranit všechny hodnoty včetně kontextů | Odstraní všechny hodnoty včetně kontextů (u polí skládajících se z kontextu a hodnoty, např. Původní/jiné označení). |
 
 <u>**Druh spojovníku**</u>
 
@@ -1728,7 +1728,7 @@ Pro textový zápis nové hodnoty; u číselníkových polí výběr z číseln�
 
 ![najdi-nahrad_vraceni_akce2](img/najdi-nahrad_vraceni_akce2.png)
 
-**Pomocí tlačítka Vrátit umožní vrátit** původní podobu záznamů, které byly změněny <u>**poslední**</u> provedenou akcí Najdi a nahraď. Jde tedy o "krok zpět" poslední hromadné akce konkrétního uživatele. Je zobrazen zjednodušený textový zápis všech podmínek a operací hromadné změny. Tlačítko Záznamy do výběru umožní dotčené záznamy zobrazit v záložce Výběr.
+**Pomocí tlačítka Vrátit lze vrátit** původní podobu záznamů, které byly změněny <u>**poslední**</u> provedenou akcí Najdi a nahraď. Jde tedy o "krok zpět" poslední hromadné akce konkrétního uživatele. Je zobrazen zjednodušený textový zápis všech podmínek a operací hromadné změny. Tlačítko Záznamy do výběru umožní dotčené záznamy zobrazit v záložce Výběr.
 
 !!! warning "Upozornění"
 
@@ -1758,7 +1758,7 @@ Zdroj záznamů = Navigátor; Úroveň = Složka/Jednotlivost...; Kategorie = Sp
 
 ***Příklad č. 3*** - <u>Chci hromadně doplnit signaturu G 26</u>
 
-Pokud se doplnění týká všech jednotek popisu určité série, pak v navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní sérii, nebo akci aplikuji na výběrem:
+Pokud se doplnění týká všech jednotek popisu určité série, pak v navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní sérii, nebo akci aplikuji nad výběrem:
 
 ![najdi-nahrad_v2_priklad3](img/najdi-nahrad_v2_priklad3.png)
 
@@ -1768,7 +1768,7 @@ Zdroj záznamů = Navigátor nebo Výběr; Úroveň = Složka/Jednotlivost...; K
 
 ***Příklad č. 4*** - <u>Chci hromadně odstranit údaj o inventárním číslu</u>
 
-Pokud se odstranění týká všech jednotek popisu určité série, pak v navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní sérii, nebo akci aplikuji na výběrem:
+Pokud se odstranění týká všech jednotek popisu určité série, pak v navigátoru (režim zobrazení Archivní soubory) vyberu konkrétní sérii, nebo akci aplikuji nad výběrem:
 
 ![najdi-nahrad_v2_priklad4](img/najdi-nahrad_v2_priklad4.png)
 
@@ -1878,7 +1878,7 @@ Poznámka: **Soubor uuid obsahuje seznam uuid (jednoznačných identifikátorů)
 
 Jde o výběrovou funkci (dle potřeb klienta). Slouží k nalezení záznamů vzniklých původním "dvojkolejným" způsobem popisu, tedy duplicitních záznamů typu původní inventární záznam vs. záznam tematické databáze (dále TD) tam, kde je to ve vztahu 1:1. Jde převážně o jednotliviny (knihy, listiny, solitérní mapy a plány apod.). Pokud klient používá/používal pro popis jedné konkrétní archiválie záznamy kategorie "pův. inv. záznam" a zároveň záznamy TD, tak byly při prvotním importu dat do ProArchivu zpravidla tyto záznamy jednotlivostí TD vnořené pod záznamy jednotlivostí kategorie pův. inv. záznam na základě shody identifikačních údajů.
 
-Tuto speciální vyhledávací funkci Je potřeba vyvolat vždy nad vybranou sérii typu pomůcka (tzn. je právě zobrazena v detailu), která je ve stavu jiném než "autorizovaná". Po úspěšném nalezení se zobrazí vybrané záznamy v záložce Výběr. Poté je možné využít funkci [Sloučit s vnořeným záznamem - nad výběrem](manual_proarchiv.md#51621-sloucit-s-vnorenym-zaznamem-nad-vyberem).
+Tuto speciální vyhledávací funkci je potřeba vyvolat vždy nad vybranou sérií typu pomůcka (tzn. je právě zobrazena v detailu), která je ve stavu jiném než "autorizovaná". Po úspěšném nalezení se zobrazí vybrané záznamy v záložce Výběr. Poté je možné využít funkci [Sloučit s vnořeným záznamem - nad výběrem](manual_proarchiv.md#51621-sloucit-s-vnorenym-zaznamem-nad-vyberem).
 
 ### 5.7 Kopírování / Přesuny
 
@@ -1894,13 +1894,13 @@ Okno je rozděleno na dvě části - levou a pravou. Kopírování / Přesun pro
 
 Ikony ![presun_sipky](img/presun_sipky.png) šipek umožňují synchronizovat levou část s pravou / pravou s levou.
 
-Přítomná je i funkce pro filtrování archivních souboru - stejné použití jako při [Hledání v navigátoru](manual_proarchiv.md#564-hledani-v-navigatoru).
+Přítomná je i funkce pro filtrování archivních souborů - stejné použití jako při [Hledání v navigátoru](manual_proarchiv.md#564-hledani-v-navigatoru).
 
 Zobrazení kompletní hierarchické cesty uvozené tlačítkem Domů ![presun_home](img/presun_home.png) se mění dynamicky a jednotlivé uzly oddělené > fungují jako linky pro rychlejší návrat na požadovaný uzel.
 
 Na straně, **<u>odkud</u>** chceme záznam kopírovat / přesouvat, lze vybírat **jeden i více záznamů**. Výběr vícero záznamů se provádí stejně jako při [Vícenásobném výběru](manual_proarchiv.md#565-vicenasobny-vyber) (kombinace s tlačítky Shift / Ctrl).
 
-Na straně, **<u>kam</u>** chceme záznam zkopírovat / přesunutou, musí být vybrán **pouze jeden záznam** a **pomocí jeho kontextového menu *(pravé tlačítko myši)* zvolena varianta Kopírovat / Přesunout + příslušná pozice *(Vnořit / Před / Za)***.
+Na straně, **<u>kam</u>** chceme záznam zkopírovat / přesunout, musí být vybrán **pouze jeden záznam** a **pomocí jeho kontextového menu *(pravé tlačítko myši)* zvolena varianta Kopírovat / Přesunout + příslušná pozice *(Vnořit / Před / Za)***.
 
 Volba stran "odkud / kam" není určena striktně. Lze kopírovat / přesouvat zleva doprava i zprava doleva.
 
@@ -1912,9 +1912,9 @@ Volba stran "odkud / kam" není určena striktně. Lze kopírovat / přesouvat z
 
 #### 5.7.2 Kopírování
 
-Kopírováním se vytvoří nové záznamy. Původní záznamy zůstanou nedotčeny. **Při kopírování s nekopírují přílohy!** Pokud se kopíruje série typu pomůcka ve stavu "autorizovaná", její kopie je vytvořena vždy ve stavu "rozepsaná".
+Kopírováním se vytvoří nové záznamy. Původní záznamy zůstanou nedotčeny. **Při kopírování se nekopírují přílohy!** Pokud se kopíruje série typu pomůcka ve stavu "autorizovaná", její kopie je vytvořena vždy ve stavu "rozepsaná".
 
-Kopírování lze omezit jen na zkopírování položek Navigátoru, tzn. jen do úrovně série, nebo kopírovat vše (tedy včetně složek, jednotlivostí a části jednotlivostí):
+Kopírování lze omezit jen na zkopírování položek Navigátoru, tzn. jen do úrovně série, nebo kopírovat vše (tedy včetně složek, jednotlivostí a částí jednotlivostí):
 
 ![kopirovani-jen_do_serie](img/kopirovani-jen_do_serie.png)
 
@@ -1946,7 +1946,7 @@ Nebo pokud potřebujeme opravit hierarchické postavení po změně úrovně - v
 
 !!! warning "Upozornění"
 
-    **Přesun lze provést pouze v rámci jedné tematické databáze jednoho  archivu!**
+    **Přesun lze provést pouze v rámci jedné tematické databáze jednoho archivu!**
 
 <u>Příklady nejčastějšího užití:</u>
 
@@ -1966,7 +1966,7 @@ Aplikace umožňuje použít při zakládání záznamů na úrovni složka / je
 
 Správa vzoru se ovládá z Lišty nástrojů - Různé funkce - Práce se vzorem:
 
-<u>Označit vzor</u> - označení právě zobrazený záznam z tabulky jako vzor.
+<u>Označit vzor</u> - označí právě zobrazený záznam z tabulky jako vzor.
 
 <u>Zobrazit vzor</u> - zobrazí označený vzor v další záložce Detailu. Užitečné, pokud si uživatel není jistý, jaký vzorový záznam si vybral.
 
@@ -1978,14 +1978,14 @@ Maximální počet vytvořených záznamů podle vzoru je 10. Pokud jich napří
 
 ### 5.9 Práce s přístupovými body
 
-Pod pojmem přístupové body budeme v tomto manuálu chápat souhrnně  všechny archivní autoritní záznamy sloužící pro popis původce, rejstříkových hesel a dalších typů přístupových bodů. Přístupové body tvoří jeden ze základních kamenů archivního popisu.
+Pod pojmem přístupové body budeme v tomto manuálu chápat souhrnně všechny archivní autoritní záznamy sloužící pro popis původce, rejstříkových hesel a dalších typů přístupových bodů. Přístupové body tvoří jeden ze základních kamenů archivního popisu.
 
 V aplikaci ProArchiv17 tvoří přístupové body samostatné záznamy a jsou umístěny v samostatném aplikačním modulu [**ProArchiv - Přístupové body**](manual_modul_ap.md). Zde probíhá i samotná editace a správa přístupových bodů. Pořádací aplikace s tímto modulem nepřetržitě komunikuje. Mezi archivním záznamem a přístupovým bodem pak vzniká dle potřeby **vazba** ***(reference)***. Tato vazba je zároveň charakterizována **rolí**, ve které napojený přístupový bod vystupuje u konkrétního archivního záznamu. Informace o roli je tedy uložena vždy u konkrétního archivního záznamu. Přístupový bod je samostatný, univerzální - popisuje sám sebe.
 
 !!! summary "Souhrn"
 
-    **V modulu Proarchiv - Přístupové body** jsou uloženy informace o vazbě přístupového bodu na archivní popis spolu s informací, v jaké roli je vazba vytvořena.
-    **V pořádací aplikaci ProArchiv** jsou strukturovaně uloženy informace o samotném přístupovém bodu. V modulu tedy není primárně dostupná informace o tom, zda je přístupový bod připojen k archivnímu popisu. Naopak modul disponuje informacemi o vzájemných vazbách mezi přístupovými body.  
+    **V pořádací aplikaci ProArchiv** jsou uloženy informace o vazbě přístupového bodu na archivní popis spolu s informací, v jaké roli je vazba vytvořena.
+    **V modulu ProArchiv – Přístupové body** jsou strukturovaně uloženy informace o samotném přístupovém bodu. V modulu tedy není primárně dostupná informace o tom, zda je přístupový bod připojen k archivnímu popisu. Naopak modul disponuje informacemi o vzájemných vazbách mezi přístupovými body.  
 
 !!! warning "Upozornění"
 
@@ -2004,11 +2004,11 @@ V pořádací aplikaci je umožněno:
 1. připojovat přístupové body k jednotkám archivního popisu
 2. zobrazit detail připojeného přístupového bodu
 3. založit nový přístupový bod se základní sadou popisných polí
-4. nahradit přístupový bod za jiný (oprávněný uživatel) a při té příležitosti i smazat přístupový bod vez vazby (oprávněný uživatel)
+4. nahradit přístupový bod za jiný (oprávněný uživatel) a při té příležitosti i smazat přístupový bod bez vazby (oprávněný uživatel)
 
 #### 5.9.2 Hledání v přístupových bodech v prostředí pořádací aplikace
 
-Modální okno pro hledání v přístupových bodech v prostředí pořádací aplikace se aktivuje z menu Výběr - **Výběr/nahrazovaní přístupových bodů**.
+Modální okno pro hledání v přístupových bodech v prostředí pořádací aplikace se aktivuje z menu Výběr - **Výběr/nahrazování přístupových bodů**.
 
 ![vyber_nahrazeni_pb_za_jiny](img/vyber_nahrazeni_pb_za_jiny.png)
 
@@ -2024,11 +2024,11 @@ Pomocí tlačítka Nahradit je volána funkce na nahrazení přístupového bodu
 
 ![vyber_nahrazeni_pb_za_jiny-nahrazeni](img/vyber_nahrazeni_pb_za_jiny-nahrazeni.png) 
 
-Provede nahrazení vybraného přístupového bodu za jiný. Např. nevalidní přístupový bod nahradíme validním/schváleným. V prvním kroku je potřeba pomocí tlačítka Spočítat napojení na arch. popis nechat dopočítat Počet napojení. Poté se zaktivizuje zápis do kolonky Nahradit za. Zde se vybere přístupový bod, který nahrazovaný nahradí. Vy výchozím stavu je zapnutá volba Nahradit i v PB (tzn. provede nahrazení i ve vazbách mezi přístupovými body) a Odstranit nahrazený (po úspěšném nahrazení bude nahrazovaný přístupový bod vymazán).
+Provede nahrazení vybraného přístupového bodu za jiný. Např. nevalidní přístupový bod nahradíme validním/schváleným. V prvním kroku je potřeba pomocí tlačítka Spočítat napojení na arch. popis nechat dopočítat Počet napojení. Poté se zaktivizuje zápis do kolonky Nahradit za. Zde se vybere přístupový bod, který nahrazovaný nahradí. Ve výchozím stavu je zapnutá volba Nahradit i v PB (tzn. provede nahrazení i ve vazbách mezi přístupovými body) a Odstranit nahrazený (po úspěšném nahrazení bude nahrazovaný přístupový bod vymazán).
 
 !!! warning "Upozornění"
 
-    **Při pokusu o nahrazení přístupového bodu, který je již v IS CAM (tzn. nahrazovaný má CAM ID), dojde jen ke změně napojení u dotčených jednotek popisu. K nahrazení ve vazbach mezi přístupovými body a k odstranění nahrazovaného pochopitelně NEDOJDE i při zadání "Ano".** Toto se týka i přístupových bodu ve stavu "neplatný" a "nahrazený". Vše je potřeba vypořádat v modulu pro správu přístupových bodů. 
+    **Při pokusu o nahrazení přístupového bodu, který je již v IS CAM (tzn. nahrazovaný má CAM ID), dojde jen ke změně napojení u dotčených jednotek popisu. K nahrazení ve vazbách mezi přístupovými body a k odstranění nahrazovaného pochopitelně NEDOJDE i při zadání "Ano".** Toto se týká i přístupových bodů ve stavu "neplatný" a "nahrazený". Vše je potřeba vypořádat v modulu pro správu přístupových bodů. 
 
 
 !!! warning "Upozornění"
@@ -2066,7 +2066,7 @@ Funkce provede kontrolu zvolené hierarchie (pomůcky), zdali neobsahuje násled
 - nepublikovat
 - nepublikovat včetně vnořených záznamů
 
-Záznamy obsahující tyto příznaky umístí do záložky **K dořešení** a zároveň vypíše varovné hlášení s konkrétními počty na úrovních sérií a složek/jednotlivostí/částí jednotlivostí.
+Záznamy obsahující tyto příznaky umístí do záložky **K dořešení** a zároveň vypíše varovné hlášení s konkrétními počty na úrovnich sérií a složek/jednotlivostí/částí jednotlivostí.
 
 ![nezverejnitelne-jednotky-popisu_hlaseni](img/nezverejnitelne-jednotky-popisu_hlaseni.png)
 
@@ -2074,7 +2074,7 @@ Stejná kontrola byla včleněna i do procesu autorizace pomůcky.
 
 !!! summary "Souhrn"
 
-    Pomoci této funkce nabyde zpracovatel i správce pomůcek lepší přehled o jednotkách popisu, které nebudou zveřejněny v Digitální badatelně, v exportu do EAD3 pro PEVU, v tiskových výstupech atd. Odhalí se tak snadněji účelové chtěné nezveřejnění od nechtěného, vzniklého dočasně v procesu zpracování.  
+    Pomocí této funkce získá zpracovatel i správce pomůcek lepší přehled o jednotkách popisu, které nebudou zveřejněny v Digitální badatelně, v exportu do EAD3 pro PEVU, v tiskových výstupech atd. Snadněji se tak odliší záměrné nezveřejnění od nechtěného, vzniklého dočasně v procesu zpracování.  
 
 ### 5.11 Stav pomůcky
 
@@ -2095,7 +2095,7 @@ Výběr stavu:
 
 ![zmena_stavu_pomucky2](img/zmena_stavu_pomucky2.png)
 
-Uskutečnění změny stavu je závisle na uživatelské roli (viz výše).
+Uskutečnění změny stavu je závislé na uživatelské roli (viz výše).
 
 #### Autorizace pomůcky ve vztahu k připojeným přístupovým bodům
 
@@ -2112,7 +2112,7 @@ Naopak stavy "původní", "nahrazený" a "neplatný" znemožní autorizaci pomů
 
 | Co je umožněno/zakázáno dělat v pomůckách ve stavu „autorizovaná“? (platí pro ZAO) |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Změnu obsahu polí ve všech podřízených záznamech. *(Např. kvůli opravě překlepů.)* | ***ano***                                                    |
+| Změna obsahu polí ve všech podřízených záznamech. *(Např. kvůli opravě překlepů.)* | ***ano***                                                    |
 | Mazání záznamů                                               | **ne**                                                       |
 | Přidávání záznamů                                            | **ne** – pokud nemá nad sebou definovanou EJ / ***ano***   – pokud již má nad sebou definovanou EJ |
 | Připojování přístupových bodů                                | ***ano***                                                    |
@@ -2137,19 +2137,19 @@ Pokud záznam ještě nemá připojenou přílohu, kontextové menu se vyvolá n
 
   *Na konec / Před / Za* - dle zvolené pozice otevře dialog na připojení **jedné přílohy**. Volba Připojit otevře dialogové okno operačního systému pro výběr souboru (Nahrát soubor) - dále Otevřít - otevře se okno Vlastnosti přílohy - Uložit. 
 
-  Solitérní příloha lze technicky připojit ze všech disků, které má počítač přihlášeného uživatele k dispozici. Případná omezení jsou řešena pouze metodicky dle jednotlivých archivu.
+  Solitérní přílohu lze technicky připojit ze všech disků, které má počítač přihlášeného uživatele k dispozici. Případná omezení jsou řešena pouze metodicky dle jednotlivých archivů.
 
 - ##### **Připojit více**
 
   *Na konec / Před / Za* - dle zvolené pozice otevře dialog na připojení **více příloh**. Volba Připojit více otevře modální okno pro výběr souborů. Zde je několik voleb:
 
-  Výběr - dialogové okno operačního systému pro výběr souboru (Nahrát soubor), zde je možno vybrat (označit) soubory k připojení. Lze použit opakovaně k výběru různých souborů z různých lokací.
+  Výběr - dialogové okno operačního systému pro výběr souboru (Nahrát soubor), zde je možno vybrat (označit) soubory k připojení. Lze použít opakovaně k výběru různých souborů z různých lokací.
 
   Editovat - umožní upravit Vlastnosti přílohy
 
   Odstranit - odstraní označený soubor ze seznamu
 
-  Přílohy lze technicky připojit ze všech disků, které má počítač přihlášeného uživatele k dispozici. Případná omezení jsou řešena pouze metodicky dle jednotlivých archivu.
+  Přílohy lze technicky připojit ze všech disků, které má počítač přihlášeného uživatele k dispozici. Případná omezení jsou řešena pouze metodicky dle jednotlivých archivů.
 
 - ##### Hromadně připojit
 
@@ -2179,7 +2179,7 @@ Pokud záznam ještě nemá připojenou přílohu, kontextové menu se vyvolá n
 
   *Označit dle rozsahu* - umožňuje definovat rozsah vybraných příloh. Definuje se pomocí pořadových čísel příloh (počáteční číslo oddělené pravou kulatou závorkou) a znaků - a ,. Např. 1-2,4-5 vybere přílohy 1,2,4 a 5.
 
-  *Obrátit označení* - to, co bylo před tím označené odznačí a naopak.
+  *Obrátit označení* - to, co bylo předtím označené, odznačí a naopak.
 
 - ##### Zobrazit
 
@@ -2187,7 +2187,7 @@ Pokud záznam ještě nemá připojenou přílohu, kontextové menu se vyvolá n
 
 - ##### Vlastnosti přílohy
 
-  Otevře modální okno pro zobrazení nebo editaci Vlastnosti přílohy. Vlastnosti přílohy obsahují další informace platné vždy pro konkrétní přílohu: název přílohy, popis přílohy, původní název atd.
+  Otevře modální okno pro zobrazení nebo editaci Vlastností přílohy. Vlastnosti přílohy obsahují další informace platné vždy pro konkrétní přílohu: název přílohy, popis přílohy, původní název atd.
 
   Taktéž atribut ***Možnost zveřejnění*** - [jde o nejnižší (nejpodrobnější) úroveň nastavení zveřejnění konkrétní přílohy](manual_proarchiv.md#zverejneni-jednotlivych-priloh).
 
@@ -2195,7 +2195,7 @@ Pokud záznam ještě nemá připojenou přílohu, kontextové menu se vyvolá n
 
   *Aktuální přílohu* - prohlížeč nabídne standardní dialog pro otevření nebo uložení stahovaného souboru.
 
-  *Označené přílohy / Všechny přílohy* - vybraná množina příloh se buď nabídne přímo ke stažení v podobě .zip souboru, nebo (pokud je její součet velikosti na 200MB nebo obsahuje více než 200 příloh) přejde dokončení stahování do [Úloh](manual_proarchiv.md#513-ulohy).
+  *Označené přílohy / Všechny přílohy* - vybraná množina příloh se buď nabídne přímo ke stažení v podobě .zip souboru, nebo (pokud je její součet velikostí nad 200 MB nebo obsahuje více než 200 příloh) přejde dokončení stahování do [Úloh](manual_proarchiv.md#513-ulohy).
 
 - ##### **Záložky**
 
@@ -2229,7 +2229,7 @@ Horní levé pole ukazuje ***zvolenou cestu*** až po cílovou složku.
 
 ![hromadne-pripojeni_zmena-rezimu-zobrazeni_ikony](img/hromadne-pripojeni_zmena-rezimu-zobrazeni_ikony.png) (ikony) nebo ![hromadne-pripojeni_zmena-rezimu-zobrazeni_radky](img/hromadne-pripojeni_zmena-rezimu-zobrazeni_radky.png)(řádkový výpis) = změna režimu zobrazení - možnost přepnutí zobrazení vylistovaných souborů.
 
-Volba ***Disky*** umožňuje zvolit společný síťový (nabídka dle jednotlivých archivů)\.
+Volba ***Disky*** umožňuje zvolit společný síťový disk (nabídka dle jednotlivých archivů)\.
 
 Volba ***Soubory a složky*** ukazuje obsah vybrané složky (cesty) v závislosti na zvoleném režimu zobrazení *(ikony nebo řádkový výpis)*.
 
@@ -2261,11 +2261,11 @@ Spouští se z menu Různé funkce - Práce s přílohami
 
 ![hromadne-pripojeni-priloh-napric-zaznamy](img/hromadne-pripojeni-priloh-napric-zaznamy.png)
 
-Složitější ale efektivní napojování příloh k záznamům na základě shody identifikačních údajů a názvů souborů. Umožňuje v názvech souborů dohledat požadovaný řetězec, který se kryje s identifikačními údaji.
+Složitější, ale efektivní napojování příloh k záznamům na základě shody identifikačních údajů a názvů souborů. Umožňuje v názvech souborů dohledat požadovaný řetězec, který se kryje s identifikačními údaji.
 
 Je možno definovat příponu/přípony souborů.
 
-Dále možno definovat zástupný znak za znak /, jenž je v názvech souborů nepřípustný, ale v identifikaci se poměrně často používá.
+Dále je možno definovat zástupný znak za znak /, jenž je v názvech souborů nepřípustný, ale v identifikaci se poměrně často používá.
 
 V případě, že v názvech souborů je vybraný číselný identifikátor zarovnán zleva nulami (např. 0001, 0002...), kdežto v identifikaci nikoli (1,2...), je možno toto kompenzovat pomocí volby "Doplnit 0 zleva..." + počet znaků.
 
@@ -2285,7 +2285,7 @@ V rámci menu Různé funkce - Práce s přílohami existuje funkce **Import př
 
 Ta umožňuje vytvořit v csv souboru párovací seznam s uuid záznamů a s názvy souborů příloh, které se mají takto připojit.
 
-Pokud je potřeba k jednomu záznamů (uuid) připojit více souborů, oddělují se jejich názvy svislítkem "|".
+Pokud je potřeba k jednomu záznamu (uuid) připojit více souborů, oddělují se jejich názvy svislítkem "|".
 
 ![import_priloh_z_csv-csv](img/import_priloh_z_csv-csv.png) 
 
@@ -2301,7 +2301,7 @@ Kde vzít csv s uuid záznamů?
 
 ##### 5.12.5.1 Exportovat strom pro přílohy
 
-Seznam uuid záznamů pro doplnění umí vyexportovat funkce vyvolána z kontextového menu navigátoru - viz Import / Export - Import / Export ProArchiv: **Exportovat strom pro přílohy**. Tabulka csv obsahuje i další sloupce, ty ale nejsou pro importní funkci relevantní. Důležité jsou pouze sloupce UUID a Soubory. 
+Seznam uuid záznamů pro doplnění umí vyexportovat funkce vyvolaná z kontextového menu navigátoru - viz Import / Export - Import / Export ProArchiv: **Exportovat strom pro přílohy**. Tabulka csv obsahuje i další sloupce, ty ale nejsou pro importní funkci relevantní. Důležité jsou pouze sloupce UUID a Soubory. 
 
 #### 5.12.6 Hromadné odstranění příloh u vybraných záznamů
 
@@ -2309,14 +2309,14 @@ Pomocí funkce "Hromadně odstranit přílohy" z kontextového menu záložky V�
 
 !!! warning "Upozornění"
 
-    **Pozor! Tato akce je nevratná.** Budete vyznání k potvrzení "Opravdu odstranit všechny přílohy u záznamů ve výběru?" Ano / Ne.
+    **Pozor! Tato akce je nevratná.** Budete vyzváni k potvrzení "Opravdu odstranit všechny přílohy u záznamů ve výběru?" Ano / Ne.
 
 #### 5.12.7 Rozpoznání textu příloh
 
 !!! warning "Upozornění"
 
-    Jde o nestandardní funkci. Rozpoznání textu příloh je závisle na spolupráci aplikace ProArchiv s OCR/HTR aplikací na rozpoznávání textu ScribbleSense.
-    Detailnější popis poskytuje specializovaný manuál **"Metodika práce s aplikacemi ProArchiv17 a ScribbleSense pro OCR přepis archiválií"** vydaná Zemským archivem v Opavě.
+    Jde o nestandardní funkci. Rozpoznání textu příloh je závislé na spolupráci aplikace ProArchiv s OCR/HTR aplikací na rozpoznávání textu ScribbleSense.
+    Detailnější popis poskytuje specializovaný manuál **"Metodika práce s aplikacemi ProArchiv17 a ScribbleSense pro OCR přepis archiválií"** vydaný Zemským archivem v Opavě.
 
 ##### 5.12.7.1 Vytvoření požadavku na OCR/HTR
 
@@ -2354,7 +2354,7 @@ Viz Nastavení / nástroje ![proarchiv_gui_toolbar_tools](img/proarchiv_gui_tool
 
 ![ulohy-seznam_uloh2](img/ulohy-seznam_uloh2.png)
 
-Seznam se automaticky aktualizuje v krátkých intervalech, což může v případě listování větším množstvím položek způsobovat problém s automatickým vrácením na začátek. Proto lze automatickou aktualizaci vypnout (zrušením zatržení) a používat pouze manuální tlačítkem Aktualizovat.
+Seznam se automaticky aktualizuje v krátkých intervalech, což může v případě listování větším množstvím položek způsobovat problém s automatickým vrácením na začátek. Proto lze automatickou aktualizaci vypnout (zrušením zatržení) a používat pouze manuální aktualizaci tlačítkem Aktualizovat.
 
 Pomocí tlačítka "Odstranit všechny bez chyb" lze hromadně vymazat zprávy o úlohách, které skončily bezchybně. 
 
@@ -2380,7 +2380,7 @@ Přidání archivního souboru se provádí ze záložky Archivní soubory: vybr
 
 Odstranění se provádí ze záložky Pracovní výběr: vybrat příslušný archivní soubor a z kontextové nabídky (pravé tlačítko myši) zvolit "Odstranit z pracovního výběru".
 
-Jinak se navigátor v této záložce chová naprosto stejně, jako v záložce Archivní soubory.
+Jinak se navigátor v této záložce chová naprosto stejně jako v záložce Archivní soubory.
 
 Zobrazené archivní soubory jsou pouze virtuálně duplikovány a synchronizovány = nezmizí ze záložky Archivní soubory.
 
@@ -2430,7 +2430,7 @@ Funkce "Sloučit s vnořeným záznamem" se vyvolá nad vybraným inventárním 
 
 ![slouceni_invz_s_vnorenym_ztd2](img/slouceni_invz_s_vnorenym_ztd2.png)
 
-Inventární záznam listiny je nahrazen záznamem listiny z tematické databáze, tzn. záznam z tematické databáze se posune o úroveň výše na místo původního nyní smazaného inventární záznamu. Část jednotlivosti v podobě pečetě je nadále svázána se svým "rodičem" - záznamem listiny (přesune se automaticky spolu s ním).
+Inventární záznam listiny je nahrazen záznamem listiny z tematické databáze, tzn. záznam z tematické databáze se posune o úroveň výše na místo původního nyní smazaného inventárního záznamu. Část jednotlivosti v podobě pečetě je nadále svázána se svým "rodičem" - záznamem listiny (přesune se automaticky spolu s ním).
 
 ![slouceni_invz_s_vnorenym_ztd3](img/slouceni_invz_s_vnorenym_ztd3.png)
 
@@ -2440,7 +2440,7 @@ Se spuštěním Digitální badatelny se otevírá prostor k odstranění "dvojk
 
 ##### 5.16.2.1 Sloučit s vnořeným záznamem - nad výběrem
 
-Výše zmíněnou funkci lze použít i nad vícero záznamy ve Výběru. Záznamy, které budou zpracovány musí ale splnit standardní podmínky: musí být z oblasti, do které je zpracovatel přihlášen; nesmí figurovat v "autorizované" pomůcce apod.
+Výše zmíněnou funkci lze použít i nad vícero záznamy ve Výběru. Záznamy, které budou zpracovány, musí ale splnit standardní podmínky: musí být z oblasti, do které je zpracovatel přihlášen; nesmí figurovat v "autorizované" pomůcce apod.
 
 Před samotným provedením sloučení proběhne analýza všech záznamů z výběru, zda splňují tyto podmínky. Zobrazí se reálný počet "připravených" záznamů / všech záznamů z výběru. Záznamy, které nesplní podmínky, budou přeskočeny.
 
@@ -2480,9 +2480,9 @@ u kterých je uvedena signatura.
 
 ![seradit_zaznamy-stav_pred-detail](img/seradit_zaznamy-stav_pred-detail.png)  
 
-Záznamy chceme se řadit dle signatury vzestupně.
+Záznamy chceme seřadit dle signatury vzestupně.
 
-V rámci [Tabulkového pohledu](manual_proarchiv.md#48-tabulkovy-pohled) musíme mít vytvořeno [nastavení](manual_proarchiv.md#482-nastaveni-zobrazeni-tabulkoveho-pohledu), které se dá aplikovat na zvolou kombinaci záznamu. V našem případě jde o nastavení pro "Všechny kategorie", neboť pracujeme se záznamy vícero kategorií. V daném nastavení musí figurovat v rámci Vybraných polí i pole "Signatura (ident.)", neboť podle něj chceme řadit. Zde je naprosto minimální nastavení právě jen s tímto polem. Nastavení je uloženo pod názvem "Řadit dle signatury".
+V rámci [Tabulkového pohledu](manual_proarchiv.md#48-tabulkovy-pohled) musíme mít vytvořeno [nastavení](manual_proarchiv.md#482-nastaveni-zobrazeni-tabulkoveho-pohledu), které se dá aplikovat na zvolenou kombinaci záznamů. V našem případě jde o nastavení pro "Všechny kategorie", neboť pracujeme se záznamy vícero kategorií. V daném nastavení musí figurovat v rámci Vybraných polí i pole "Signatura (ident.)", neboť podle něj chceme řadit. Zde je naprosto minimální nastavení právě jen s tímto polem. Nastavení je uloženo pod názvem "Řadit dle signatury".
 
 ![seradit_zaznamy-moje_nastaveni-tabulkovy_pohled](img/seradit_zaznamy-moje_nastaveni-tabulkovy_pohled.png)
 
@@ -2492,7 +2492,7 @@ Postavíme se tedy v navigátoru na Sérii 1 a pomocí kontextové nabídky vyvo
 
 Zvolíme Kategorie = Všechny kategorie; Řadit dle nastavení = Řadit dle signatury; Řadit dle pole = Signatura (ident.) vz.
 
-Funkce nejprve provede simulace nového řazení:
+Funkce nejprve provede simulaci nového řazení:
 
 ![seradit_zaznamy-povrzeni](img/seradit_zaznamy-povrzeni.png) 
 
@@ -2504,7 +2504,7 @@ Záznamy se přeuspořádaly dle zapsané signatury!
 
 Funkce "Seřadit záznamy - celá hierarchie" provede řazení v rámci vícero sérií.
 
-V nastavení funkce lze přidat více položek, podle kterých se májí záznamy řadit s prioritou 1 až x.
+V nastavení funkce lze přidat více položek, podle kterých se mají záznamy řadit s prioritou 1 až x.
 
 ### 5.17 Tisky
 
@@ -2516,13 +2516,13 @@ Otevře se dialogové okno pro výběr šablon. Vyberte tu, která je pro požad
 
 ![tisky_shvalena_sablona1](img/tisky_shvalena_sablona1.png) 
 
-Některé šablony disponují možností výběru jednotlivých části tiskového výstupu.
+Některé šablony disponují možností výběru jednotlivých částí tiskového výstupu.
 
 Po zvolení Spustit se vygeneruje samostatný soubor ve formátu .docx (Microsoft Word). Ten můžete buď přímo otevřít, nebo uložit:
 
 ![tisky_vystup_docx](img/tisky_vystup_docx.png) 
 
-Modul Tisky tedy nezprostředkovává přímé tisky odeslané na tiskárnu, ale vytvoří samostatného textové soubory, které mohou být před samotným tiskem ještě po formální a typografické stránce upraveny v textovém editoru, pomocí kterého pak skutečný tisk proběhne.
+Modul Tisky tedy nezprostředkovává přímé tisky odeslané na tiskárnu, ale vytvoří samostatné textové soubory, které mohou být před samotným tiskem ještě po formální a typografické stránce upraveny v textovém editoru, pomocí kterého pak skutečný tisk proběhne.
 
 #### Správa šablon
 
@@ -2536,7 +2536,7 @@ Pomocí tlačítek "Stáhnout šablonu" si můžete jakoukoli z šablon stáhnou
 
 !!! warning "Upozornění"
 
-    Upravování vlastních šablon provádějte jen, pokud rozumíte co děláte ;-)
+    Upravování vlastních šablon provádějte jen tehdy, pokud rozumíte tomu, co děláte ;-)
 
 #### Nahrazení konce řádků ve wordovském dokumentu
 
@@ -2552,7 +2552,7 @@ Při pokusu o zarovnání do bloku pak:
 
 V tuto chvíli to nelze na straně aplikace opravit, proto se musí konce řádku opravit až ve Wordu. Jak?
 
-1. Manuálně každý nevalidní konec řádku smazat, tzn. postavit se kurzorem na je ho konec, zmáčknout DELETE a následně ENTER. Skrytý znak ![tisky_word_zobrazeni_skrytych_znaku-spatne](img/tisky_word_zobrazeni_skrytych_znaku-spatne.png)(=špatně) se nahradí za ![tisky_word_zobrazeni_skrytych_znaku-dobre](img/tisky_word_zobrazeni_skrytych_znaku-dobre.png)(=dobře).
+1. Manuálně každý nevalidní konec řádku smazat, tzn. postavit se kurzorem na jeho konec, zmáčknout DELETE a následně ENTER. Skrytý znak ![tisky_word_zobrazeni_skrytych_znaku-spatne](img/tisky_word_zobrazeni_skrytych_znaku-spatne.png)(=špatně) se nahradí za ![tisky_word_zobrazeni_skrytych_znaku-dobre](img/tisky_word_zobrazeni_skrytych_znaku-dobre.png)(=dobře).
 
 2. Nebo hromadně v celém dokumentu najednou (efektivnější a rychlejší): vybereme celý obsah dokumentu pomocí Ctrl+A, zvolíme funkci Nahradit (Ctrl+H), rozklikneme volbu Více >> a do pole Najít nastavíme hodnotu "Ručně zadaný konec řádku" z číselníku Zvláštní...
 
@@ -2588,7 +2588,7 @@ Nechte zatrženo Uložit soubor - OK a někam si soubor xml uložte. Klidně si 
 
 #### 5.18.2 Import
 
-Pro naimportování si zvolte v levém navigátoru vždy nadřazenou úroveň - obsah xml se vnoří vždy do něj. Např. pokud jste si vyexportovali úroveň "série typu pomůcka", pak import vyvolejte nad úrovni "archivní soubor". Opět přes kontextovou nabídku Import / Export zvolte variantu **Import / Export ProArchiv**  a volbu **Importovat uzel**. Poté Nahrát soubor - zvolte uložené xml. Poté Spustit import.
+Pro naimportování si zvolte v levém navigátoru vždy nadřazenou úroveň - obsah xml se vnoří vždy do ní. Např. pokud jste si vyexportovali úroveň "série typu pomůcka", pak import vyvolejte nad úrovní "archivní soubor". Opět přes kontextovou nabídku Import / Export zvolte variantu **Import / Export ProArchiv**  a volbu **Importovat uzel**. Poté Nahrát soubor - zvolte uložené xml. Poté Spustit import.
 
 #### 5.18.3 EAD3
 
@@ -2599,7 +2599,7 @@ Aplikace umožňuje exportovat pomůcku (tedy sérii typu pomůcka) do formátu 
 Export umožňuje dvě varianty výstupu:
 
 - **EAD3 - kompletní** - v xml jsou zobrazeny všechny jednotky popisu v plném popisném rozsahu, jen je u nich navíc uplatněn speciální atribut [audience="internal"](https://stands.nacr.cz/ead/current/archdesc/omezeni-pristupu.html#moznosti-zverejneni-jednotky-popisu). 
-- **EAD3 - bez neveřejného obsahu (PEVA)** - v xml jsou zobrazený všechny zveřejnitelné jednotky popisu v plném popisném rozsahu; jednotky popisu s příznakem zveřejnění "nepublikovat" a "<neurčeno>" se pak propagují jen s obsahem "Neveřejná jednotka popisu"; jednotky popisu s příznakem "nepublikovat včetně vnořených záznamů" se nepropagují vůbec včetně všech podřízených záznamů. U propagace příloh se postupuje analogicky. 
+- **EAD3 - bez neveřejného obsahu (PEVA)** - v xml jsou zobrazeny všechny zveřejnitelné jednotky popisu v plném popisném rozsahu; jednotky popisu s příznakem zveřejnění "nepublikovat" a "<neurčeno>" se pak propagují jen s obsahem "Neveřejná jednotka popisu"; jednotky popisu s příznakem "nepublikovat včetně vnořených záznamů" se nepropagují vůbec včetně všech podřízených záznamů. U propagace příloh se postupuje analogicky. 
 
 !!! warning "Upozornění"
 
@@ -2616,7 +2616,7 @@ Tento údaj slouží k tomu, aby šly "exportované" jednotky popisu snadno dohl
 
 !!! warning "Upozornění"
 
-    **Přečíslovací funkce provádí hromadnou změnu dat. Postupujte uvážlivě. Neexistuje "krok zpět"!** Na druhou stranu se ale nemusíte obávat funkci použít, je vykonávána dvoukrokově. V prvním kroku dojde k nasimulovaní funkce, tzn.vidíte, jaký bude výsledek. Teprve jeho potvrzením spustíte druhý krok - aplikování na skutečná data.
+    **Přečíslovací funkce provádí hromadnou změnu dat. Postupujte uvážlivě. Neexistuje "krok zpět"!** Na druhou stranu se ale nemusíte obávat funkci použít, je vykonávána dvoukrokově. V prvním kroku dojde k nasimulování funkce, tzn. vidíte, jaký bude výsledek. Teprve jeho potvrzením spustíte druhý krok - aplikování na skutečná data.
     **Funkci nelze použít na záznamech autorizované pomůcky** (vypíše hlášku o nemožnosti provedení změn). 
 
 #### 5.19.1 Přečíslování ukládacích jednotek
@@ -2629,7 +2629,7 @@ Tento údaj slouží k tomu, aby šly "exportované" jednotky popisu snadno dohl
 
 *<u>Aplikovat na:</u>*
 
-- **Akt. záznamy + všechny podzáznamy** = zohledňuje aktuální pozici v navigátoru. Pokud tuto funkci spustíte nad sérii typu pomůcka, budou dotčeny záznamy celé pomůcky; pokud nad sérií, budou dotčeny záznamy jen zvolené série.
+- **Akt. záznamy + všechny podzáznamy** = zohledňuje aktuální pozici v navigátoru. Pokud tuto funkci spustíte nad sérií typu pomůcka, budou dotčeny záznamy celé pomůcky; pokud nad sérií, budou dotčeny záznamy jen zvolené série.
 
 *<u>Ukládací jednotka:</u>*
 
@@ -2643,7 +2643,7 @@ Nová počáteční **číselná hodnota**, kterou bude začínat první výskyt
 
 - **Ignorovat nevyplněné** = nevyplněné hodnoty nebudou ničím nahrazeny, budou přeskočeny
 - **Nevyplněným dát nové číslo** = všem nevyplněným bude přiděleno vždy další nové číslo, které bude na řadě 
-- **Nevyplněným dát stejné číslo** = všem nevyplněným bude přiděleno stejné číslo, jako první nevyplněné
+- **Nevyplněným dát stejné číslo** = všem nevyplněným bude přiděleno stejné číslo jako první nevyplněné
 
 **Spustit** = provede 1. krok: simulaci zvolených podmínek. Vypíše tabulku změn "původní  ukl. číslo >> nové ukl. číslo" + dotaz "... **Pokračovat? Ano/Ne**". Po zvolení Ano dojde ke skutečnému přečíslování. 
 
@@ -2666,7 +2666,7 @@ Lze vyvolat pouze nad/uvnitř série typu pomůcka podle "starých pravidel". **
 
 *<u>Aplikovat na:</u>*
 
-- **Akt. záznamy + všechny podzáznamy** = zohledňuje aktuální pozici v navigátoru. Pokud tuto funkci spustíte nad sérii typu pomůcka, budou dotčeny záznamy celé pomůcky; pokud nad sérií, budou dotčeny záznamy jen zvolené série.
+- **Akt. záznamy + všechny podzáznamy** = zohledňuje aktuální pozici v navigátoru. Pokud tuto funkci spustíte nad sérií typu pomůcka, budou dotčeny záznamy celé pomůcky; pokud nad sérií, budou dotčeny záznamy jen zvolené série.
 
 *<u>Nová hodnota:</u>*
 
@@ -2689,7 +2689,7 @@ Tlačítko **Uložit souhrn hromadných změn** slouží k vygenerování seznam
 
 !!! warning "Upozornění"
 
-    **Funkce umí pracovat jen s konkrétním typem ukládací jednotky.** Záznamy, kde je použit typ ukládací jednotky "definováno v nadřazené jednotce popisu" nebudou zohledněny. Taktéž není nijak zohledněna úroveň jednotky popisu. Funkce prohledává všechny úrovně a dosazuje nová manipulační čísla postupně hierarchicky do hloubky, poté přejde na další vyšší úroveň v pořadí.  
+    **Funkce umí pracovat jen s konkrétním typem ukládací jednotky.** Záznamy, kde je použit typ ukládací jednotky "definováno v nadřazené jednotce popisu", nebudou zohledněny. Taktéž není nijak zohledněna úroveň jednotky popisu. Funkce prohledává všechny úrovně a dosazuje nová manipulační čísla postupně hierarchicky do hloubky, poté přejde na další vyšší úroveň v pořadí.  
 
 ### 5.20 Správa verzí pomůcek
 
@@ -2697,7 +2697,7 @@ Aplikace umožňuje ukládat verze pomůcek/sérií typu pomůcka. Cílem nebyla
 
 První verze pomůcek vznikla automaticky při prvotním importu dat do ProArchivu.
 
-Funkce je spustitelná nad "sérii typu pomůcka" z menu Různé funkce - **Správa verzí pomůcek**.
+Funkce je spustitelná nad "sérií typu pomůcka" z menu Různé funkce - **Správa verzí pomůcek**.
 
 ![verzovani_pomucek_1](img/verzovani_pomucek_1.png)
 
@@ -2712,9 +2712,9 @@ Pro <u>zobrazení vybrané verze</u> pomůcky ze seznamu je potřeba učinit ně
 !!! warning "Upozornění"
 
     **Verze pomůcek jsou uloženy vždy spolu s "mateřskou" pomůckou. Pokud dojde k odstranění této pomůcky, budou automaticky odstraněny i všechny její uložené verze viditelné v okně Správa verzí pomůcek!**
-    Pomůcka naimportována do aplikace z xml souboru (verze) je svébytná kopie pomůcky. Je ji v systému potřeba udržovat jen nezbytně dlouhou dobu, poté by měla být vymazána. Dokud v systému přetrvává, je zahrnuta do všech operací, např. hledání. Taktéž je potřeba myslet na to, že takováto kopie, nemusí obsahovat všechny dříve platné reference, tzn. číselníkové hodnoty či přístupové body. Pokud byla mezitím číselníková hodnota nebo přístupový bod smazán, kopie pomůcky bude o tyto údaje ochuzena (dostane o tom informaci ve fázi importu).  
+    Pomůcka naimportovaná do aplikace z xml souboru (verze) je svébytná kopie pomůcky. Je ji v systému potřeba udržovat jen nezbytně dlouhou dobu, poté by měla být vymazána. Dokud v systému přetrvává, je zahrnuta do všech operací, např. hledání. Taktéž je potřeba myslet na to, že takováto kopie nemusí obsahovat všechny dříve platné reference, tzn. číselníkové hodnoty či přístupové body. Pokud byla mezitím číselníková hodnota nebo přístupový bod smazán, kopie pomůcky bude o tyto údaje ochuzena (dostane o tom informaci ve fázi importu).  
 
-Vzhledem k tomu, že u správy verzí pomůcek nejde v podstatě o nic jiného, než o plnohodnotné použití funkcí [import/export](manual_proarchiv.md#518-importexport-pomuckyserie), platí všechna upozornění, která jsou u těchto funkcí popsána. 
+Vzhledem k tomu, že u správy verzí pomůcek nejde v podstatě o nic jiného než o plnohodnotné použití funkcí [import/export](manual_proarchiv.md#518-importexport-pomuckyserie), platí všechna upozornění, která jsou u těchto funkcí popsána. 
 
 ### 5.21 Zobrazení logů
 
@@ -2730,7 +2730,7 @@ Logy lze filtrovat dle akcí (kategorie) a dle časového intervalu, ve kterém 
 
 ![zobrazeni_logu2](img/zobrazeni_logu2.png)
 
-U konkrétního popisu akce se na konci zobrazuje v závorce číslo udávající počet dotčených záznamů. Pomoci Přidej do výběru je pak lze zobrazit v záložce Výběr. 
+U konkrétního popisu akce se na konci zobrazuje v závorce číslo udávající počet dotčených záznamů. Pomocí Přidej do výběru je pak lze zobrazit v záložce Výběr. 
 
 ### 5.22 Import z CSV
 
@@ -2759,13 +2759,13 @@ V případě nalezení nějaké fatální chyby v souboru CSV se import zastaví
 
 ##### 5.22.1 Import z CSV - Aktualizace
 
-Speciální varianta importu sloužící k aktualizaci již zapsaných záznamů. Podmínkou je, aby importní soubor vždy obsahoval uuid všech obsažených záznamů. K jejich získání slouží funkce **Exportovat záznamy pro modifikaci**, která se vyvolá z kontextové nabídky - Import / Export - **Import / Export ProArchiv**. V úvodní fázi potřeba vybrat kategorii/podkategorii (možno uplatnit i Všechny kategorie) a poté označit (zamodří se) pole určená k exportu (pomocí kláves Shift/Ctrl více polí najednou):
+Speciální varianta importu sloužící k aktualizaci již zapsaných záznamů. Podmínkou je, aby importní soubor vždy obsahoval uuid všech obsažených záznamů. K jejich získání slouží funkce **Exportovat záznamy pro modifikaci**, která se vyvolá z kontextové nabídky - Import / Export - **Import / Export ProArchiv**. V úvodní fázi je potřeba vybrat kategorii/podkategorii (možno uplatnit i Všechny kategorie) a poté označit (zamodří se) pole určená k exportu (pomocí kláves Shift/Ctrl více polí najednou):
 
 ![exportovat-zaznamy-pro-modifikaci_vyber-poli](img/exportovat-zaznamy-pro-modifikaci_vyber-poli.png)
 
 V následném kroku je pak potřeba vybrat ještě zdroj pro export: Navigátor / Tabulka / Tabulka - označené / Výběr / Výběr - označené.
 
-Exportovaný soubor bude obsahovat u každé položky/řádku obligatorní uuid + hodnoty vybraných polí. V případě, že máte exportováno vícenásobné pole (číselník nebo číselník + hodnota), objeví se hodnoty ve exportním csv zřetězené. Např. pro pole Původní/jiné označení jako "Inv. číslo:123;Signatura:A1;Spisová značka:54 C 217 / 2005". Přepisem hodnot se pak tyto hodnoty po importu aktualizačního csv zaktualizují.
+Exportovaný soubor bude obsahovat u každé položky/řádku obligatorní uuid + hodnoty vybraných polí. V případě, že máte exportováno vícenásobné pole (číselník nebo číselník + hodnota), objeví se hodnoty v exportním csv zřetězené. Např. pro pole Původní/jiné označení jako "Inv. číslo:123;Signatura:A1;Spisová značka:54 C 217 / 2005". Přepisem hodnot se pak tyto hodnoty po importu aktualizačního csv zaktualizují.
 
 Do exportovaného csv je možno doplňovat další pole dle dané syntaxe - viz [5.22.2 Soubor CSV](manual_proarchiv.md#5222-soubor-csv).
 
@@ -2799,7 +2799,7 @@ Záhlaví obsahuje názvy polí ProArchivu ve stejné podobě, v jaké se zobraz
 | -------------- |
 | čeština;latina |
 
-Údaje do složitých číselníkových polí, které jsou dány číselníkem (kontextem) + hodnota (pole Evidenční jednotka a Ukládací jednotka) se rozepisují do dvou sloupců, např. Evidenční jednotka Typ a Evidenční jednotka Číslo.
+Údaje do složitých číselníkových polí, která jsou tvořena číselníkem (kontextem) a hodnotou (pole Evidenční jednotka a Ukládací jednotka), se rozepisují do dvou sloupců, např. Evidenční jednotka Typ a Evidenční jednotka Číslo.
 
 | Evidenční jednotka Typ | Evidenční jednotka Číslo | Ukládací jednotka Typ | Ukládací jednotka Číslo |
 | ---------------------- | ------------------------ | --------------------- | ----------------------- |
@@ -2829,9 +2829,9 @@ Soubor CSV musí být uložen v kódování UTF-8 bez BOM.
 
 #### 5.23.1 Uživatelské nastavení aplikace
 
-Uživatelské nastavení aplikace (viz Lišta nástrojů - Nastavení) umožnuje uživatelsky:
+Uživatelské nastavení aplikace (viz Lišta nástrojů - Nastavení) umožňuje uživatelsky:
 
-- **definovat počet sloupců při zobrazení detailu** (záložka Vlastnosti aplikace). Výchozí počet = 5 (sloupců), poskytuje nejideálnější rozmístění polí. Pokud např. z důvodu nižšího rozlišení pracovní stanice pěti sloupcové zobrazení ztrácí na přehlednosti a čitelnosti, může uživatel snížit počet sloupců na 3 nebo 4 přepsáním původní hodnoty 5 a potvrzením OK.
+- **definovat počet sloupců při zobrazení detailu** (záložka Vlastnosti aplikace). Výchozí počet = 5 (sloupců), poskytuje ideální rozmístění polí. Pokud např. z důvodu nižšího rozlišení pracovní stanice pětisloupcové zobrazení ztrácí na přehlednosti a čitelnosti, může uživatel snížit počet sloupců na 3 nebo 4 přepsáním původní hodnoty 5 a potvrzením OK.
 - **definovat vlastní řazení polí nebo jejich skrývání**. Uplatňuje se vždy pro konkrétní kombinaci: pravidla + úroveň + typ pomůcky + kategorie/podkategorie. [DOPRACOVAT]
 
 ### 5.24 Administrace
@@ -2846,7 +2846,7 @@ Blíže popsáno na speciální administrátorské wiki.
 
 Kombinovatelnost: uživatel může mít delegováno více rolí.
 
-Pozn.: druhý sloupec znázorňuje číslo role, které se uplatňuje u klientu se správou uživatelů v textových konfiguračních souborech.
+Pozn.: druhý sloupec znázorňuje číslo role, které se uplatňuje u klientů se správou uživatelů v textových konfiguračních souborech.
 
 | prázdný seznam              |      | výchozí stav; uživatel má právo pro čtení ve všech oblastech + právo zápisu do oblasti, kterou má administrátorem nastavenou v seznamu oblastí a do které je pak zrovna přihlášen |
 | --------------------------- | ---- | ------------------------------------------------------------ |
@@ -2904,7 +2904,7 @@ Odkaz na metodiku výpočtu "Počet změn archivních entit za rok": https://cam
 
 Jednotlivé typy polí jsou na formuláři odlišené barevnou svislou linkou. 
 
-**Kliknutím na ikonu Nástroje ![tools](img/tools.png) se objeví nabídka funkci** v závislosti na zvoleném režimu "čtení / zápis" a typu pole:
+**Kliknutím na ikonu Nástroje ![tools](img/tools.png) se objeví nabídka funkcí** v závislosti na zvoleném režimu "čtení / zápis" a typu pole:
 
 ![tools-detailni-pohled](img/tools-detailni-pohled.png) <u>Detailní pohled</u> - otevře plovoucí okno pro lepší čitelnost a editaci zapisovaného textu
 
@@ -2934,15 +2934,15 @@ Jednotlivé typy polí jsou na formuláři odlišené barevnou svislou linkou.
 
 **Číselníková pole** - hodnoty se zadávají výběrem z číselníků pomocí ![pole_ciselnik-sipka](img/pole_ciselnik-sipka.png)
 
-![ole_cele_ciselnik-rejstri](img/pole_cele_ciselnik-rejstrik.png) Pole umožnuje zvolit vždy jen jednu hodnotu.
+![ole_cele_ciselnik-rejstri](img/pole_cele_ciselnik-rejstrik.png) Pole umožňuje zvolit vždy jen jednu hodnotu.
 
 ![ole_cele_ciselnik-rejstrik-mult](img/pole_cele_ciselnik-rejstrik-multi.png) Pole umožňuje zadat více hodnot - funkce *Přidat do seznamu* / *Odebrat ze seznamu*.
 
 !!! tip "Tip"
 
-    Číselníkové hodnoty se nabízí rovněž, pokud do pole začneme psát předpokládanou hodnotu. Tento způsob vhodný u polí, kde je velké množství hodnot, např. Jazyk.
+    Číselníkové hodnoty se nabízí rovněž, pokud do pole začneme psát předpokládanou hodnotu. Tento způsob je vhodný u polí, kde je velké množství hodnot, např. Jazyk.
 
-**Číselník (kontext) + hodnota** - jde o speciální pole, které kombinují výběr kontextu z číselníku a zapsání jeho konkrétní hodnoty (např. Původní/jiné označení; jiné datace; doplněk u přístupových bodů aj.):
+**Číselník (kontext) + hodnota** - jde o speciální pole, která kombinují výběr kontextu z číselníku a zapsání jeho konkrétní hodnoty (např. Původní/jiné označení; jiné datace; doplněk u přístupových bodů aj.):
 
 ![pole_kontext_plus_hodnota](img/pole_kontext_plus_hodnota.png)
 
@@ -2952,20 +2952,20 @@ Jednotlivé typy polí jsou na formuláři odlišené barevnou svislou linkou.
 
 ![pole_kontext_plus_hodnota_editace](img/pole_kontext_plus_hodnota_editace.png)
 
-**Rejstříková pole** - se zadávají stejně jako při zápisu do speciálního plovoucího okna pro Přístupové body - zápisem do pole se postupně zobrazují dostupná rejstříková hesla, která obsahují zapisovaný řetězec. Z nich je možno si vybrat nebo zvolit pomoci *Přidat* zápis zcela nového rejstříkového hesla.
+**Rejstříková pole** - se zadávají stejně jako při zápisu do speciálního plovoucího okna pro Přístupové body - zápisem do pole se postupně zobrazují dostupná rejstříková hesla, která obsahují zapisovaný řetězec. Z nich je možno si vybrat nebo zvolit pomocí *Přidat* zápis zcela nového rejstříkového hesla.
 
 ##### 6.1.2.1 Sjednocení číselníkových hodnot
 
-U administrátorky řízených číselníků může administrátor sloučit dvě a více hodnot:
+U administrátorsky řízených číselníků může administrátor sloučit dvě a více hodnot:
 
-Při aktivním multinásobném výběru vybereme z nabídky číselníkových hodnot ty položky, které chceme sloučit, včetně té, která zůstane jako dominantní.
+Při aktivním vícenásobném výběru vybereme z nabídky číselníkových hodnot ty položky, které chceme sloučit, včetně té, která zůstane jako dominantní.
 
 ![sjednoceni_ciselnikovych_hodnot-1](img/sjednoceni_ciselnikovych_hodnot-1.png)
 
 Z Různé funkce zvolíme Sloučení číselníkových hodnot a označíme tu, která je dominantní, která v systému zůstane. Zvolíme Sjednotit.
 
 ![sjednoceni_ciselnikovych_hodnot-2](img/sjednoceni_ciselnikovych_hodnot-2.png)
-V daném příkladu všechny jednotky popisu, u kterých byla uplatněna hodnota "spolky divadelní amatérské" bude nově zobrazovat "spolky ochotnické". 
+V daném příkladu budou všechny jednotky popisu, u kterých byla uplatněna hodnota "spolky divadelní amatérské", nově zobrazovat "spolky ochotnické". 
 
 
 #### 6.1.3 Pole pro zápis číselných hodnot
@@ -2978,17 +2978,17 @@ V daném příkladu všechny jednotky popisu, u kterých byla uplatněna hodnota
 
 ##### Druh kalendáře
 
-**Aplikace ProArchiv má na pevno nastaveno používání gregoriánského kalendáře.** Zapisovat strojově čitelné datační údaje v jiných kalendářích není možné. Takový údaj je možno zapsat pouze slovně do pole *Datace vzniku - slovní*.
+**Aplikace ProArchiv má napevno nastaveno používání gregoriánského kalendáře.** Zapisovat strojově čitelné datační údaje v jiných kalendářích není možné. Takový údaj je možno zapsat pouze slovně do pole *Datace vzniku - slovní*.
 
 ##### Solitérní časový údaj vs. časový rozsah
 
-Interní strojový zápis datace bude vždy zapsán formou intervalu i v případě solitérního zápisu, nicméně uživatelská syntaxe pro zápis do datačních polí bude umožňovat zápis solitérní datace nebo rozsahu: přičemž platí, že solitérní datace se může zapisovat pouze pro vyjádření v rámci intervalu 1 sekunda až 1 rok (dále = datace). Vyjádření datace nad 1 rok >>  vždy zápis rozsahem mezi dolní a horní hranici rozsahu (dále = datace – datace).
+Interní strojový zápis datace bude vždy zapsán formou intervalu i v případě solitérního zápisu, nicméně uživatelská syntaxe pro zápis do datačních polí bude umožňovat zápis solitérní datace nebo rozsahu: přičemž platí, že solitérní datace se může zapisovat pouze pro vyjádření v rámci intervalu 1 sekunda až 1 rok (dále = datace). Vyjádření datace nad 1 rok >>  vždy zápis rozsahem mezi dolní a horní hranicí rozsahu (dále = datace – datace).
 
 Postupujeme dle [internetové jazykové příručky Ústavu pro jazyk český AV ČR](https://prirucka.ujc.cas.cz/?id=795): 
 
 !!! tip "Tip"
 
-    *Dvacátá léta* jsou ta, která mají na místě desítek dvojku, tedy např. 1820–⁠1829, 1920–⁠1929, 2020–⁠2029. *Třicátá léta* jsou 1830–⁠1839, 1930–⁠1939, 2030–⁠2039 atd. Pro roky 1900–⁠1909, 1910–⁠1919, 2000–⁠2009, 2009–⁠2019 atp. čeština žádné specifické pojmenování nemá („nultá“ a „desátá“ léta se užívají zřídka). Tato období většinou označujeme jako *první léta století, začátek století, první desetiletí, druhé desetiletí* apod.
+    *Dvacátá léta* jsou ta, která mají na místě desítek dvojku, tedy např. 1820–⁠1829, 1920–⁠1929, 2020–⁠2029. *Třicátá léta* jsou 1830–⁠1839, 1930–⁠1939, 2030–⁠2039 atd. Pro roky 1900–⁠1909, 1910–⁠1919, 2000–⁠2009, 2010–⁠2019 atp. čeština žádné specifické pojmenování nemá („nultá“ a „desátá“ léta se užívají zřídka). Tato období většinou označujeme jako *první léta století, začátek století, první desetiletí, druhé desetiletí* apod.
     
     Do *prvního století* počítáme roky 1, 2, …, 100, do *druhého století* roky 101, 102, …, 200. *Dvacáté století* začalo 1. ledna 1901 a skončilo o půlnoci z 31. prosince 2000 na 1. ledna 2001. *Devadesátá léta dvacátého století* však skončila o rok dříve, 31. prosince 1999. Rok 2000 byl posledním rokem *desátého desetiletí dvacátého století* a zároveň posledním rokem *dvacátého století*. *Dvacáté první století* začalo dnem 1. ledna roku 2001 a skončí o půlnoci z 31. prosince 2100 na 1. ledna 2101, přičemž *devadesátá léta dvacátého prvního století* budou léta 2090–⁠2099.
     
@@ -3045,7 +3045,7 @@ např. 1945
 století
 ```
 
-Aplikace nově umožňuje datovat století. Syntaxe zápisu pro zápis století je tvořenou *číslovkou+tečkou+mezerou+zkratkou+tečkou*, např. "20. st.".
+Aplikace nově umožňuje datovat století. Syntaxe zápisu století je tvořena *číslovkou+tečkou+mezerou+zkratkou+tečkou*, např. "20. st.".
 
 ##### Otevřené časové rozsahy
 
@@ -3061,7 +3061,7 @@ Odhad je vyjádřen, resp. uzavřen mezi lomítka // nebo [] (např. /1920/ nebo
 
 !!! warning "Upozornění"
 
-    V jedné instanci aplikace je vždy nastaven jednotný způsobob vyjádření odhadu: buď pomocí // nebo []. Kombinování nemí možné!
+    V jedné instanci aplikace je vždy nastaven jednotný způsob vyjádření odhadu: buď pomocí // nebo []. Kombinování není možné!
 
 *Možné varianty:*
 
@@ -3075,15 +3075,15 @@ odhad horní hranice časového rozsahu = datace-/datace/ *nebo* datace-[datace]
 
 ##### Datace před naším letopočtem
 
-Aplikace nově umožňuje zápis datace před našim letopočtem. Syntaxe zápisu pro zápis datace před našim letopočtem je tvořena *datací+mezerou+zkratkoupř+tečkou+mezerou+zkratkoun+tečkou+mezerou+zkratkoul+tečkou*, např. "146 př. n. l." nebo "2. st. př. n. l.". 
+Aplikace nově umožňuje zápis datace před naším letopočtem. Syntaxe zápisu datace před naším letopočtem je tvořena *datací+mezerou+zkratkoupř+tečkou+mezerou+zkratkoun+tečkou+mezerou+zkratkoul+tečkou*, např. "146 př. n. l." nebo "2. st. př. n. l.". 
 
-Přesnost datace před našim letopočtem je totožná jako u datace našeho letopočtu, tzn. od století až po sekundu. Století před našim letopočtem začíná rokem s nulou na konci a končí rokem s jedničkou na konci. Např.  2 st. př. n. l.:  - **1. 1. 200** 00:00:00 až - **31. 12. 101** 23:59:59.
+Přesnost datace před naším letopočtem je totožná s přesností datace našeho letopočtu, tzn. od století až po sekundu. Století před naším letopočtem začíná rokem s nulou na konci a končí rokem s jedničkou na konci. Např.  2 st. př. n. l.:  - **1. 1. 200** 00:00:00 až - **31. 12. 101** 23:59:59.
 
 ##### Priorum a posteriorum
 
 !!! warning "Upozornění"
 
-    **Priorum a posteriorum není v polích pro zápis časových údajů uplatňováno!** Lze jej zapsat pouze do standardního textového pole *Datace vzniku - slovní*. U tohoto pole se neuplatňuje kontrola syntaxe zápisu časových údajů, umožňuje libovolný zápis. Slouží primárně k povinnému zápisu **časového rozsahu pomůcky s vyznačením prior a posterior** na úrovní série typu pomůcka. Na ostatních úrovních je zápis nepovinný.
+    **Priorum a posteriorum nejsou v polích pro zápis časových údajů uplatňovány!** Lze je zapsat pouze do standardního textového pole *Datace vzniku - slovní*. U tohoto pole se neuplatňuje kontrola syntaxe zápisu časových údajů, umožňuje libovolný zápis. Slouží primárně k povinnému zápisu **časového rozsahu pomůcky s vyznačením prior a posterior** na úrovni série typu pomůcka. Na ostatních úrovních je zápis nepovinný.
 
 ##### Příklady zápisu
 
@@ -3142,7 +3142,7 @@ Pole, která jsou nabízena v záložce **Detailní popis**, se mohou pro danou 
 
 - **<u>Úroveň popisu</u>** - uplatněno u každého prvku popisu (záznamu)
 
-- **<u>Kategorie záznamu</u>** - uplatněno pouze u záznamů na úrovních: složka / jednotlivost / část jednotlivosti
+- **<u>Kategorie záznamu</u>** - uplatněno pouze u záznamů na úrovnich: složka / jednotlivost / část jednotlivosti
 
 
 To znamená, že pro záznam v pomůcce typu inventář pořádané podle původních pravidel nemusí být nutně  zobrazena všechna pole, která se zobrazují u záznamů v pomůcce typu inventář pořádaných podle "nových" základních pravidel.
@@ -3152,11 +3152,11 @@ Zároveň se zobrazením polí se definuje i požadavek na jejich validaci, rovn
 !!! note "Možnost přizpůsobení"
 
     **Zobrazení a validace polí jsou v dané instanci aplikace (v archivu) jednotné. Změnu může provést pouze administrátor.** Uživatel si sám pole přidat nemůže. Každý archiv (instance aplikace) si tak může stanovit svou definici zobrazení a validace podle svých požadavků na rozšířený popis.
-    ***Při nastavení je potřeba postupovat s rozvahou. <u>Je důrazně doporučeno, aby zobrazení polí bylo pro danou kategorii, která je zároveň tematickou databázi, víceméně jednotné ve všech kombinacích</u>. Naopak nastavení validace vybraných polí může být různé. Takový záznam pak při změně pravidla či typu pomůcky zůstane v oblasti zobrazení kompaktní, pouze se mu zpřísní nebo zmírní požadavky na vyplněnost určitých polí.*** 
+    ***Při nastavení je potřeba postupovat s rozvahou. <u>Je důrazně doporučeno, aby zobrazení polí bylo pro danou kategorii, která je zároveň tematickou databází, víceméně jednotné ve všech kombinacích</u>. Naopak nastavení validace vybraných polí může být různé. Takový záznam pak při změně pravidla či typu pomůcky zůstane v oblasti zobrazení kompaktní, pouze se mu zpřísní nebo zmírní požadavky na vyplněnost určitých polí.*** 
 
-Kvůli výše zmíněným principům se  může jevit nabídka polí zbytečně široká. Jde však o to, pokrýt i ojedinělé případy použití určitého pole. Méně frekventovaná pole jsou umisťována do dolních partií formuláře.
+Kvůli výše zmíněným principům se může jevit nabídka polí zbytečně široká. Jde však o to, pokrýt i ojedinělé případy použití určitého pole. Méně frekventovaná pole jsou umisťována do dolních partií formuláře.
 
-Pokud dojde v průběhu "života" záznamu ke změně některé z výše zmíněných 4 hodnot (tzn. změní se definice jeho zobrazení), mohou se některá dříve vyplněná pole ocitnout v záložce [Ostatní pole](manual_proarchiv.md#472-ostatni-pole). Tato záložka zabraňuje tomu, aby nedošlo ke ztrátě informací.
+Pokud dojde v průběhu "života" záznamu ke změně některé z výše zmíněných 4 hodnot (tzn. změní se definice jeho zobrazení), mohou se některá dříve vyplněná pole ocitnout v záložce [Ostatní pole](manual_proarchiv.md#472-ostatni-pole). Tato záložka zabraňuje ztrátě informací.
 
 #### 6.2.1 Zobrazení polí v režimu zobrazení "Tematické databáze"
 
@@ -3188,13 +3188,13 @@ Obsah pole má zásadní vliv na vnořené záznamy - viz [výše](manual_proarc
 
 Pole pro zobrazení a připojení původce(ů) archivního souboru. Zobrazen je jeho název (uživatelské označení přístupového bodu). Přes Nástroje [![tools](img/tools.png) + ![tools-otevrit](img/tools-otevrit.png)/ ![tools-pridat](img/tools-pridat.png) ] lze otevřít /přidat detailní popis původce. 
 
-Pro připojení původce se postupuje stejně jako při připojování přístupových bodů. Nejprve je potřeba provést **pokus o dohledání již zapsaného původce**. Tento výběr se provádí následovně: zápisem do pole se postupně zobrazují dostupné přístupové body, která obsahují zapisovaný řetězec (něco jako "našeptávač"). Z nich je možno si vybrat.  
+Pro připojení původce se postupuje stejně jako při připojování přístupových bodů. Nejprve je potřeba provést **pokus o dohledání již zapsaného původce**. Tento výběr se provádí následovně: zápisem do pole se postupně zobrazují dostupné přístupové body, které obsahují zapisovaný řetězec (něco jako "našeptávač"). Z nich je možno si vybrat.  
 
-Rychlejší je používat u hledaného řetězce vždy jedinečnou část. Např. u pro vyhledání "Místní národní výbor Bíla" je výhodnější hledat "Bíla" než "Místní národní výbor".
+Rychlejší je používat u hledaného řetězce vždy jedinečnou část. Např. pro vyhledání "Místní národní výbor Bíla" je výhodnější hledat "Bíla" než "Místní národní výbor".
 
 ##### 6.3.2.1 Dědičnost pole Původce
 
-U pole Původce umístěného na formuláři (většinou na úrovní archivní soubor a série typu pomůcka) se nepočítá s dědičností směrem níže. Dědičnost lze zajistit použitím role "původce" v plovoucím okně "Napojené přístupové body".
+U pole Původce umístěného na formuláři (většinou na úrovních archivní soubor a série typu pomůcka) se nepočítá s dědičností směrem níže. Dědičnost lze zajistit použitím role "původce" v plovoucím okně "Napojené přístupové body".
 
 #### 6.3.3 Číslo pomůcky
 
@@ -3220,13 +3220,13 @@ Taktéž generování referenčních označení u dodatečně vytvořených záz
 
 V případě záznamů z pomůcky typu "manipulační seznam" je prvek popisu Referenční označení využit i pro zaznamenání **pořadového čísla manipulačního seznamu** (nezaměňovat s pořadovým číslem v tiskových sestavách). Jeho generování probíhá automatizovaně při autorizaci pomůcky. Vždy se generuje celé číslo od 1 do x od série typu pomůcka směrem níže (série typu pomůcka nebude číslo obsahovat). Dle nastavení klientských instancí se dodatečné generování pořadových čísel po přidání záznamů do již autorizované pomůcky zajišťuje ve dvou variantách:
 
-a) nové záznamy obdrží nová další čísla v pořadí; čísla u původních záznamu zůstanou zachována 
+a) nové záznamy obdrží nová další čísla v pořadí; čísla u původních záznamů zůstanou zachována 
 
-b) při následných autorizacích dojde k novému přečíslování záznamů od 1 do x; čísla u původních záznamu tak mohou být změněna
+b) při následných autorizacích dojde k novému přečíslování záznamů od 1 do x; čísla u původních záznamů tak mohou být změněna
 
 #### 6.3.7 Původní/jiné označení
 
-Editační pole pro zápis typu identifikátoru + jeho hodnoty. Uplatňuje se na úrovních: složka / jednotlivost / část jednotlivosti. Viz Pravidla [[odkaz: Pravidla, kapitola 4.2.2](../../zp/zp_hlavni_text-04/#422-jina-oznaceni)]. Např. informace o inventárním čísle, signatuře apod.
+Editační pole pro zápis typu identifikátoru + jeho hodnoty. Uplatňuje se na úrovnich: složka / jednotlivost / část jednotlivosti. Viz Pravidla [[odkaz: Pravidla, kapitola 4.2.2](../../zp/zp_hlavni_text-04/#422-jina-oznaceni)]. Např. informace o inventárním čísle, signatuře apod.
 
 #### 6.3.8 Evidenční jednotka
 
@@ -3279,33 +3279,33 @@ Slouží pro zápis jednoznačného identifikátoru digitální archiválie ulo�
 
 <u>Použití "Identifikátoru DA" společně s evidenční jednotkou "DAJ"</u> je uplatňováno u **digitálních archiválií** (born-digital). ***V kombinaci s EJ "DAJ" je vyplnění "Identifikátoru DA" povinné! Zároveň se v poli "Ukládací jednotka" uvede "definováno v identifikátoru DA".***
 
-<u>Použití "Identifikátoru DA" společně s evidenční jednotkou "karton" nebo "fascikl"</u> je uplatňováno u tzv. **hybridních archiváliích**.
+<u>Použití "Identifikátoru DA" společně s evidenční jednotkou "karton" nebo "fascikl"</u> je uplatňováno u tzv. **hybridních archiválií**.
 
-V případě, že pole "Evidenční jednotka + počet" bude obsahovat druh "DAJ", bude hodnota nového pole "Identifikátor DA" použita pro počítání evidenční jednotky DAJ v poli "Evidenční jednotka + součet" na sérii typu pomůcka (dle výše zmíněného principu podle jedinečnosti hodnot). Tzn. pokud bude existovat pět jednotek popisu s vyplněným polem "Identifikátor DA" u dvou bude identifikátor totožný, u dalších tří různý - výsledný počet v poli "Evidenční jednotka + součet" bude DAJ = 4. 
+V případě, že pole "Evidenční jednotka + počet" bude obsahovat druh "DAJ", bude hodnota nového pole "Identifikátor DA" použita pro počítání evidenční jednotky DAJ v poli "Evidenční jednotka + součet" na sérii typu pomůcka (dle výše zmíněného principu podle jedinečnosti hodnot). Tzn. pokud bude existovat pět jednotek popisu s vyplněným polem "Identifikátor DA", u dvou bude identifikátor totožný, u dalších tří různý - výsledný počet v poli "Evidenční jednotka + součet" bude DAJ = 4. 
 
-V případě, že pole "Evidenční jednotka + počet" bude obsahovat druh "karton" nebo "fascikl" a zároveň bude vyplněn "Identifikátoru DA", bude hodnota nového pole "Identifikátor DA" použita pro počítání evidenční jednotky DAJ v poli "Evidenční jednotka + součet" na sérii typu pomůcka. Zároveň bude i záznamu takové hybridní archiválie započítávána i analogová EJ "karton" nebo "fascikl".
+V případě, že pole "Evidenční jednotka + počet" bude obsahovat druh "karton" nebo "fascikl" a zároveň bude vyplněn "Identifikátor DA", bude hodnota nového pole "Identifikátor DA" použita pro počítání evidenční jednotky DAJ v poli "Evidenční jednotka + součet" na sérii typu pomůcka. Zároveň bude u záznamu takové hybridní archiválie započítávána i analogová EJ "karton" nebo "fascikl".
 
 Pokud ale bude v poli "Evidenční jednotka + počet" uveden jiný druh EJ (např. "úřední kniha") a zároveň bude uveden "Identifikátor DA", jeho hodnota nebude v poli "Evidenční jednotka + součet" zohledňována. 
 
 #### 6.3.9 Ukládací jednotka
 
-Uplatněno na úrovních *složka/složka manipulačního seznamu a jednotlivost* ve všech typech pomůcek. U kartoték pak i na úrovni *část jednotlivosti*.
+Uplatněno na úrovnich *složka/složka manipulačního seznamu a jednotlivost* ve všech typech pomůcek. U kartoték pak i na úrovni *část jednotlivosti*.
 
 Slouží k zápisu typu a čísla ukládací jednotky.
 
 !!! warning "Upozornění"
 
-    **Je třeba rozlišovat mezi evidenční a ukládací jednotkou!** V předešlých pořádacích aplikacích se často kombinoval u množstevních evidenčních jednotek druh EJ s ukládacím číslem. V ProArchivu je toto striktně odlišeno. Typ ukládací jednotky skutečně koresponduje s fyzickou podobou archiválie. Např. "kniha" vyjadřuje ukládací jednotku pro evidenční jednotky: úřední kniha, podací protokol, elench, rukopis v knižní vazbě apod. **Pouze u množstevních evidenčních jednotek *karton / fascikl* je logické a zároveň povinné uvádět stejný typ ukládací jednotky jako je druh EJ! U evidenční jednotky DAJ se uvede "definováno v identifikátoru DA" a zaroveň se vyplní "Identifikátor DA".**
+    **Je třeba rozlišovat mezi evidenční a ukládací jednotkou!** V předešlých pořádacích aplikacích se často kombinoval u množstevních evidenčních jednotek druh EJ s ukládacím číslem. V ProArchivu je toto striktně odlišeno. Typ ukládací jednotky skutečně koresponduje s fyzickou podobou archiválie. Např. "kniha" vyjadřuje ukládací jednotku pro evidenční jednotky: úřední kniha, podací protokol, elench, rukopis v knižní vazbě apod. **Pouze u množstevních evidenčních jednotek *karton / fascikl* je logické a zároveň povinné uvádět stejný typ ukládací jednotky, jako je druh EJ! U evidenční jednotky DAJ se uvede "definováno v identifikátoru DA" a zároveň se vyplní "Identifikátor DA".**
 
 !!! note "Možnost přizpůsobení"
 
-    Nabídka typu ukládacích jednotek je v dané instanci aplikace (v archivu) jednotná. Změnu může provést pouze administrátor. Každý archiv (instance aplikace) si tak může stanovit svůj seznam ukládacích jednotek a princip jejich číslování (jedna souvislá číselná řada napříč všemi typy ukládacích jednotek nebo pro každý typ samostatná číselná řada).
+    Nabídka typů ukládacích jednotek je v dané instanci aplikace (v archivu) jednotná. Změnu může provést pouze administrátor. Každý archiv (instance aplikace) si tak může stanovit svůj seznam ukládacích jednotek a princip jejich číslování (jedna souvislá číselná řada napříč všemi typy ukládacích jednotek nebo pro každý typ samostatná číselná řada).
 
 Ukládací jednotky se zobrazují v tabulce ve sloupci Identifikace, a to formou značek (mj. DNJ = definováno v nadřazené jednotce popisu / DPJ = definováno v podřízených jednotkách popisu).
 
 ##### 6.3.9.1 Dědičnost údaje o ukládací jednotce
 
-Pokud dojde k rozšíření popisu pod úroveň, na které je definovaná ukládací jednotka, informace o ukládací jednotce se dědí. Respektive podřízená jednotka popisu má v daném poli při zakládáni automaticky doplněnou informaci **"definováno v nadřazené jednotce popisu"**.  Oproti evidenční jednotce lze ale tuto informaci uživatelsky změnit. To umožňuje ukládat např. technické výkresy, které jsou součástí spisů, mimo karton třeba do mapovnic.
+Pokud dojde k rozšíření popisu pod úroveň, na které je definovaná ukládací jednotka, informace o ukládací jednotce se dědí. Respektive podřízená jednotka popisu má v daném poli při zakládání automaticky doplněnou informaci **"definováno v nadřazené jednotce popisu"**.  Oproti evidenční jednotce lze ale tuto informaci uživatelsky změnit. To umožňuje ukládat např. technické výkresy, které jsou součástí spisů, mimo karton třeba do mapovnic.
 
 Další speciální hodnotou je **"definováno v podřízených jednotkách popisu"**, která se uplatňuje v případě, kdy je složka použita v hierarchii nad podsložkami s definovanou EJ. 
 
@@ -3325,9 +3325,9 @@ Požadavek na tuto vazbu hlídá i režim validací.
 
 Komponenta zobrazující ukládací jednotku zobrazuje také kolonku pro zápis Manipulačního čísla. K čemu slouží?
 
-Ukládací jednotky typu "karton" a "fascikl" zahrnují většinou více jednotek popisu. Jejich detailnější rozlišení by bylo možné jen na základě referenčního označení. Toto ale není pro běžnou praxi (objednávání archiválii a jejich přípravu, GI) příliš použitelné. Proto je účelné přistoupit k dalšímu rozlišení a to formou uvedení manipulačního čísla. 
+Ukládací jednotky typu "karton" a "fascikl" zahrnují většinou více jednotek popisu. Jejich detailnější rozlišení by bylo možné jen na základě referenčního označení. Toto ale není pro běžnou praxi (objednávání archiválií a jejich přípravu, GI) příliš použitelné. Proto je účelné přistoupit k dalšímu rozlišení, a to formou uvedení manipulačního čísla. 
 
-**Jde o pole pro zápis pouze číselné hodnoty. Jeho způsob a povinnost vyplnění se bude řídit metodikami jednotlivých archivů, ale obecně se předpokládá jeho užívání v kombinaci s typem ukládací jednotky "karton" nebo "fascikl" následovně:**
+**Jde o pole pro zápis pouze číselné hodnoty. Jeho způsob a povinnost vyplnění se budou řídit metodikami jednotlivých archivů, ale obecně se předpokládá jeho užívání v kombinaci s typem ukládací jednotky "karton" nebo "fascikl" následovně:**
 
 - Pokud daná ukládací jednotka obsahuje více než jednu jednotku popisu, zapíše se do pole "manipulační číslo" číselná hodnota od 1 do x. V rámci jedné ukládací jednotky bude uplatněna vždy samostatná číselná řada. Konkrétní číslo (pořadí) se odvíjí od postavení v hierarchické struktuře pomůcky. Manipulační číslo zároveň poslouží i k praktickému řazení jednotek popisu v kartonech.
 
@@ -3349,7 +3349,7 @@ Manipulační číslo bude ve výstupech z aplikace (tisky, exporty do DA) preze
 
 Uplatněno vždy na úrovni *série typu pomůcka*, nepovinně pak na kterékoli *sérii*.
 
-Nejde o editační pole, nýbrž o pole, které nasčítává údaje z vnořených úrovní: složek a jednotlivostí. Toto generování neprobíhá automaticky, je závislé na uživatelském spuštění funkce. Již vygenerovaný údaj se automaticky neaktualizuje. Pokud došlo ve vnořených jednotkách popisu ke změně v datacích, je potřeba funkce spustit znovu.
+Nejde o editační pole, nýbrž o pole, které nasčítává údaje z vnořených úrovní: složek a jednotlivostí. Toto generování neprobíhá automaticky, je závislé na uživatelském spuštění funkce. Již vygenerovaný údaj se automaticky neaktualizuje. Pokud došlo ve vnořených jednotkách popisu ke změně v datacích, je potřeba funkci spustit znovu.
 
 Viz Různé funkce - Generovací funkce - Generovat dataci vzniku - generovaný údaj
 
@@ -3373,9 +3373,9 @@ V režimu "zápisu" je dostupná plnohodnotná editace souřadnic (![tools](img/
 
 Vizuální editor umožňuje:
 
-1 - přepínání mezi mapovými podklady
+1 - přepínat mezi mapovými podklady
 
-2 - vyhledávat na mapy.cz. Vybraný výsledek automaticky přidá bodovou souřadnici.
+2 - vyhledávat na Mapy.cz. Vybraný výsledek automaticky přidá bodovou souřadnici.
 
 3 - ručně editovat souřadnice (viz dále)
 
@@ -3413,11 +3413,11 @@ Slouží k určení formy přístupnosti vůči veřejnosti (badatelům), resp. 
 
 **V pořádací aplikaci budou vidět vždy všechny záznamy a všechny přílohy bez ohledu na zvolenou možnost zveřejnění.** 
 
-Níže zmíněné možnosti zveřejnění jsou technickým instrumentem. Co a jakým způsobem zveřejňovat rozhoduje zpracovatel v souladu se zákonem na ochranu osobních údajů, s autorským zákonem, na základě smluvních vztahů apod.
+Níže zmíněné možnosti zveřejnění jsou technickým instrumentem. O tom, co a jakým způsobem zveřejňovat, rozhoduje zpracovatel v souladu se zákonem na ochranu osobních údajů, s autorským zákonem, na základě smluvních vztahů apod.
 
 !!! warning "Upozornění - starý Digitální archiv ZAO / VadeMeCum vs. nová Digitální badatelna"
 
-    **Nová Digitální badatelna zobrazuje kompletní hierarchii jednotek popisu** od archivního souboru, přes sérii typu pomůcka, série, složky, jednotlivosti až po část jednotlivosti. Badatel uvidí, co je nad i pod zobrazenou jednotkou popisu. **K tomu je potřeba opatřit VŠECHNY jednotky popisu polem Možnost zveřejnění.**
+    **Nová Digitální badatelna zobrazuje kompletní hierarchii jednotek popisu** od archivního souboru přes sérii typu pomůcka, série, složky, jednotlivosti až po část jednotlivosti. Badatel uvidí, co je nad i pod zobrazenou jednotkou popisu. **K tomu je potřeba opatřit VŠECHNY jednotky popisu polem Možnost zveřejnění.**
 
 ##### Možnost zveřejnění aktuálního záznamu
 
@@ -3447,11 +3447,11 @@ Jde o vyšší úroveň nastavení zveřejnění. Uplatňuje se na sérii typu p
 
 !!! summary "Souhrn - starý Digitální archiv ZAO / VadeMeCum"
 
-    **Záznamy tematických databází nejsou na stavu pomůcky závislé.** Naopak záznamy kategorií mimo tematické databáze na stavu pomůcky závislé **jsou**, tzn. dokud není pomůcka autorizovaná, tyto záznamy se nezveřejnění, i když mají zveřejnění nastaveno.
+    **Záznamy tematických databází nejsou na stavu pomůcky závislé.** Naopak záznamy kategorií mimo tematické databáze na stavu pomůcky závislé **jsou**, tzn. dokud není pomůcka autorizovaná, tyto záznamy se nezveřejní, i když mají zveřejnění nastaveno.
 
 <u>**2) v Digitální badatelně**</u>
 
-V nové Digitální badatelně se zveřejnění pomůcky zobrazuje na základě interpretace hodnot pro Možnost zveřejnění na všech jejich jednotkách popisu. Zamezení zveřejnění celé rozpracované pomůcky pak je umožněno díky hodnotě "nepublikovat včetně vnořených záznamů". Naopak bude umožněno i zobrazení jednotek popisu v rozpracované pomůcce. Zpracovatel tak bude mít větší svobodu v rozhodování, co zveřejnit a co ne.
+V nové Digitální badatelně se zveřejnění pomůcky zobrazuje na základě interpretace hodnot pro Možnost zveřejnění na všech jejích jednotkách popisu. Zamezení zveřejnění celé rozpracované pomůcky pak je umožněno díky hodnotě "nepublikovat včetně vnořených záznamů". Naopak bude umožněno i zobrazení jednotek popisu v rozpracované pomůcce. Zpracovatel tak bude mít větší svobodu v rozhodování, co zveřejnit a co ne.
 
 <u>Scénář 1 - V rozepsané pomůcce chci zveřejnit některé již hotové záznamy</u>
 
@@ -3460,7 +3460,7 @@ Aby nebyla porušena hierarchie stromu, která vede až ke konkrétním zveřejn
 
 <u>Scénář 2 - Nechci zveřejnit nic z rozepsané pomůcky ani ji samotnou</u>
 
-Na pomůcce je příznak zveřejnění = “nepublikovat včetně vnořených záznamů”. Uvnitř pomůcky pak mohou být záznamy s konkrétními možnostmi zveřejnění (předchystáno do budoucna, až dojde k dokončení a zveřejnění celé pomůcky), jsou však nyní "přebity" volbou na úrovní pomůcka, tedy skryty.
+Na pomůcce je příznak zveřejnění = “nepublikovat včetně vnořených záznamů”. Uvnitř pomůcky pak mohou být záznamy s konkrétními možnostmi zveřejnění (předchystáno do budoucna, až dojde k dokončení a zveřejnění celé pomůcky), jsou však nyní "přebity" volbou na úrovni pomůcka, tedy skryty.
 
 !!! summary "Souhrn - nová Digitální badatelna"
 
@@ -3470,7 +3470,7 @@ Na pomůcce je příznak zveřejnění = “nepublikovat včetně vnořených z�
 
 !!! warning "Upozornění - starý Digitální archiv ZAO / VadeMeCum vs. nová Digitální badatelna"
 
-    Princip zveřejnění jednotlivých příloh bude v nové Digitální badatelně platit stejně. Samozřejmě muže být ovlivněn hodnotou "nepublikovat včetně vnořených záznamů", použitou na některé z vyšších úrovní.
+    Princip zveřejnění jednotlivých příloh bude v nové Digitální badatelně platit stejně. Samozřejmě může být ovlivněn hodnotou "nepublikovat včetně vnořených záznamů", použitou na některé z vyšších úrovní.
 
 Jde o nejnižší (nejpodrobnější) úroveň nastavení zveřejnění konkrétní přílohy (jednotlivého digitalizátu).
 
@@ -3484,4 +3484,4 @@ Pokud má záznam nastavenou Možnost zveřejnění = "nepublikovat" NEBO "pouze
 
 [^1]: Základní pravidla pro zpracování archiválií. Verze 3.0. Vydáno jako příloha metodického pokynu AS MVČR č. 1/2021 (čj. MV-23313-5/AS-2021)
 [^2]: V některých dřívějších pořádacích systémech byl uplatňován podobný princip. Např. v Národním archivu se role pod názvem „specifikace“ používaly i v minulosti.  Jinde, např. v ZAO, plnily funkci rolí samostatná pole na popisných formulářích, která generovala odkazy do rejstříků.
-[^3]: Toto je zásadní změna pro archivy (např. ZAO), které používaly pořádací aplikace bez hiearchie, hlavně u tzv. tematických databází. V inventářích byl hierarchický princip uplatňován relativně dobře, byť v zjednodušené podobě (kapitoly - inventární záznamy). U tematických databází byly jednotlivé záznamy samostatné (soběstačné). Kapitoly byly pouze pomocné a dobrovolné, nevyjadřovaly vztah k archivnímu souboru. Laicky řečeno, šlo o "placatá" data. Záznam tematické databáze tak nesl plnohodnotnou informaci o své identifikaci (archivní soubor, číslo pomůcky). Naopak v Národním archivu současné poždavky na hierarchicky popis v zásadě odpovídaly fungování předcházející pořádací aplikace Janus.
+[^3]: Toto je zásadní změna pro archivy (např. ZAO), které používaly pořádací aplikace bez hierarchie, hlavně u tzv. tematických databází. V inventářích byl hierarchický princip uplatňován relativně dobře, byť v zjednodušené podobě (kapitoly - inventární záznamy). U tematických databází byly jednotlivé záznamy samostatné (soběstačné). Kapitoly byly pouze pomocné a dobrovolné, nevyjadřovaly vztah k archivnímu souboru. Laicky řečeno, šlo o "placatá" data. Záznam tematické databáze tak nesl plnohodnotnou informaci o své identifikaci (archivní soubor, číslo pomůcky). Naopak v Národním archivu současné požadavky na hierarchický popis v zásadě odpovídaly fungování předcházející pořádací aplikace Janus.
