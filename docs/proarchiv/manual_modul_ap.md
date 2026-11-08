@@ -31,7 +31,7 @@
 
 Uživatelská příručka si klade za cíl primárně vysvětlit fungování a ovládání modulu pro správu přístupových bodů ProArchiv, nikoli vysvětlovat metodické postupy uvedené v [**Základních pravidlech pro zpracování archiválií**](../zp/index.md) (dále Pravidla) a v konkrétních metodických příručkách jednotlivých archivů (dále Metodika). Nicméně tyto dvě oblasti spolu maximálně souvisí a v mnoha pasážích tak došlo k provázání manuálu s metodikou.
 
-Terminologie bude v této příručce i samotném aplikačním modulu oproti Pravidlům zjednodušena. [Archivní autoritní záznam](../../zp/zp_hlavni_text-06/#61-entity-a-archivni-autoritni-zaznamy) (též archivní entita; záznam archivní entity apod.) bude zjednodušeně nazýván jako [přístupový bod](../../zp/zp_hlavni_text-06/#62-archivni-autoritni-zaznamy-jako-pristupove-body) bez ohledu na to, zda opravdovým přístupovým bodem, tzn. došlo k jeho napojení na jednotku archivního popisu, či nikoli.
+Terminologie bude v této příručce i samotném aplikačním modulu oproti Pravidlům zjednodušena. [Archivní autoritní záznam](../../zp/zp_hlavni_text-06/#61-entity-a-archivni-autoritni-zaznamy) (též archivní entita; záznam archivní entity apod.) bude zjednodušeně nazýván [přístupový bod](../../zp/zp_hlavni_text-06/#62-archivni-autoritni-zaznamy-jako-pristupove-body) bez ohledu na to, zda je opravdovým přístupovým bodem, tzn. došlo k jeho napojení na jednotku archivního popisu, či nikoli.
 
 Pro archivní autoritní záznamy byla vytvořena národní databáze pod názvem Centrální archivní modul pro správu archivních entit (dále **IS CAM**).
 
@@ -39,25 +39,25 @@ Pro archivní autoritní záznamy byla vytvořena národní databáze pod názve
 
 ## 2 Potřeba vzniku nového modulu pro správu přístupových bodů
 
-Z důvodu výše zmíněné existence IS CAM, jež se stal součástí Pravidel od její verze 3.0, bylo potřeba původní systém popisu přístupových bodů v pořádací aplikaci zcela změnit. Implementace IS CAM do ProArchivu byla dokončena vznikem modulu ProArchiv - Přístupové body (dále jen modul).
+Z důvodu výše zmíněné existence IS CAM, jež se stal součástí Pravidel od jejich verze 3.0, bylo potřeba původní systém popisu přístupových bodů v pořádací aplikaci zcela změnit. Implementace IS CAM do ProArchivu byla dokončena vznikem modulu ProArchiv - Přístupové body (dále jen modul).
 
 ## 3 Základní popis modulu
 
-Modul funguje samostatně a nezávisle na pořádací aplikaci. Je tvořen jádrem a grafickým uživatelským rozhraním. Jádro modulu s pořádací aplikaci komunikuje přes REST API rozhraní. Teoreticky může sloužit jako zdroj přístupových bodů i pro další aplikace. Grafické uživatelské rozhraní jádra modulu je nyní technicky součásti pořádací aplikace, aby byla zaručena vizuální kompatibilita. 
+Modul funguje samostatně a nezávisle na pořádací aplikaci. Je tvořen jádrem a grafickým uživatelským rozhraním. Jádro modulu s pořádací aplikací komunikuje přes REST API rozhraní. Teoreticky může sloužit jako zdroj přístupových bodů i pro další aplikace. Grafické uživatelské rozhraní jádra modulu je nyní technicky součástí pořádací aplikace, aby byla zaručena vizuální kompatibilita. 
 
 ![diagram-IS_CAM-uroven2-oblastni](img-ap/diagram-IS_CAM-uroven2-oblastni.png)
 
 ### 3.1 Struktura dat
 
-Základní členění datových polí vychází z Pravidel. Modul je pro všechny instance pořádací aplikace totožný, neumožňuje klientskou konfiguraci zobrazení a uživatelských prvků popisu tak, jako je to umožněno v pořádací aplikaci. Tím je zaručen požadavek na kompatibilita se složitými datovými strukturami a procesy IS CAM. Struktura dat a mnohé procesy se řídí závaznou [Technickou dokumentací IS CAM](https://cam.nacr.cz/doc/) a [metodikou ke standardizaci výměnného formátu CAM](attachments-ap/Metodika_ke_standardizaci_vymenneho_formatu_CAM-VMV_2020-83.pdf). 
+Základní členění datových polí vychází z Pravidel. Modul je pro všechny instance pořádací aplikace totožný, neumožňuje klientskou konfiguraci zobrazení a uživatelských prvků popisu tak, jako je to umožněno v pořádací aplikaci. Tím je zaručen požadavek na kompatibilitu se složitými datovými strukturami a procesy IS CAM. Struktura dat a mnohé procesy se řídí závaznou [Technickou dokumentací IS CAM](https://cam.nacr.cz/doc/) a [metodikou ke standardizaci výměnného formátu CAM](attachments-ap/Metodika_ke_standardizaci_vymenneho_formatu_CAM-VMV_2020-83.pdf). 
 
 #### 3.1.1 Informace o záznamech mimo editační formuláře
 
-Pro orientaci v záznamech přístupových bodech se vybrané údaje z nich „skládají“ do řádkové informace, která reprezentuje v co nejstručnější formě záznam mimo editační formulář **a zastupuje jej ve všech ostatních zobrazeních** (v našeptávačích, ve výsledcích výběrů apod.). Tato informace je tvořena obsahem stanoveného pole či vícero polí. 
+Pro orientaci v záznamech přístupových bodů se vybrané údaje z nich „skládají“ do řádkové informace, která reprezentuje v co nejstručnější formě záznam mimo editační formulář **a zastupuje jej ve všech ostatních zobrazeních** (v našeptávačích, ve výsledcích výběrů apod.). Tato informace je tvořena obsahem stanoveného pole či vícero polí. 
 
-V dalším textu příručky se mluví o takové zástupné interpretaci jako o "displayName“.
+V dalším textu příručky se mluví o takové zástupné interpretaci jako o „displayName“.
 
-Pro přístupový bod jako takový se používá standardní displayName v podobě **Uživatelského označení** - tedy preferovaného označení (dále jako PREF) doplněného o stručnou charakteristiku (viz [Pravidla - 6.3.5 Označení entity - Struktura označení](../../zp/zp_hlavni_text-06/#struktura-oznaceni)). S případným ořezem po naplnění kapacity povoleného počtu znaků.
+Pro přístupový bod jako takový se používá standardní displayName v podobě **Uživatelského označení** - tedy preferovaného označení (dále jako PREF) doplněného o stručnou charakteristiku (viz [Pravidla - 6.3.5 Označení entity - Struktura označení](../../zp/zp_hlavni_text-06/#struktura-oznaceni)). Při překročení povoleného počtu znaků se text zkrátí.
 
 Pro účely zobrazení výsledků jednoduchého výběru se používá i speciální displayName pro zobrazení čistě variantního označení (dále jako VAR) ve formě "Jména z variantního označení (VAR pro Uživatelské označení)", např. "Otec vlasti  (VAR pro Karel IV. (císař : 1316-1378), král český a císař římský z rodu Lucemburků)".
 
@@ -67,7 +67,7 @@ Validace je v modulu pevně nastavena a neumožňuje úpravu na straně klienta 
 
 #### 3.2.1 Validace online
 
-Zobrazuje se [stejným způsobem](manual_proarchiv.md#321-validace-online) jako v pořádací aplikaci. Jde většinou kontrolu syntaxe zápisu (např. datační údaje) nebo kontrolu vyplnění požadovaných prvků popisu.
+Zobrazuje se [stejným způsobem](manual_proarchiv.md#321-validace-online) jako v pořádací aplikaci. Jde většinou o kontrolu syntaxe zápisu (např. datační údaje) nebo kontrolu vyplnění požadovaných prvků popisu.
 
 #### 3.2.2 Validace celého záznamu
 
@@ -79,7 +79,7 @@ Validace se vztahuje k zveřejněným [pravidlům popisu](https://cam.nacr.cz/do
 
 ### 3.4 Synchronizace s IS CAM
 
-Napojení modulu na IS CAM je závisle na přidělené roli dle [provozního řádu IS CAM](https://cam.nacr.cz/info/provoznirad2.html#urovne-pristupu-do-is-cam). Reálně přichází v úvahu omezená varianta s rolí CAM I (čtení záznamů z IS CAM) nebo plnohodnotná varianta s rolí CAM III (čtení a změna záznamů s IS CAM). Tento manuál prezentuje možnosti plnohodnotné varianty.
+Napojení modulu na IS CAM je závislé na přidělené roli dle [provozního řádu IS CAM](https://cam.nacr.cz/info/provoznirad2.html#urovne-pristupu-do-is-cam). Reálně přichází v úvahu omezená varianta s rolí CAM I (čtení záznamů z IS CAM) nebo plnohodnotná varianta s rolí CAM III (čtení a změna záznamů v IS CAM). Tento manuál prezentuje možnosti plnohodnotné varianty.
 
 O tom, zda je konkrétní přístupový bod v aktuálním stavu synchronizován s IS CAM, podávají informaci hodnoty v poli Synchronizace s IS CAM v Pomocných údajích.
 
@@ -92,15 +92,15 @@ Dle nastaveného intervalu (výchozí je 5 minut) dochází k pravidelnému nač
 | Entita ve stavu "nová" nebo "schválená", která ještě v modulu není (modul neeviduje její CAM ID) | Automatický import entity                                   |
 | Nová verze entity ve stavu "nová" nebo "schválená", která již v modulu je (modul eviduje její CAM ID) a je ve stavu "schválený" nebo "nová z CAM", tzn. nedochází u ní v modulu k obsahovým změnám | Automatický import nové verze entity                        |
 | Nová verze entity ve stavu "nová" nebo "schválená", která již v modulu je (modul eviduje její CAM ID) a je ve stavu "rozpracovaný" nebo "ke schválení", tzn. dochází u ní v modulu k obsahovým změnám | Nová verze čeká ve frontě Příchozí (konflikt) na rozhodnutí |
-| Entita u níž došlo v IS CAM k zneplatnění nebo nahrazení, ale již v modulu je (modul eviduje její CAM ID) | Automatická změna stavu entity                              |
+| Entita, u níž došlo v IS CAM ke zneplatnění nebo nahrazení, ale již v modulu je (modul eviduje její CAM ID) | Automatická změna stavu entity                              |
 
 ####  3.4.2 Princip synchronizace/odesílání entit z modulu do IS CAM
 
-Po dokončení interního schvalovacího procesu a konečné změny stavu přístupového bodu na "schválený", je automaticky zobrazen ve frontě Odchozí.
+Po dokončení interního schvalovacího procesu a konečné změně stavu přístupového bodu na "schválený" je přístupový bod automaticky zobrazen ve frontě Odchozí.
 
-Uživatel s rolí "operátor CAM" pomocí kontextové nabídky zvolí funkci "Odeslání PB do CAMu". Na pozadí proběhne poslední finální vyhodnocení, zda je splněna požadovaná validace a stav, a v případě bezvadného stavu dojde k odeslání do IS CAM. Poté záznam z fronty Odchozí zmizí. V případě nějakého konfliktu je operátor CAM informován a k odeslání nedojde. Konkrétní konfliktní situace viz níže.
+Uživatel s rolí "operátor CAM" pomocí kontextové nabídky zvolí funkci "Odeslání PB do CAMu". Na pozadí proběhne finální vyhodnocení, zda je splněna požadovaná validace a stav, a v případě bezvadného stavu dojde k odeslání do IS CAM. Poté záznam z fronty Odchozí zmizí. V případě nějakého konfliktu je operátor CAM informován a k odeslání nedojde. Konkrétní konfliktní situace viz níže.
 
-Podrobný popis samotného procesu včetně **odesílání i přes upozornění**, vyhodnocování navzájem propojených přístupových bodů je popsáno v popisu [fronty Odchozí](manual_modul_ap.md#58-fronta-odchozi).
+Samotný proces včetně **odesílání i přes upozornění** a vyhodnocování navzájem propojených přístupových bodů je podrobně popsán v kapitole o [fronty Odchozí](manual_modul_ap.md#58-fronta-odchozi).
 
 ### 3.5 Stavy přístupových bodů
 
@@ -117,10 +117,10 @@ Z důvodu implementace schvalovacího procesu nabývají záznamy přístupovýc
 | ***ke schválení*** | [R]     | -           | zpracovatel\*, schvalovatel | zpracovatelem označený přístupový bod k finálnímu schválení; po importu z pořádací aplikace jsou takto označené i původní přístupové body v kvalitě "validní"; záznam v needitačním módu |
 | ***interní ke schválení***\*\* | [R] | - | zpracovatel\*, schvalovatel | zpracovatelem označený přístupový bod k finálnímu schválení, který ale směřuje ke stavu **interní schválený** |
 | ***nový z CAM***  | [R] | nová        | -                          | přístupový bod, který je v IS CAM ve stavu "nová" archivní entita; záznam v needitačním módu |
-| ***schválený***   |    | schválená   | schvalovatel\*\*\*           | přístupový bod, který prošel schvalovacím procesem; do modulu se dostal buď importem z IS CAM nebo v modulu vznikl a prošel interním schvalovacím procesem; garantuje nejvyšší kvalitu; záznam v needitačním módu |
+| ***schválený***   |    | schválená   | schvalovatel\*\*\*           | přístupový bod, který prošel schvalovacím procesem; do modulu se dostal buď importem z IS CAM, nebo v modulu vznikl a prošel interním schvalovacím procesem; garantuje nejvyšší kvalitu; záznam v needitačním módu |
 | ***interní schválený***\*\* | |  |  | přístupový bod, který prošel schvalovacím procesem; tento PB vznikl výhradně v modulu a prošel interním schvalovacím procesem; garantuje nejvyšší kvalitu; záznam v needitačním módu; **není určen k zaslání do IS CAM** (tzn. nezobrazuje se po schválení ve frontě Odchozí) |
 | ***nahrazený*** | [X] | nahrazená | - | do tohoto stavu se může dostat pouze dříve evidovaný záznam, u kterého došlo v IS CAM k nahrazení; v modulu nelze editovat; záznamy tohoto stavu nebudou nabízeny v našeptávačích v pořádací aplikaci |
-| ***neplatný*** | [X] | neplatná | - | do tohoto stavu se může dostat pouze dříve evidovaný záznam, u kterého došlo v IS CAM k zneplatnění; v modulu nelze editovat; záznamy tohoto stavu nebudou nabízeny v našeptávačích v pořádací aplikaci |
+| ***neplatný*** | [X] | neplatná | - | do tohoto stavu se může dostat pouze dříve evidovaný záznam, u kterého došlo v IS CAM ke zneplatnění; v modulu nelze editovat; záznamy tohoto stavu nebudou nabízeny v našeptávačích v pořádací aplikaci |
 
 *) jako "zpracovatel" je chápán standardní uživatel s právy zápisu v pořádací aplikaci, tzn. "běžný" archivář
 
@@ -132,7 +132,7 @@ Z důvodu implementace schvalovacího procesu nabývají záznamy přístupovýc
 
 Principy a pravidla správy archivních autoritních záznamů popisují Pravidla v samostatné příloze (viz Pravidla - [Příloha č. 7 Základní pravidla správy archivních autoritních záznamů](../../zp/zp_hlavni_text-priloha07)). Modul ProArchiv - Přístupové body je plně respektuje. 
 
-Práce v modulu je závislá na přihlášení v pořádací aplikaci ProArchiv. Zde administrátor přiděluje příslušná uživatelské oprávnění/role. Pro práci v modulu se uplatňují následující:
+Práce v modulu je závislá na přihlášení v pořádací aplikaci ProArchiv. Zde administrátor přiděluje příslušná uživatelská oprávnění/role. Pro práci v modulu se uplatňují následující:
 
 | Uživatelská role ProArchiv | Role dle Pravidel | Popis                                                        |
 | -------------------------- | ----------------- | ------------------------------------------------------------ |
@@ -144,22 +144,22 @@ Práce v modulu je závislá na přihlášení v pořádací aplikaci ProArchiv.
 
 !!! warning "Upozornění"
 
-    Schvalovací proces pro speciální **"interní" stavy** (tedy přechod z "interní ke schválení" na "interní schválený") je analogicky totožný jako standardní schvalovací proces. Interní schválený PB by měl mít stejnou kvalitu dle Pravidel, jako má PB ve stavu "schválený".
+    Schvalovací proces pro speciální **"interní" stavy** (tedy přechod z "interní ke schválení" na "interní schválený") je totožný se standardním schvalovacím procesem. Interní schválený PB by měl mít stejnou kvalitu dle Pravidel jako PB ve stavu "schválený".
 
 ### 3.7 Návrat k poslední schválené verzi
 
-Funkce Návrat k poslední schválené verzi umožňuje přepsat aktuální verzi PB z modulu ve stavu "rozpracovaný" nebo "ke schválení" poslední schválenou verzi (funguje i pro stav "interní schválený"). Jde o speciální funkci, která dokáže vyřešit např. tyto situace:
+Funkce Návrat k poslední schválené verzi umožňuje přepsat aktuální verzi PB z modulu ve stavu "rozpracovaný" nebo "ke schválení" poslední schválenou verzí (funguje i pro stav "interní schválený"). Jde o speciální funkci, která dokáže vyřešit např. tyto situace:
 
 - uživatel přepne schválený přístupový bod omylem do stavu "rozpracovaný" - v tomto případě kontaktuje příslušného schvalovatele, aby navrátil PB do původního schváleného stavu
-- schvalovatel usoudí, že uživatel nevhodně editoval původně schválený PB (editaci posunul původní význam přístupového bodu apod.)
+- schvalovatel usoudí, že uživatel nevhodně editoval původně schválený PB (editací posunul původní význam přístupového bodu apod.)
 
 Tuto funkci může uplatnit jen uživatel s rolí schvalovatele PB.
 
 ### 3.8 Nahrazení PB verzí z IS CAM
 
-Funkce Nahrazení PB verzí z IS CAM umožňuje přepsat aktuální verzi PB z modulu aktuální schválenou verzi z IS CAM. Jde o speciální funkci, která dokáže odblokovat patové situace, jako například tuto:
+Funkce Nahrazení PB verzí z IS CAM umožňuje přepsat aktuální verzi PB z modulu aktuální schválenou verzí z IS CAM. Jde o speciální funkci, která dokáže odblokovat patové situace, jako například tuto:
 
-Modul nemá zaimplementované tzv. [bezpečnostní profily](https://cam.nacr.cz/doc/admin/user_profiles.html). Uživatel změní prvky popisu, u kterých je uplatňován bezpečnostní profil, např. odmaže PREF u hlídaného geografického objektu. IS CAM takovou změnu při pokusu o zaslání samozřejmě nepřijme (kontrola uuid PREF označení). Modul se ale po interním schválení také nedokáže dostat k původní verzi. Aby se tato patová situace odblokovala, použije se tato speciální funkce a "natvrdo" se přepíše verze v modulu aktuální verzi z IS CAM.
+Modul nemá zaimplementované tzv. [bezpečnostní profily](https://cam.nacr.cz/doc/admin/user_profiles.html). Uživatel změní prvky popisu, u kterých je uplatňován bezpečnostní profil, např. odmaže PREF u hlídaného geografického objektu. IS CAM takovou změnu při pokusu o zaslání samozřejmě nepřijme (kontrola uuid PREF označení). Modul se ale po interním schválení také nedokáže dostat k původní verzi. Aby se tato patová situace odblokovala, použije se tato speciální funkce a "natvrdo" se přepíše verze v modulu aktuální verzí z IS CAM.
 
 Tuto funkci může uplatnit jen uživatel s rolí operátora PB.
 
@@ -179,7 +179,7 @@ Pro vícenásobný běh modulu platí [stejná pravidla](manual_proarchiv.md#42-
 
 Pro velikost zobrazení aj. v modulu platí [stejná pravidla](manual_proarchiv.md#423-ergonomie-zobrazeni) jako pro pořádací aplikaci.
 
-#### 4.1.4 Ukládaní nových záznamů a změn
+#### 4.1.4 Ukládání nových záznamů a změn
 
 Aplikace má implementováno:
 
@@ -249,7 +249,7 @@ Aplikace má implementováno:
 Je rozčleněn do následujících částí:
 
 -   **Výběr** - záložka zobrazuje nástroje pro vyhledávání: jednoduchý a rozšířený výběr. Viz dále.
--   **Příchozí (konflikty)** - záložka zobrazuje frontu příchozích přístupových bodů z IS CAM, které jsou v konfliktu s lokální verzi přístupového bodu. Viz dále.
+-   **Příchozí (konflikty)** - záložka zobrazuje frontu příchozích přístupových bodů z IS CAM, které jsou v konfliktu s lokální verzí přístupového bodu. Viz dále.
 -   **Odchozí** - záložka zobrazuje frontu odchozích přístupových bodů, které jsou ve stavu "schváleno" připraveny na manuální export do IS CAM. Viz dále.
 
 ### 4.6 Detail
@@ -260,7 +260,7 @@ Zobrazení všech dostupných strukturovaných informací k zobrazenému záznam
 
 #### 4.6.1 Souhrnné zobrazení
 
-Zobrazuje kompletní informace k přístupovému bodu v textové needitovatelné podobě
+Zobrazuje kompletní informace k přístupovému bodu v textové needitovatelné podobě.
 
 #### 4.6.2 Detail/Editace
 
@@ -276,11 +276,11 @@ Zobrazuje agregované údaje o zpracovatelích poslední revize záznamu, které
 
 ##### Schválil(i)
 
-Zobrazuje údaje o schvalovatelích. V případě, že je posledním uloženým schvalovatel uživatel z lokálního systému (modulu PB), zobrazí se jeho standardizovaná textová podoba. Pokud jde o revizi, jež se do modulu dostala automatickou synchronizací z IS CAM, zobrazí se agregované údaje o schvalovatelích poslední revize záznamu.
+Zobrazuje údaje o schvalovatelích. V případě, že je posledním uloženým schvalovatelem uživatel z lokálního systému (modulu PB), zobrazí se jeho standardizovaná textová podoba. Pokud jde o revizi, jež se do modulu dostala automatickou synchronizací z IS CAM, zobrazí se agregované údaje o schvalovatelích poslední revize záznamu.
 
 !!! warning "Upozornění"
 
-    Některé systémy (např. ELZA) zasílají do IS CAM údaje o zpracovatelích a schvalovatelích v podobě historie zásahů všech uživatelů podílejících se na jedné konkrétní revizi. Pokud tedy byl záznam v rámci jedné revize v lokálním systému upraven vícero zpracovateli, případně mezi tím schválen vícero schvalovateli, a až po tomto "kolečku" zaslán do IS CAM, pak se zasílá vícečetný seznam uživatelů. Může tak být v poli Upravil(i) a Schválil(i) zaspán tentýž uživatel. Příslušný systém ale stále garantuje pravidlo 2 párů očí, tedy autor změny, nesmí být zároveň jejím schvalovatelem. Jen se to může mezi uživateli "protočit".  
+    Některé systémy (např. ELZA) zasílají do IS CAM údaje o zpracovatelích a schvalovatelích v podobě historie zásahů všech uživatelů podílejících se na jedné konkrétní revizi. Pokud tedy byl záznam v rámci jedné revize v lokálním systému upraven vícero zpracovateli, případně mezitím schválen vícero schvalovateli, a až po tomto "kolečku" zaslán do IS CAM, pak se zasílá vícečetný seznam uživatelů. Může tak být v polích Upravil(i) a Schválil(i) zapsán tentýž uživatel. Příslušný systém ale stále garantuje pravidlo dvou párů očí, tedy autor změny nesmí být zároveň jejím schvalovatelem. Jen se to může mezi uživateli "protočit".  
 
 ##### Vytvořil - vytvořeno
 
@@ -335,8 +335,8 @@ Funkčnost aplikace je vázána na:
 
 !!! warning "Upozornění"
 
-    **Před založením nového přístupového bodu je vždy nejprve nutné provést hledání, zda již náhodou daný  přístupový bod neexistuje!** Vzhledem k tomu, že modul plně synchronizuje obsah IS CAM, dochází při interním vyhledávání k procházení všech možných zdrojů: jak lokální množiny přístupových bodu, tak i přístupových bodů z IS CAM.
-    **Pokus o dohledání přístupového bodu je potřeba učinit jak před zakládáním nového v modulu, tak i při zakládaní v pořádací aplikaci (v plovoucím okně Napojené přístupové body nebo z prvků popisů napojených přístupové body jako "územní rozsah" apod.**
+    **Před založením nového přístupového bodu je vždy nejprve nutné provést hledání, zda již náhodou daný přístupový bod neexistuje!** Vzhledem k tomu, že modul plně synchronizuje obsah IS CAM, dochází při interním vyhledávání k procházení všech možných zdrojů: jak lokální množiny přístupových bodů, tak i přístupových bodů z IS CAM.
+    **Pokus o dohledání přístupového bodu je potřeba učinit jak před zakládáním nového v modulu, tak i při zakládání v pořádací aplikaci (v plovoucím okně Napojené přístupové body nebo z prvků popisu napojených na přístupové body, jako je "územní rozsah" apod.**
 
 #### 5.1.2 Formulář pro založení nového přístupového bodu
 
@@ -346,7 +346,7 @@ Dojde k aktivaci jednoduchého formuláře, který má za cíl proces založení
 
 ![zakladaci_formular-osoba](img-ap/zakladaci_formular-osoba.png)
 
-Formulář se dynamicky mění dle postupného vyplnění jednotlivých záložek: 1) třída a podtřída přístupového bodu, 2) základní popis, 3) doplňky. U mnoha prvku popisu je uplatněna validace ve formě kontroly vyplnění. Teprve pokud je vše v pořádku, aktivuje se tlačítko Uložit a přístupový bod je založen.
+Formulář se dynamicky mění dle postupného vyplnění jednotlivých záložek: 1) třída a podtřída přístupového bodu, 2) základní popis, 3) doplňky. U mnoha prvků popisu je uplatněna validace ve formě kontroly vyplnění. Teprve pokud je vše v pořádku, aktivuje se tlačítko Uložit a přístupový bod je založen.
 
 Nový přístupový bod je založen ve stavu "rozpracovaný". 
 
@@ -358,7 +358,7 @@ Jednotlivé doplňky označení se mohou zapisovat ručně, u většiny je ale u
 
 !!! warning "Upozornění"
 
-    Pokud se generuje doplněk ze vtahu, vždy je použit první výskyt tohoto vztahu. Viz dále [5.2.5 Editace Jednoduchých vztahů](manual_modul_ap.md#525-editace-jednoduchych-vztahu). 
+    Pokud se generuje doplněk ze vztahu, vždy je použit první výskyt tohoto vztahu. Viz dále [5.2.5 Editace Jednoduchých vztahů](manual_modul_ap.md#525-editace-jednoduchych-vztahu). 
 
 ### 5.2 Editace již založených přístupových bodů
 
@@ -378,7 +378,7 @@ Editační formulář je rozdělen do jednotlivých sekcí, které korespondují
 
 #### 5.2.1 Editace Označení
 
-Přístupový bod může mít vícero označení (viz [Pravidla 6.3.5](../../zp/zp_hlavni_text-06/#635-oznaceni-entity)). První (nahoře v seznamu) je preferované označení (dále PREF); je vyznačeno tučně. Označení se skládá s více dílčích prvků popisu, které se liší dle tříd.
+Přístupový bod může mít vícero označení (viz [Pravidla 6.3.5](../../zp/zp_hlavni_text-06/#635-oznaceni-entity)). První (nahoře v seznamu) je preferované označení (dále PREF); je vyznačeno tučně. Označení se skládá z více dílčích prvků popisu, které se liší dle tříd.
 
 ##### 5.2.1.1. Změna preferovaného označení
 
@@ -390,7 +390,7 @@ Provádí se posunem na první místo v seznamu pomocí ![tools-posunout-nahoru]
 
 ##### 5.2.1.2 Zkopírování variantního označení z jiného záznamu
 
-Pro případy harmonizace byla vytvořena speciální funkce, která nakopíruje variantní označení z jednoho přístupového bodu (dále jako zdrojový PB) do druhého přístupového bodu (dále jako cílový PB) . Aby funkce zafungovala, musí být před její aplikací cílový PB přepnutý do stavu "rozpracovaný". Poté se postupuje následovně:
+Pro případy harmonizace byla vytvořena speciální funkce, která nakopíruje variantní označení z jednoho přístupového bodu (dále jako zdrojový PB) do druhého přístupového bodu (dále jako cílový PB). Aby funkce zafungovala, musí být před její aplikací cílový PB přepnutý do stavu "rozpracovaný". Poté se postupuje následovně:
 
 1. vybere se zdrojový PB (je zobrazen v detailu) 
 2. v menu Různé funkce - Práce s variantami se aktivuje Kopírovat
@@ -405,11 +405,11 @@ V sekci Identifikace se zapisují kódované údaje/identifikátory (viz [Pravid
 
 !!! warning "Upozornění"
 
-    **Pole Hodnota ověřená byla zavedená pro účely strojového importu databáze RÚIAN a států světa. Hodnoty neměňte a nových identifikátorů nezapisujte.**
+    **Pole Hodnota ověřená bylo zavedeno pro účely strojového importu databáze RÚIAN a států světa. Hodnoty neměňte a nové identifikátory nezapisujte.**
 
 #### 5.2.3 Editace Vzniku
 
-Vznik je speciální výlučná událost v životě archivní autoritní entity. V rámci vzniku se uvádí způsob vzniku, datace vzniku, vztahy související se vznikem, případně typ vniku apod.
+Vznik je speciální výlučná událost v životě archivní autoritní entity. V rámci vzniku se uvádí způsob vzniku, datace vzniku, vztahy související se vznikem, případně typ vzniku apod.
 
 #### 5.2.3 Editace Zániku
 
@@ -447,7 +447,7 @@ Speciální prvky popisu:
 
 ##### Definiční bod (souřadnice) a Hranice (souřadnice)
 
-Slouží pro zápis souřadnic. V případě definičního bodu lze zapsat pouze jedna bodová souřadnice, u hranice lze použít všechny povolené typy: bod, linie, polygon, kolekce. Zápis souřadnic se provádí ve formátu WKT. Jak získat WKT formát? Pomocí [WKT editoru souřadnic](manual_modul_ap.md#61-wkt-editor-souradnic).
+Slouží pro zápis souřadnic. V případě definičního bodu lze zapsat pouze jednu bodovou souřadnici, u hranice lze použít všechny povolené typy: bod, linie, polygon, kolekce. Zápis souřadnic se provádí ve formátu WKT. Jak získat WKT formát? Pomocí [WKT editoru souřadnic](manual_modul_ap.md#61-wkt-editor-souradnic).
 
 Editace se provádí výhradně přes ![tools](img-ap/tools.png)- ![tools-detailni-pohled](img-ap/tools-detailni-pohled.png).
 
@@ -461,11 +461,11 @@ Pole pouze pro čtení. Editace přístupového bodu se řeší ve vstupním for
 
 !!! warning "Upozornění"
 
-    **Nelze měnit typ geografického objektu u záznamu, jenž figuruje v administrativním zařazení u jiných záznamů. Je potřeba nejprve jeho použití odpojit, provést změnu typu geografického objektu a poté opět u podřízených záznamů připojit, pokud to kontrola hiearchie po změně dovolí.**
+    **Nelze měnit typ geografického objektu u záznamu, jenž figuruje v administrativním zařazení u jiných záznamů. Je potřeba nejprve jeho použití odpojit, provést změnu typu geografického objektu a poté opět u podřízených záznamů připojit, pokud to kontrola hierarchie po změně dovolí.**
 
 ##### Administrativní zařazení
 
-Pole pro zápis reference/napojení na jiný přístupový bod třídy "geografický objekt". Správné použitý typ geografického bodu hlídá validace.
+Pole pro zápis reference/napojení na jiný přístupový bod třídy "geografický objekt". Správně použitý typ geografického bodu hlídá validace.
 
 ##### Jazyk originálu
 
@@ -506,7 +506,7 @@ Textové pole umožňující víceřádkový popis. Pole není součástí popis
 
 !!! warning "Upozornění"
 
-    Pole Komentář pracuje ve speciálním režimu a umožňuje editaci bez ohledu na stav přístupového bodu. **Ve stavu "rozepsaný"** lze změnu v komentáři uložit **pomocí tlačítka Uložit** v nástrojové liště. Pozor! Nedojde k automatickému uložení komentáře při opuštění záznamu pokud současně nedošlo ke změně jiného pole.
+    Pole Komentář pracuje ve speciálním režimu a umožňuje editaci bez ohledu na stav přístupového bodu. **Ve stavu "rozepsaný"** lze změnu v komentáři uložit **pomocí tlačítka Uložit** v nástrojové liště. Pozor! Nedojde k automatickému uložení komentáře při opuštění záznamu, pokud současně nedošlo ke změně jiného pole.
     **V ostatních needitačních stavech** (např. ke schválení, schválený) lze do Komentáře rovněž zapisovat, ale k uložení změn dojde výhradně po aktivaci příkazu z nástrojové lišty **Různé funkce - Uložení komentáře**. K automatickému uložení dojde i v případě, kdy schvalovatel použije příkaz Různé funkce - Komunikace se zpracovateli - Zaslání zprávy...
 
 ### 5.3 Změny stavů
@@ -540,7 +540,7 @@ V případě, že vaše instance pracuje se speciálními "interními" stavy, na
 
 ### 5.4 Změna podtřídy
 
-Viz Různé funkce - Změny - Změna podtřídy. Lze aplikovat pouze nad detailem přístupového bodu ve stavu "rozepsaný."
+Viz Různé funkce - Změny - Změna podtřídy. Lze aplikovat pouze nad detailem přístupového bodu ve stavu "rozepsaný".
 
 Slouží ke změně podtřídy přístupového bodu. V případě, že dříve použité prvky popisu, vztahy, události nebo jednotlivé číselníkové hodnoty nejsou u nové podtřídy přípustné, dojde k zaznamenání těchto informací do pole Komentář. 
 
@@ -552,7 +552,7 @@ U záznamů třídy "geografický objekt" se provádí změna podtřídy automat
 
 ### 5.5 Změna typu geografického objektu
 
-Speciální funkce pro záznamy třídy "geografický objekt". Umožňuje změnit typ geografického objektu, čímž může zároveň dojít k automatické změně podtřídy. U některých záznamů není možné změnu provést, neboť jsou chráněny speciálním bezpečnostním profilem. Jde o přístupové body z podtřídy "administrativně či jinak lidmi vymezená území", které byly importovány z RÚIANu a tvoří páteř hierarchie (administrativní zařazení)
+Speciální funkce pro záznamy třídy "geografický objekt". Umožňuje změnit typ geografického objektu, čímž může zároveň dojít k automatické změně podtřídy. U některých záznamů není možné změnu provést, neboť jsou chráněny speciálním bezpečnostním profilem. Jde o přístupové body z podtřídy "administrativně či jinak lidmi vymezená území", které byly importovány z RÚIANu a tvoří páteř hierarchie (administrativní zařazení).
 
 ### 5.6 Výběr
 
@@ -568,13 +568,13 @@ Pro základní vyhledávání ve všech přístupových bodech. **Hledá pouze v
 
 V záložce Výběr. Lze aktivovat pomocí ![tools](img-ap/tools.png) - ![vyber_tlacitko_rozsireny-vyber](img-ap/vyber_tlacitko_rozsireny-vyber.png)vedle okna pro zápis jednoduchého výběru.
 
-Umožňuje podrobné hledání dle tříd, podtříd, konkrétních části popisu entity (polí), dle pomocných údajů (stavu, uuid, položek Vytvořil/Vytvořeno, Změnil/Změněno, Schválil/Schváleno) apod.
+Umožňuje podrobné hledání dle tříd, podtříd, konkrétních částí popisu entity (polí), dle pomocných údajů (stavu, uuid, položek Vytvořil/Vytvořeno, Změnil/Změněno, Schválil/Schváleno) apod.
 
 ![rozsireny_vyber](img-ap/rozsireny_vyber.png)
 
 V prvním kroku lze omezit výběr konkrétní třídy, respektive podtřídy. V případě výchozí hodnoty <neurčeno> jsou prohledávány všechny třídy, respektive podtřídy.
 
-Konkrétní podmínky pro vyhledávání se definují v sekci Hledaný výraz. Jednotlivé podmínky se přidávají pomoci ![tools-pridat](img-ap/tools-pridat.png). Jeden výsledný dotaz může mít více podmínek.
+Konkrétní podmínky pro vyhledávání se definují v sekci Hledaný výraz. Jednotlivé podmínky se přidávají pomocí ![tools-pridat](img-ap/tools-pridat.png). Jeden výsledný dotaz může mít více podmínek.
 
 Konkrétní vyhledávací podmínka se zadává pomocí ![tools](img-ap/tools.png)-  ![tools-upravit](img-ap/tools-upravit.png). Odstranění podmínky se provádí pomocí ![tools](img-ap/tools.png)- ![tools-odebrat](img-ap/tools-odebrat.png).
 
@@ -617,11 +617,11 @@ Viz výše
 | Operátor      | Vysvětlení                                                   |
 | ------------- | ------------------------------------------------------------ |
 | obsahuje      | U textových polí jako výchozí hodnota; hledaným řetězcem musí vždy začínat celé slovo, nemusí jím ale končit. Např. řetězec "praž" najde slova "pražský", "pražské", "pražského" atd. Hledáním "raž" ale tato slova dohledána nebudou! |
-| je            | Přesná striktní podmínka. Používá se vždy u číselníkových polí a u polí obsahujících konkrétní hledanou napojenou entitu. U textových polí porovnává striktně celý obsah pole. Toto funguje ale jen u jednořádkových polí. U víceřádkových polí vrací nulový výsledek (nepoužitelné). Proto se u textových polí doporučuje výhradně použití operátoru "obsahuje".  Operátor "je" je naopak jedinou možnosti při vyhledávání identifikátoru typu uuid a CAM ID |
+| je            | Přesná striktní podmínka. Používá se vždy u číselníkových polí a u polí obsahujících konkrétní hledanou napojenou entitu. U textových polí porovnává striktně celý obsah pole. Toto funguje ale jen u jednořádkových polí. U víceřádkových polí vrací nulový výsledek (nepoužitelné). Proto se u textových polí doporučuje výhradně použití operátoru "obsahuje".  Operátor "je" je naopak jedinou možností při vyhledávání identifikátoru typu uuid a CAM ID. |
 | začíná        | Hledaným řetězcem musí vždy začínat celé pole.               |
 | je vyplněno   | Vrací záznamy, kde prohledávané pole obsahuje konkrétní libovolnou hodnotu, tzn. není prázdné. |
 | je nevyplněno | Vrací záznamy, kde je prohledávané pole prázdné.             |
-| zahrnuje      | U polí s časovými údaji jako výchozí hodnota; hledaná hodnota musí být součásti celkového časového rozsahu prohledávaného pole. |
+| zahrnuje      | U polí s časovými údaji jako výchozí hodnota; hledaná hodnota musí být součástí celkového časového rozsahu prohledávaného pole. |
 
 
 #### 5.6.3 Výsledky vyhledávání
@@ -642,38 +642,38 @@ Nalezené přístupové body je pak možné pomocí ![tools](img-ap/tools.png) -
 
 ### 5.7 Fronta Příchozí (konflikty)
 
-Zde dle nastaveného intervalu synchronizace z IS CAM zobrazují záznamy, které nemohly být do modulu automaticky aktualizovány. Jde zejména o:
+Zde se dle nastaveného intervalu synchronizace z IS CAM zobrazují záznamy, které nemohly být do modulu automaticky aktualizovány. Jde zejména o:
 
 | Varianta | Popis situace                                                | Možnosti řešení*                                             |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1        | Přístupové body, kde došlo k souběžné editaci v IS CAM a modulu - z IS CAM přichází nová revize a v modulu je buď nachystaná také nová revize nebo je původní schválený záznam stále rozpracovaný. | **Přijmout aktualizaci** - lokální verze záznamu bude plně nahrazená příchozí verzí z IS CAM; **Odmítnout aktualizaci** - verze z IS CAM bude zamítnuta a bude dovoleno zaslat do IS CAM verzi lokální. |
+| 1        | Přístupové body, kde došlo k souběžné editaci v IS CAM a modulu - z IS CAM přichází nová revize a v modulu je buď nachystaná také nová revize, nebo je původní schválený záznam stále rozpracovaný. | **Přijmout aktualizaci** - lokální verze záznamu bude plně nahrazená příchozí verzí z IS CAM; **Odmítnout aktualizaci** - verze z IS CAM bude zamítnuta a bude dovoleno zaslat do IS CAM verzi lokální. |
 
 *) Možnosti řešení se vybírají z kontextové nabídky vyvolané nad konkrétním přístupovým bodem ve frontě.
 
-Ve variantě 1 je konfliktní přístupový bod zobrazen jako ve frontě Příchozí (konflikt), tak ve frontě Odchozí. Při výběru tohoto záznamu z fronty Příchozí (konflikt) se v záložce Porovnání/Verze zobrazí zobrazují rozdíly mezi novou verzí z IS CAM a verzí lokální.  
+Ve variantě 1 je konfliktní přístupový bod zobrazen jak ve frontě Příchozí (konflikt), tak ve frontě Odchozí. Při výběru tohoto záznamu z fronty Příchozí (konflikt) se v záložce Porovnání/Verze zobrazí rozdíly mezi novou verzí z IS CAM a verzí lokální.  
 
 ### 5.8 Fronta Odchozí
 
 Zde se budou postupně automaticky shromažďovat přístupové body určené k zaslání do IS CAM. Jde o lokální schválené přístupové body, které doposud v IS CAM nejsou, nebo aktualizované schválené přístupové body, které již v IS CAM jsou a dojde tak k jejich aktualizaci.
 
-Záznamy ve frontě Odchozí jsou řazeny dle datační hodnoty pole Schváleno a to sestupně. Nahoře jsou položky s mladší datací schválení, dole se starší.
+Záznamy ve frontě Odchozí jsou řazeny dle datační hodnoty pole Schváleno, a to sestupně. Nahoře jsou položky s mladší datací schválení, dole se starší.
 
 !!! warning "Upozornění"
 
-    Kvůli rychlosti se fronta Odchozí načítá vždy při jejím zobrazení. Během odesílání záznamů v ní uvedených nedochází k občerstvení fronty. Pro občerstvení seznamu Odchozí je potřeba ze záložky odejít a znovu na ní kliknout. Dříve se fronta Odchozí občerstvovalo po každém odchozím požadavku, toto ale vedlo ke zbytečným časovým prostojům. 
+    Kvůli rychlosti se fronta Odchozí načítá vždy při jejím zobrazení. Během odesílání záznamů v ní uvedených nedochází k občerstvení fronty. Pro občerstvení seznamu Odchozí je potřeba ze záložky odejít a znovu na ni kliknout. Dříve se fronta Odchozí občerstvovala po každém odchozím požadavku, toto ale vedlo ke zbytečným časovým prostojům. 
 
 #### 5.8.1 Odesílání PB do CAMu
 
-Přístupové body lze odesílat od IS CAM
+Přístupové body lze odesílat do IS CAM:
 
 - **po jednom** - modře označen je pouze jeden;
-- **výběrem (několik na jednou)** - modře označeno je jich více; výběr se provádí standardně pomocí klávesy Shift + klikem na první a poslední v souvislé řadě nebo Ctrl + klikem na kterýkoli z nich (nutně nemusí jít o souvislou řadu); 
+- **výběrem (několik najednou)** - modře označeno je jich více; výběr se provádí standardně podržením klávesy Shift a kliknutím na první a poslední v souvislé řadě nebo podržením klávesy Ctrl a kliknutím na kterýkoli z nich (nutně nemusí jít o souvislou řadu); 
 
-v obou případech pomocí funkce **Odeslat PB do CAMu** vyvolané z kontextové nabídky nad konkrétním jediným nebo jedním z vybraných přístupových bodů ve frontě. Otevře se dialogové okno pro odesílání, kde může případně operátor zkontrolovat i *[Související PB k odeslání](manual_modul_ap.md#582-souvisejici-pb-k-odeslani)* a pak pomocí **Odeslat vše** záznamy zobrazené v sekci *PB k odeslání* proces odesílání aktivovat. Poté dochází k finálnímu vyhodnocení validace a následnému reálnému zaslání do IS CAM. V případě problému je uživateli poskytnuto konkrétní hlášení.
+v obou případech pomocí funkce **Odeslat PB do CAMu** vyvolané z kontextové nabídky nad konkrétním jediným nebo jedním z vybraných přístupových bodů ve frontě. Otevře se dialogové okno pro odesílání, kde může případně operátor zkontrolovat i *[Související PB k odeslání](manual_modul_ap.md#582-souvisejici-pb-k-odeslani)* a pak pomocí **Odeslat vše** aktivovat proces odesílání záznamů zobrazených v sekci *PB k odeslání*. Poté dochází k finálnímu vyhodnocení validace a následnému reálnému zaslání do IS CAM. V případě problému je uživateli poskytnuto konkrétní hlášení.
 
 #### 5.8.2 Související PB k odeslání
 
-K odeslání může být navržen i další přístupový bod, než byl původně označen. Funkce na odeslání totiž vyvolává u každého označeného přístupového bodu kontrolu na [vzájemné provazbení přístupových bodů z fronty Odchozí](manual_modul_ap.md#584-vyhodnocovani-validity-propojenych-pristupovych-bodu-bez-cam-id). Pokud je nalezen takový navázaný PB, vypíše se vždy v sekci **Související PB k odeslání**. Mezi vypsanými je samozřejmě i ten iniciační. Aby se tato sekce načetla, je potřeba vždy vybrat položku ze sekce PB k odeslání (bude modře označena):
+K odeslání může být navržen i jiný přístupový bod než ten, který byl původně označen. Funkce na odeslání totiž vyvolává u každého označeného přístupového bodu kontrolu na [vzájemné provazbení přístupových bodů z fronty Odchozí](manual_modul_ap.md#584-vyhodnocovani-validity-propojenych-pristupovych-bodu-bez-cam-id). Pokud je nalezen takový navázaný PB, vypíše se vždy v sekci **Související PB k odeslání**. Mezi vypsanými je samozřejmě i ten iniciační. Aby se tato sekce načetla, je potřeba vždy vybrat položku ze sekce PB k odeslání (bude modře označena):
 
 ![odesilani-kontrola_souvisejicich-1](img-ap/odesilani-kontrola_souvisejicich-1.png)
 
@@ -705,23 +705,23 @@ Do fronty Odchozí se mohou dostat jen záznamy ve stavu "schválený", které n
 
 !!! tip "Tip"
 
-    Pokud chce uživatel vidět všechny záznamy, které jsou schválené, ale ještě nesynchronizované s IS CAM, může si je vylistovat přes rozšířený výběr (musí: stav je schválený + musí: synchronizace s cam je ne). Pokud je počet takto nalezených záznamů vyšší než počet záznamů ve frontě Odchozí, znamená to, že existují záznamy, čekající na splnění validity v rámci propojeného řetězce. 
+    Pokud chce uživatel vidět všechny záznamy, které jsou schválené, ale ještě nesynchronizované s IS CAM, může si je vylistovat přes rozšířený výběr (musí: stav je schválený + musí: synchronizace s cam je ne). Pokud je počet takto nalezených záznamů vyšší než počet záznamů ve frontě Odchozí, znamená to, že existují záznamy čekající na splnění validity v rámci propojeného řetězce. 
 
 Z výše zmíněného popisu navzájem propojených řetězců vztahů vyplývá i fakt, že odesláním jednoho záznamu z takového řetězce dojde automaticky v rámci jedné vícenásobné dávky k odeslání všech zbylých záznamů z řetězce.
 
-V případě, že v průběhu vícenásobné dávky dojde k chybě a dávka neodejde celá, systém zpětně vyhodnotí chyby a záznamy, které nebyly odeslané 100% nebo vůbec, a ty pak ve frontě Odchozí zůstávají.
+V případě, že v průběhu vícenásobné dávky dojde k chybě a dávka neodejde celá, systém zpětně vyhodnotí chyby. Záznamy, které nebyly odeslány v plném rozsahu nebo vůbec, pak ve frontě Odchozí zůstávají.
 
 ### 5.9 Principy validace přístupového bodu
 
 Přístupový bod je během své existence neustále validován. Mnoho úkonů je na výsledcích validace závislých.
 
-Zobrazení stavu validačního procesu se zobrazuje v záložce Validace. K aktualizaci dochází vždy při uložení záznamu nebo při změně vybraných stavů.
+Stav validačního procesu se zobrazuje v záložce Validace. K aktualizaci dochází vždy při uložení záznamu nebo při změně vybraných stavů.
 
 Ke kontrolám patří např.: 
 
 - kontrola jedinečnosti preferovaného označení mezi všemi přístupovými body
 - kontrola jedinečnosti některých typů identifikátorů
-- kontrola vyplnění povinných prvků popisu nebo části entity (např. vznik a stručná charakteristika u fyzických osob, existence geografického doplňku u geografických objektů)
+- kontrola vyplnění povinných prvků popisu nebo částí entity (např. vznik a stručná charakteristika u fyzických osob, existence geografického doplňku u geografických objektů)
 - kontrola správně napojené hierarchie v administrativním zařazení u geografických objektů
 - kontrola stavů přístupových bodů napojených ve vztazích
 
@@ -731,15 +731,15 @@ Modul garantuje dostupnost prvků popisu a jejich specifikací platnou pro danou
 
 #### Chyba
 
-<u>Pravidla vyhodnocována jako **chyba**</u> - neumožní zaslat záznam entity nebo jeho změnu do IS CAM. Jde o jasnou chybu. V technické dokumentaci IS CAM má takové pravidlo ve svém kódovém označení prefix `R_`, např. *R_NAM_001*.
+<u>Pravidla vyhodnocovaná jako **chyba**</u> - neumožní zaslat záznam entity nebo jeho změnu do IS CAM. Jde o jasnou chybu. V technické dokumentaci IS CAM má takové pravidlo ve svém kódovém označení prefix `R_`, např. *R_NAM_001*.
 
 #### Upozornění
 
-<u>Pravidla vyhodnocována jako **upozornění**</u> - uživatel je upozorněn, ale může i přesto záznam entity nebo jeho změnu do IS CAM zaslat. Jde tedy o **potenciální chybu**. Pokud je záznam s upozorněním do IS CAM zaslán, musí dojít na straně IS CAM k vyhodnocení platnosti upozornění, tzn. nastavení výjimky nebo odmítnutí. V technické dokumentaci IS CAM má takové pravidlo ve svém kódovém označení prefix `W_`, např. *W_NAM_001*.
+<u>Pravidla vyhodnocovaná jako **upozornění**</u> - uživatel je upozorněn, ale může i přesto záznam entity nebo jeho změnu do IS CAM zaslat. Jde tedy o **potenciální chybu**. Pokud je záznam s upozorněním do IS CAM zaslán, musí dojít na straně IS CAM k vyhodnocení platnosti upozornění, tzn. nastavení výjimky nebo odmítnutí. V technické dokumentaci IS CAM má takové pravidlo ve svém kódovém označení prefix `W_`, např. *W_NAM_001*.
 
 ------
 
-Jak modul pracuje s validaci ukazuje následující schéma:
+Jak modul pracuje s validací, ukazuje následující schéma:
 
 ![schema_validace_pristupoveho_bodu_APIv2](img-ap/schema_validace_pristupoveho_bodu_APIv2.jpg)
 
@@ -751,7 +751,7 @@ První část validačního výčtu zobrazuje výčet základních chyb nebo upo
 
 ##### 5.9.1.1 Validace napojených vztahů
 
-Přístupový body často obsahuje ve vztazích napojené další přístupové body. Kvalita/stav těchto přístupových bodů v závislosti na změně stavu konkrétního záznamu je následující:
+Přístupový bod často obsahuje ve vztazích napojené další přístupové body. Kvalita/stav těchto přístupových bodů v závislosti na změně stavu konkrétního záznamu je následující:
 
 | Změna stavu                     | Akceptované stavy napojených PB (stav "schválený" je vždy bez problému) |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -780,9 +780,9 @@ Pokud má PB "ke schválení" vyplněn doplněk, u nějž funguje našeptávač,
 
 !!! warning "Upozornění"
 
-    **Pozor!** Tato funkcionalita může generovat i falešný poplach.** Např. v případě ručně dopisované otazníku u chronologických doplňků; ručně upraveného doplňku u geografických objektů (např. odstranění názvu okresu). Proto může schvalovatel změnit stav na "schválený" i přes toto hlášení.
+    **Pozor!** Tato funkcionalita může generovat i falešný poplach.** Např. v případě ručně dopisovaného otazníku u chronologických doplňků; ručně upraveného doplňku u geografických objektů (např. odstranění názvu okresu). Proto může schvalovatel změnit stav na "schválený" i přes toto hlášení.
 
-Aplikace hlásí rovněž jakoukoli přítomnost doplňků u VAR ("VAR obsahuje doplněk"). Doplňky u VAR jsou totiž nepřípustné, pokud jsou stejné jako u PREF. Pokud je ale jeden z doplňků u VAR rozdílných, je doplněk u VAR povolen.
+Aplikace hlásí rovněž jakoukoli přítomnost doplňků u VAR ("VAR obsahuje doplněk"). Doplňky u VAR jsou totiž nepřípustné, pokud jsou stejné jako u PREF. Pokud je ale jeden z doplňků u VAR rozdílný, je doplněk u VAR povolen.
 
 !!! warning "Upozornění"
 
@@ -805,9 +805,9 @@ Zároveň je tato kontrolní funkce součástí procesu změny stavu záznamu z:
 - ***rozpracovaný*** > ***ke schválení***
 - ***ke schválení*** > ***schválený***
 
-##### 5.9.2.3 Testování při odesílání od IS CAM
+##### 5.9.2.3 Testování při odesílání do IS CAM
 
-Rovněž při proces [odesílání do IS CAM](manual_modul_ap.md#581-odesilani-pb-do-camu) testuje Validátor IS CAM zasílaný záznam nebo jeho změnu.
+Rovněž při procesu [odesílání do IS CAM](manual_modul_ap.md#581-odesilani-pb-do-camu) testuje Validátor IS CAM zasílaný záznam nebo jeho změnu.
 
 ##### 5.9.2.4 Průběh komunikace s Validátorem IS CAM
 
@@ -821,24 +821,24 @@ Pokud je detekována chyba `R_?`, pak změna stavu nebo odesílání do IS CAM n
 
 ![validace-zmena_stavu-chyba+upozorneni](img-ap/validace-zmena_stavu-chyba+upozorneni.png)
 
-Pokud je detekováno pouze upozornění `W_?`, pak může uživatel rozhodnou, zda upozornění bere jako opodstatněné (opomenutá chyba nebo nutnost dalšího prověření) a změnu stavu / odesílání do IS CAM ukončí. Nebo naopak jej již analyzoval, bere jej jako irelevantní a změnu stavu / odesílání do IS CAM provede. 
+Pokud je detekováno pouze upozornění `W_?`, pak může uživatel rozhodnout, zda upozornění bere jako opodstatněné (opomenutá chyba nebo nutnost dalšího prověření) a změnu stavu / odesílání do IS CAM ukončí. Nebo jej naopak již analyzoval, považuje jej za irelevantní a změnu stavu / odesílání do IS CAM provede. 
 
 ![validace-zmena_stavu-upozorneni](img-ap/validace-zmena_stavu-upozorneni.png)
 
 !!! warning "Upozornění - problematika vazby na PB, které nejsou v IS CAM"
 
-    **Pozor! Pokud testovaný PB obsahuje vazbu na jiný PB, které ještě není v IS CAM, není tento navázaný PB do testování zahrnut.
+    **Pozor! Pokud testovaný PB obsahuje vazbu na jiný PB, který ještě není v IS CAM, není tento navázaný PB do testování zahrnut.
     V takovém případě pak mohou být výsledky z Validátoru IS CAM zkreslené a je umožněno pokračovat.**
 
 ###### 5.9.2.4.1 Hledání v sekci Validátor IS CAM - chyby a upozornění
 
-Vzhledem k tomu, že validátorem zaslané chyby a upozornění jsou ukládány jako prostý text, lze v nich v rámci rozšířeného výběru vyhledávat . Např. udělené výjimky:
+Vzhledem k tomu, že validátorem zaslané chyby a upozornění jsou ukládány jako prostý text, lze v nich v rámci rozšířeného výběru vyhledávat. Např. udělené výjimky:
 
 ![rozsireny_vyber-hledani_v_chyby-a-upozorneni](img-ap/rozsireny_vyber-hledani_v_chyby-a-upozorneni.png)
 
 !!! warning "Upozornění"
 
-    Vzhledem k tomu, že k napojení modulu na validátor IS CAM došlo až s odstupem času, mohou se základní validace dublovat se zjištěnými chybami/upozorněními z valid8toru IS CAM. To ale není na škodu, neboť základní validace funguje již u stavu "rozpracovaný", kdežto online validátor IS CAM se aktivuje až u přechodů na stavy následné.  
+    Vzhledem k tomu, že k napojení modulu na validátor IS CAM došlo až s odstupem času, mohou se základní validace dublovat se zjištěnými chybami/upozorněními z validátoru IS CAM. To ale není na škodu, neboť základní validace funguje již u stavu "rozpracovaný", kdežto online validátor IS CAM se aktivuje až u přechodů na stavy následné.  
 
 ### 5.10 Schvalovací proces v praxi
 
@@ -850,13 +850,13 @@ Uživatel uvedený jako autor poslední změny přístupového bodu (= Pomocné 
 
 !!! warning "Upozornění"
 
-    **Dostupnost zasílání emailových zpráv zpracovatelům závisí na konkretní instanci ProArchivu a zvolené správě uživatelů.**
+    **Dostupnost zasílání e-mailových zpráv zpracovatelům závisí na konkrétní instanci ProArchivu a zvolené správě uživatelů.**
 
 Pokud schvalovatel usoudí, že PB zaslaný "ke schválení" je potřeba ještě dopracovat, vrátí jej zpět zpracovateli. Tento proces probíhá následovně:
 
-1. **Schvalovatel napíše do pole Komentář své připomínky**. Následně v menu Různé funkce zvolí funkci **[Uložení komentáře](manual_modul_ap.md#527-ulozeni-obsahu-pole-komentar)**. V případě okamžitého následného použití funkce na Zaslání zprávy dojde k uložení Komentáře automaticky.
-2. **Schvalovatel zašle zpracovateli email**, a to automatizovaně pomocí funkce **Zaslání zprávy zpracovateli** (viz Různé funkce - Komunikace se zpracovateli). Tento email s názvem "Potřebná úprava..." obsahuje uživatelské označení přístupového bodu, jeho permalink a obsah pole Komentář. Jako odesílatel je uveden schvalovatel a jeho emailový kontakt.  K dispozici je i varianta **Zaslání zprávy zpracovateli a schvalovateli**, která se používá na již "schválené" přístupové body u niž operátor CAM / lokální metodik před zasláním do IS CAM objeví nějakou chybu. Tato funkce zašle email jak zpracovateli, tak i schvalovateli. Předpokládá se, že požadovanou úpravu PB by měl provést primárně zpracovatel.
-3. **Zpracovatel po obdržení takové emailu provede patřičné úpravy**. Pole **Komentář nemaže**, jen do něj **připíše sdělení**, že jej vypořádal. PB poté pošle znovu ke schválení (změnou stavu).
+1. **Schvalovatel napíše do pole Komentář své připomínky**. Následně v menu Různé funkce zvolí funkci **[Uložení komentáře](manual_modul_ap.md#527-ulozeni-obsahu-pole-komentar)**. V případě okamžitého následného použití funkce Zaslání zprávy dojde k uložení Komentáře automaticky.
+2. **Schvalovatel zašle zpracovateli e-mail**, a to automatizovaně pomocí funkce **Zaslání zprávy zpracovateli** (viz Různé funkce - Komunikace se zpracovateli). Tento e-mail s názvem "Potřebná úprava..." obsahuje uživatelské označení přístupového bodu, jeho permalink a obsah pole Komentář. Jako odesílatel je uveden schvalovatel a jeho e-mailový kontakt.  K dispozici je i varianta **Zaslání zprávy zpracovateli a schvalovateli**, která se používá na již "schválené" přístupové body, u nichž operátor CAM / lokální metodik před zasláním do IS CAM objeví nějakou chybu. Tato funkce zašle e-mail jak zpracovateli, tak i schvalovateli. Předpokládá se, že požadovanou úpravu PB by měl provést primárně zpracovatel.
+3. **Zpracovatel po obdržení takového e-mailu provede patřičné úpravy**. Pole **Komentář nemaže**, jen do něj **připíše sdělení**, že jej vypořádal. PB poté pošle znovu ke schválení (změnou stavu).
 4. **Schvalovatel**, pokud je s opravou spokojen, **vymaže obsah pole Komentář a PB schválí**.
 
 #### 5.10.2 Návrat k poslední schválené verzi
@@ -874,13 +874,13 @@ Funkce Odstranění PB v menu Různé funkce slouží k odstranění záznamu p�
 
 ### 5.12 Test dostupnosti IS CAM
 
-Test dostupnosti IS CAM (viz stejnojmenná funkce v Různé funkce) slouží k zjištění dostupnosti a funkčnosti instance IS CAM.
+Test dostupnosti IS CAM (viz stejnojmenná funkce v Různé funkce) slouží ke zjištění dostupnosti a funkčnosti instance IS CAM.
 
 ### 5.13 Hledání neplatných a nahrazených PB
 
-Funkce zobrazí seznam neplatných a nahrazených PB, které mají aktivní vazbu na jiné PB v systému (vyjma PB ve stavu neplatný/nahrazeny).
+Funkce zobrazí seznam neplatných a nahrazených PB, které mají aktivní vazbu na jiné PB v systému (vyjma PB ve stavu neplatný/nahrazený).
 
-U každého nalezeného PB, lze pak konkrétní napojené PB najít v Pomocných údajích - [PB, které odkazují na tento záznam](manual_modul_ap.md#pb-ktere-odkazuji-na-tento-zaznam).  
+U každého nalezeného PB lze pak konkrétní napojené PB najít v Pomocných údajích - [PB, které odkazují na tento záznam](manual_modul_ap.md#pb-ktere-odkazuji-na-tento-zaznam).  
 
 ### 5.14 Statistika
 
@@ -902,9 +902,9 @@ Jde o samostatnou webovou aplikaci, která má uživatelům pomoci při získáv
 
 Vizuální editor umožňuje:
 
-1 - přepínání mezi mapovými podklady
+1 - přepínat mezi mapovými podklady
 
-2 - vyhledávat na mapy.cz. Vybraný výsledek automaticky přidá bodovou souřadnici.
+2 - vyhledávat na Mapy.cz. Vybraný výsledek automaticky přidá bodovou souřadnici.
 
 3 - ručně editovat souřadnice (viz dále)
 
@@ -930,11 +930,11 @@ Další pracovní postup je řešen návodně formou bublinkových nápověd.
 
 Pro potvrzení a uložení všech změn je potřeba zvolit tlačítko **Zkonvertovat do WKT**.
 
-Následně dojde k vygenerování WKT řetězce, který bude po zakliknutí označen. Poté je možné jej pomocí obecné funkce operačního systému Kopírovat (Ctrl+C) a Vložit (Ctrl+V) do pole pro editaci souřadnic v modulu.
+Následně dojde k vygenerování řetězce WKT, který bude po zakliknutí označen. Poté je možné jej pomocí obecných funkcí operačního systému Kopírovat (Ctrl+C) a Vložit (Ctrl+V) přenést do pole pro editaci souřadnic v modulu.
 
 #### 6.1.2 Zobrazení souřadnic
 
-Pokud je naopak potřeba již zapsané souřadnice ve WKT formátu zobrazit, je možné použít rovněž tento editor souřadnic. Z modulu pomocí obecné funkce operačního systému (Ctrl+C) zkopírujeme WKT řetězec a vložíme (Ctrl+V) pomocí tlačítka Import WKT do editoru.![editor-souradnic-v2-import_wkt](img-ap/editor-souradnic-v2-import_wkt.png) 
+Pokud je naopak potřeba již zapsané souřadnice ve formátu WKT zobrazit, je možné použít rovněž tento editor souřadnic. Z modulu pomocí obecné funkce operačního systému (Ctrl+C) zkopírujeme řetězec WKT a vložíme (Ctrl+V) pomocí tlačítka Import WKT do editoru.![editor-souradnic-v2-import_wkt](img-ap/editor-souradnic-v2-import_wkt.png) 
 
 #### 6.1.3 Úprava souřadnic
 
