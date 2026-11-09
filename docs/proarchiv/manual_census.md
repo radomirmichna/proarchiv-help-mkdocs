@@ -4,14 +4,15 @@
 
 ## 1 Úvod
 
-***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Neprošla jazykovou korekturou ;-)***
+***Uživatelská příručka k aplikaci ProArchiv17 je postupně doplňována! Prošla jazykovou korekturou pomocí nástrojů AI.***
 
-**[VERZE 2025-11-05]**
+**[VERZE 2026-11-09]**
 
 #### Seznam důležitých změn:
 
 | Změny v aktuální verzi                                       | oproti verzi |
 | ------------------------------------------------------------ | ------------ |
+| Jazyková a obsahová korektura pomocí nástrojů AI (mj. změna číslování 4.6.1 až 4.6.2.6 > 4.7.1 až 4.7.2.6) | 2025-11-05   |
 | Popis funkce [Najdi / Nahraď](manual_census.md#543-najdi-nahrad) | 2024-01-14   |
 | Popis funkce [Nový objekt sčítání ze vzoru](manual_census.md#521-vytvoreni-noveho-objektu-scitani-ze-vzoru) | 2024-01-14   |
 
@@ -23,7 +24,7 @@ Uživatelská příručka si klade za cíl primárně vysvětlit fungování a o
 
 ## 2 Potřeba vzniku speciálního modulu Sčítací operáty
 
-Původní webová aplikace Sčítací operáty a Lokality ZAO byla již morálně zastaralá. Integrace veškerého archivního popisu "pod jednu střechu", tedy do prostředí ProArchivu je efektivnější. Rovněž nový Digitální archiv počítá s čerpáním dat z jednotného databázového zdroje. 
+Původní webová aplikace Sčítací operáty a Lokality ZAO byla již morálně zastaralá. Integrace veškerého archivního popisu "pod jednu střechu", tedy do prostředí ProArchivu, je efektivnější. Rovněž nový Digitální archiv počítá s čerpáním dat z jednotného databázového zdroje. 
 
 ## 3 Základní popis modulu
 
@@ -33,16 +34,16 @@ Modul Sčítací operáty funguje jako nadstavba pořádací aplikace ProArchiv.
 
 Základní členění popisných polí vychází ze struktury původní webové aplikace.
 
-Existuji dva základní typy záznamů:
+Existují dva základní typy záznamů:
 
 1. [lokace](manual_census.md#311-lokace)
 2. [objekt sčítání](manual_census.md#312-objekt-scitani)
 
 #### 3.1.1 Lokace
 
-Jde o vymezení území, místa, prostoru vždy v určitém časovém okamžiku. Tyto lokace jsou hierarchicky (úrovňově) poskládané. Nejvyšší úroveň tvoří okres, nejnižší byt. Vždy každá konkrétní hierarchie je vymezená jedním společným časovým určením.
+Jde o vymezení území, místa, prostoru vždy v určitém časovém okamžiku. Tyto lokace jsou hierarchicky (úrovňově) poskládané. Nejvyšší úroveň tvoří okres, nejnižší byt. Každá konkrétní hierarchie je vždy vymezena jedním společným časovým určením.
 
-**Lokace se zobrazuji v části navigátor.**
+**Lokace se zobrazují v části navigátor.**
 
 | **Úroveň** | **Hodnota z číselníku typů  lokací**  *(tvoří hierarchii – páteřní lokace)* |
 | ---------- | ------------------------------------------------------------ |
@@ -53,7 +54,7 @@ Jde o vymezení území, místa, prostoru vždy v určitém časovém okamžiku.
 | úroveň  5  | **dům**                                                      |
 | úroveň  6  | **byt**                                                      |
 
-Lokace je podložena archivními prameny, ale vazbu na konkrétní archiválii neobsahuje. Taktéž samotná lokace bez objektu sčítání nesmí správně obsahovat reprodukce sčítacích archů.
+Lokace je podložena archivními prameny, ale vazbu na konkrétní archiválii neobsahuje. Samotná lokace bez objektu sčítání rovněž nesmí obsahovat reprodukce sčítacích archů.
 
 Hierarchická (úrovňová, stromová) struktura lokací musí být při zápisu nových lokací nebo přesunu stávajících respektována. Aplikace nedovolí zápis vyšší úrovně do nižší. Některé nižší nepovinné úrovně (část obce, ulice) mohou být z důvodu jejich reálné neexistence přeskočeny. Např. v úrovni obec se vyskytují přímo úrovně typu dům. Nebo nastávají případy, kdy v úrovni obec se vyskytují přímo úrovně typu část obce a zároveň úrovně typu dům. Např.:
 
@@ -80,11 +81,11 @@ Reprodukce sčítacích archů se vždy připojují k objektu sčítání, nikol
 
 Pro orientaci v záznamech se vybrané údaje z nich „skládají“ do řádkové informace, která reprezentuje v co nejstručnější formě záznam mimo editační formulář **a zastupuje jej ve všech ostatních zobrazeních** (v navigátoru, tabulce, ve výsledcích výběrů, v přístupových bodech apod.). Tato informace je tvořena obsahem stanoveného pole či vícero polí. Definice, která stanoví, jaká pole pro danou kategorii záznamu tvoří tento "název", je naprogramovaná přímo v aplikaci.
 
-V dalším textu příručky je uváděno jako „název (displayName)“. Vedle něj se mohou vyskytovat i agregované údaje o archivní identifikaci záznamu jako "identifikace (displayId").
+V dalším textu příručky je tato informace označována jako „název (displayName)“. Vedle něj se mohou vyskytovat i agregované údaje o archivní identifikaci záznamu jako „identifikace (displayId)“.
 
 V navigátoru se informace o lokaci zobrazuje ve formě lokace + rok sčítání + typ lokace.
 
-V tabulce se informace o objektu sčítání zobrazuje jako záznam sčítaní se skupinou údajů pro vhodnou obsahovou identifikaci.
+V tabulce se informace o objektu sčítání zobrazuje jako záznam sčítání se skupinou údajů pro vhodnou obsahovou identifikaci.
 
 ### 3.3 Validace
 
@@ -106,16 +107,16 @@ Aplikace je webová, lze ji spustit ve standardním webovém prohlížeči. K do
 
 #### 4.1.1 Přihlášení
 
-Modul disponuje jak samostatným přihlášením, tak přejímá přihlášení z pořádací aplikace. 
+Modul umožňuje jak samostatné přihlášení, tak převzetí přihlášení z pořádací aplikace. 
 
 Dvě možnosti spuštění:
 
-1. Spuštění  pořádací aplikace, ve které je již uživatel přihlášen, a to pomocí tlačítka ![census_gui_toolbar_census](img-census/census_gui_toolbar_census.png) v nástrojové liště. Uživatelská oprávnění pro modul jsou rovněž přebírána z pořádací aplikace.
-2. Samostatně pomoci webové adresy https://proarchiv.archives.cz/proarchiv/census. Pokud uživatel ještě není přihlášen do pořádací aplikace, zobrazí se standardní [přihlašovací okno](manual_proarchiv.md#421-prihlaseni).
+1. Spuštění z pořádací aplikace, ve které je již uživatel přihlášen, a to pomocí tlačítka ![census_gui_toolbar_census](img-census/census_gui_toolbar_census.png) v nástrojové liště. Uživatelská oprávnění pro modul jsou rovněž přebírána z pořádací aplikace.
+2. Samostatně pomocí webové adresy https://proarchiv.archives.cz/proarchiv/census. Pokud uživatel ještě není přihlášen do pořádací aplikace, zobrazí se standardní [přihlašovací okno](manual_proarchiv.md#421-prihlaseni).
 
 ##### 4.1.1.1 Práva ke čtení/editaci
 
-Záznamy sčítacích operátů nejsou závislé na  oblastech ani "přidělených" archivních souborech a jsou pro zápis určeny všem přihlášeným uživatelům.
+Záznamy sčítacích operátů nejsou závislé na oblastech ani "přidělených" archivních souborech a jsou pro zápis určeny všem přihlášeným uživatelům.
 
 #### 4.1.2 Vícenásobný běh aplikace ve stejném okamžiku
 
@@ -125,7 +126,7 @@ Pro vícenásobný běh modulu platí [stejná pravidla](manual_proarchiv.md#42-
 
 Pro velikost zobrazení aj. v modulu platí [stejná pravidla](manual_proarchiv.md#423-ergonomie-zobrazeni) jako pro pořádací aplikaci.
 
-#### 4.1.4 Ukládaní nových záznamů a změn
+#### 4.1.4 Ukládání nových záznamů a změn
 
 Aplikace má implementováno:
 
@@ -144,7 +145,7 @@ Aplikace má implementováno:
 
 #### ![census_gui_toolbar_zapis](img-census/census_gui_toolbar_zapis.png) Režim zápisu
 
-- Přepínaní mezi režimem pro čtení (výchozí stav) a pro zápis (tlačítko "zbělá").
+- Přepínání mezi režimem pro čtení (výchozí stav) a pro zápis (tlačítko "zbělá").
 
 -------------------------
 
@@ -228,7 +229,7 @@ Nabídka pomocných funkcí a nastavení:
 
 !!! warning "Upozornění"
 
-    Zobrazuje úlohy na pozadí z celé aplikace ProArchiv, tedy i s pořádací části.  
+    Zobrazuje úlohy na pozadí z celé aplikace ProArchiv, tedy i z pořádací části.  
 
 ### 4.5 Navigátor
 
@@ -238,49 +239,51 @@ Lokace jsou řazeny automaticky vzestupně dle ABC, čísla (roky, čísla domů
 
 ### 4.6 Tabulka
 
-Záznamy jsou zobrazeny dle svého ["Názvu" (displayName)](manual_census.md#32-informace-o-zaznamech-mimo-editacni-formulare). Zobrazení v tabulce se člení do několika záložek:
+Záznamy jsou zobrazeny dle svého ["Názvu" (displayName)](manual_census.md#32-informace-o-zaznamech-mimo-editacni-formulare). Zobrazení v tabulce se člení do dvou záložek: Záznamy a Výběr
+
+V každé z nich se nacházejí sloupce Identifikace, Rok sčítání a Záznam sčítání.
 
 ### 4.7 Detail
 
 Zobrazení všech dostupných strukturovaných informací k zobrazenému záznamu.
 
-#### 4.6.1 Členění Detailu pro lokace
+#### 4.7.1 Členění Detailu pro lokace
 
-##### 4.6.1.1 Údaje o lokaci
+##### 4.7.1.1 Údaje o lokaci
 
 Zobrazuje kompletní nabídku polí (prvků popisu), které jsou pro záznam typu **[lokace](manual_census.md#311-lokace)** k dispozici.
 
-##### 4.6.1.2 Přílohy
+##### 4.7.1.2 Přílohy
 
 Zobrazuje přílohy (digitalizáty, pdf soubory apod.).
 
-##### 4.6.1.3 Pomocné údaje
+##### 4.7.1.3 Pomocné údaje
 
 Zobrazuje systémově generovaná data: uživatelská jména tvůrců a následných editorů záznamu včetně časových značek; taktéž jednoznačný identifikátor (UUID) záznamu a permalink.
 
-#### 4.6.2 Členění Detailu pro objekty sčítání
+#### 4.7.2 Členění Detailu pro objekty sčítání
 
-##### 4.6.2.1 Objekt sčítání
+##### 4.7.2.1 Objekt sčítání
 
 Zobrazuje základní nabídku polí (prvků popisu), které jsou pro záznam typu **[objekt sčítání](manual_census.md#312-objekt-scitani)** k dispozici.
 
-##### 4.6.2.2 Osoby
+##### 4.7.2.2 Osoby
 
 Zobrazuje formulář pro zápis sčítaných osob u zvoleného objektu sčítání.
 
-##### 4.6.2.3 Odkazy
+##### 4.7.2.3 Odkazy
 
 Umožňuje vytvářet vazby na jednotky archivního popisu z pořádací aplikace.
 
-##### 4.6.2.4 Info o lokaci
+##### 4.7.2.4 Info o lokaci
 
 Zobrazuje v režimu pro čtení informaci o lokaci, pod kterou je vybraný objekt sčítání připojen. 
 
-##### 4.6.2.5 Přílohy
+##### 4.7.2.5 Přílohy
 
 Zobrazuje přílohy (digitalizáty, pdf soubory apod.).
 
-##### 4.6.2.6 Pomocné údaje
+##### 4.7.2.6 Pomocné údaje
 
 Zobrazuje systémově generovaná data: uživatelská jména tvůrců a následných editorů záznamu včetně časových značek; taktéž jednoznačný identifikátor (UUID) záznamu a permalink.
 
@@ -288,11 +291,11 @@ Zobrazuje systémově generovaná data: uživatelská jména tvůrců a následn
 
 ### 5.1 Vytváření nových lokací
 
-Nové lokace se zakládají formou vnoření. Nejdříve se zvolí rodičovská lokace (zamodří se) a pak se z kontextového menu (pravé tlačítko myši) spustí příkaz Vnořit novou lokaci
+Nové lokace se zakládají formou vnoření. Nejdříve se zvolí rodičovská lokace (zamodří se) a pak se z kontextového menu (pravé tlačítko myši) spustí příkaz Vnořit novou lokaci.
 
 ![census_nova_lokace_1](img-census/census_nova_lokace_1.png) 
 
-Dle typu rodičovské lokace se bude odvíjet i nabídka možných typů nové lokace. Zde byla rodičovskou lokací obec, proto je možné vnořit část obec, ulici nebo dům:
+Dle typu rodičovské lokace se bude odvíjet i nabídka možných typů nové lokace. Zde byla rodičovskou lokací obec, proto je možné vnořit část obce, ulici nebo dům:
 
 ![census_nova_lokace_2](img-census/census_nova_lokace_2.png) 
 
@@ -304,7 +307,7 @@ U již vytvořených lokací typu okres se pole Datace a Politický okres edituj
 
 ### 5.2 Vytváření nových objektů sčítání
 
-Před vytvoření nového objektu sčítání je vždy potřeba mít vybranou lokaci, do které bude objekt sčítání vnořen. Samotné vytvoření objektu sčítání se provádí pomocí tlačítka ![census_gui_toolbar_novy_os](img-census/census_gui_toolbar_novy_os.png) v nástrojové liště.
+Před vytvořením nového objektu sčítání je vždy potřeba mít vybranou lokaci, do které bude objekt sčítání vnořen. Samotné vytvoření objektu sčítání se provádí pomocí tlačítka ![census_gui_toolbar_novy_os](img-census/census_gui_toolbar_novy_os.png) v nástrojové liště.
 
 Zároveň je nabídnuta možnost **Aplikovat archivní identifikaci z objektu sčítání**, tzn. že se ukáže nabídka výše postavených objektů sčítání. Pokud je některý vybrán, zkopíruje se jeho archivní identifikace do nově zakládaného objektu sčítání:
 
@@ -322,15 +325,15 @@ Pokud je některý záznam objektu sčítání označen jako vzor, vytvoří se 
 
 #### 5.3.1 Lokace - Současná lokalita
 
-Slouží k napojení přístupového bodu z třídy geografický objekt, který charakterizuje současnou lokalitu. V poli **Děděná současná lokalita** se pak hierarchicky zobrazuji přístupové body napojené v lokacích hierarchicky vyšších.
+Slouží k napojení přístupového bodu ze třídy geografický objekt, který charakterizuje současnou lokalitu. V poli **Děděná současná lokalita** se pak hierarchicky zobrazují přístupové body napojené v lokacích hierarchicky vyšších.
 
 ![census_lokace_napojena_lokalita](img-census/census_lokace_napojena_lokalita.png)
 
 #### 5.3.2 Lokace - Adresář
 
-Pole určené primárně k citaci dostupných historických adresářů, které mohou napomoci badatelům v přesnější lokalizaci hledaných osob, domů apod. Adresáře nejsou vesměs evidované jako archiválie, jsou většinou součástí knihovního fondu archivní knihovny. Uvádí se plná citace zdroje. Pole umožňuje vkládat formátovací znaky (odrážky) a odkazy (hyperlinky) na online elektronické zdroje = např. permalinky z Digitální knihovny ZAO.
+Pole určené primárně k citaci dostupných historických adresářů, které mohou napomoci badatelům při přesnější lokalizaci hledaných osob, domů apod. Adresáře nejsou vesměs evidované jako archiválie, jsou většinou součástí knihovního fondu archivní knihovny. Uvádí se plná citace zdroje. Pole umožňuje vkládat formátovací znaky (odrážky) a odkazy (hyperlinky) na online elektronické zdroje = např. permalinky z Digitální knihovny ZAO.
 
-K vytvoření odkazu je potřeba napsaná odkaz označit, zvolit Create Link
+K vytvoření odkazu je potřeba napsaný odkaz označit, zvolit Create Link
 
 ![census_lokace_adresar-link](img-census/census_lokace_adresar-link.png) 
 
@@ -344,11 +347,11 @@ Výsledný funkční odkaz by měl být podtržen a zbarven modře:
 
 #### 5.3.3 Objekt sčítání - odkazy
 
-Záznam TD Sčítací operáty není standardní součástí pořádací aplikace. Z toho vyplývá absence některých vlastností, které jsou vlastní ostatním záznamům tematických databází. Jde hlavně o absenci přímé vazba na archivní soubor a nemožnost zařadit/zobrazit záznam v rámci hierarchie archivního pořádaní (tzv. pohled přes Archivní soubory).
+Záznam TD Sčítací operáty není standardní součástí pořádací aplikace. Z toho vyplývá absence některých vlastností, které jsou vlastní ostatním záznamům tematických databází. Jde hlavně o absenci přímé vazby na archivní soubor a nemožnost zařadit/zobrazit záznam v rámci hierarchie archivního pořádání (tzv. pohled přes Archivní soubory).
 
 Je však možnost tuto vazbu manuálně vytvořit:
 
-1. Na straně pořádací aplikace vstoupíme na detail jednotky popisu, která odpovídá z hlediska archivní identifikace objektu sčítání, u které chceme vazbu vytvořit:
+1. Na straně pořádací aplikace vstoupíme na detail jednotky popisu, která odpovídá z hlediska archivní identifikace objektu sčítání, u kterého chceme vazbu vytvořit:
 
     ![census_odkazy_2-proarchiv](img-census/census_odkazy_2-proarchiv.png)
 
@@ -390,12 +393,12 @@ Po kliknutí na položku z našeptávače se zobrazí konkrétní položka lokac
 
 !!! tip "Tip"
 
-    Reset navigátoru se provádí klikem na ikonu šipky/trojhelníku u nejvyšší úrovně, tedy okresu.
+    Reset navigátoru se provádí klikem na ikonu šipky/trojúhelníku u nejvyšší úrovně, tedy okresu.
     ![census_vyber_reset](img-census/census_vyber_lokace_reset.png) 
 
 #### 5.4.2 Výběr objektů sčítání
 
-Hledání v objektech sčítání se provádí pomoci vyhledávacího dialogu v pravé straně nástrojové lišty:
+Hledání v objektech sčítání se provádí pomocí vyhledávacího dialogu na pravé straně nástrojové lišty:
 
 ![census_vyber_os](img-census/census_vyber_os.png) 
 
@@ -404,10 +407,10 @@ Lze dále blíže specifikovat okruh:
 | Okruh         |                                                              |
 | ------------- | ------------------------------------------------------------ |
 | Fulltext      | Vyhledává ve všech polích objektů sčítání. Hledaný výraz musí být vždy na začátku prohledávaného pole. |
-| Příjmení osob | Vyhledává pouze v pole Příjmení v sekci Osoby. Hledání není striktní. Při vyhledání "Haj" nalezne i "Hájek", "Hajný"... Diakritika není zohledňována. Hledaný výraz ale musí být vždy na začátku příjmení. Při vyhledání "Haj" nenalezne "Zahajský" |
-| Čísla popisná | Vyhledává pouze podle čísel popisných. Hledaní není striktní. Při vyhledání "2" nalezne 2, 21...29,...200, 201... Hledaná číslovka ale musí být vždy na začátku čísla popisného. Při vyhledání "2" nenalezne "12", "152"... |
+| Příjmení osob | Vyhledává pouze v poli Příjmení v sekci Osoby. Hledání není striktní. Při vyhledání "Haj" nalezne i "Hájek", "Hajný"... Diakritika není zohledňována. Hledaný výraz ale musí být vždy na začátku příjmení. Při vyhledání "Haj" nenalezne "Zahajský". |
+| Čísla popisná | Vyhledává pouze podle čísel popisných. Hledání není striktní. Při vyhledání "2" nalezne 2, 21...29,...200, 201... Hledaná číslice ale musí být vždy na začátku čísla popisného. Při vyhledání "2" nenalezne "12", "152"... |
 
-Zatržením "**Hledat jen podstromu**" omezí okruh prohledávaných objektu sčítání jen na ty, které jsou součástí vnořené hierarchie aktivní/zamodřené lokace v navigátoru.
+Zatržením "**Hledat jen podstromu**" omezíte okruh prohledávaných objektů sčítání jen na ty, které jsou součástí vnořené hierarchie aktivní/zamodřené lokace v navigátoru.
 
 Nalezené objekty sčítání se shromáždí standardně v záložce Výběr.
 
@@ -427,7 +430,7 @@ Funkce Najdi / Nahraď funguje nad prvky popisu objektů sčítání.
 
     ![census_pridani_vsech_objektu_scitani_do_vyberu](img-census/census_pridani_vsech_objektu_scitani_do_vyberu.png)
 
-2. Pote se spustí dialog funkce Najdi / Nahraď z menu Různé funkce v hlavní nástrojové liště.
+2. Poté se spustí dialog funkce Najdi / Nahraď z menu Výběr v hlavní nástrojové liště.
 
     ![census_najdi-nahrad](img-census/census_najdi-nahrad.png)
 
@@ -441,19 +444,19 @@ Funkce Najdi / Nahraď funguje nad prvky popisu objektů sčítání.
 
 ### 5.5 Práce se schránkou
 
-Schránka slouží načtení záznamů či příloh, aby vybrané s nimi mohly pracovat vybrané funkce/operace:
+Schránka slouží k načtení záznamů či příloh, aby s nimi mohly pracovat vybrané funkce/operace:
 
 1. vytváření [odkazů](manual_census.md#533-objekt-scitani-odkazy): záznam sčítacích operátů > záznam pořádací aplikace
 2. [přesuny objektů sčítání](manual_census.md#56-presuny-objektu-scitani)
 3. [přesuny příloh](manual_census.md#57-prace-s-prilohami) (vyjmout/vložit...)
 
-Po provedení požadované akce, pracující se schránkou, se příslušná oblast schránky automaticky vyprázdní.
+Po provedení požadované akce pracující se schránkou se příslušná oblast schránky automaticky vyprázdní.
 
 ### 5.6 Přesuny objektů sčítání
 
 Je možno přesouvat objekty sčítání mezi lokacemi. 
 
-1. Nejprve vložíme pomocí funkce **Vložit záznamy sčítání do schránky** (viz kontextová nabídka (pravé tlačítko myši)) záznamy k určené k přesunu do schránky:
+1. Nejprve vložíme pomocí funkce **Vložit záznamy sčítání do schránky** (viz kontextová nabídka (pravé tlačítko myši)) záznamy určené k přesunu do schránky:
 
     ![census_presun_os_1](img-census/census_presun_os_1.png)
 
@@ -469,9 +472,8 @@ Je možno přesouvat objekty sčítání mezi lokacemi.
 
 ### 5.7 Práce s přílohami
 
-Práce s přílohami je totožná jako v pořádací aplikaci. Jedinou podstatnou změnou je skutečnost, že lze používat funkci Vyjmout/Vložit... napříč záznamy. Je to potřebné pro "rozbíjení" digitalizačních sad na úrovni obce (série čísel popisných) na jednotlivé domy a byty.
+Práce s přílohami je totožná s prací v pořádací aplikaci. Jedinou podstatnou změnou je skutečnost, že lze používat funkci Vyjmout/Vložit... napříč záznamy. Je to potřebné pro "rozbíjení" digitalizačních sad na úrovni obce (série čísel popisných) na jednotlivé domy a byty.
 
-Při vyjmutí příloh dochází k jejich přesunu do schránky, aby měl uživatel kontrolu, co a kam přesouvá:
+Při vyjmutí příloh dochází k jejich přesunu do schránky, aby měl uživatel přehled o tom, co a kam přesouvá:
 
 ![census_schranka_prilohy](img-census/census_schranka_prilohy.png)
-
